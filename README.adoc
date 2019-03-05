@@ -1,1 +1,216 @@
 # Tasarim_Oruntuleri_1
+
+
+= Hastane Poliklinik Otomasyonu
+
+=== [blue]#Tasarim Örüntüleri Ders Ödevi#
+
+= Maddeleri Listeleme :
+
+=== [green]#Numaralı Maddeler#
+
+=== Planlama :
+. Projenin Amacı ve Kapsamı 
+. Projenin Hedefleri
+. Projenin Varsayımları
+. Projenin Engelleri
+
+=== [green]#Numarasız Maddeler#
+
+=== Projenin Hedefleri :
+* Randevu işlemlerinin yapılması 
+* Muayene kaydı ve polikliniklere yönlendirme yapılması
+* Hasta yatış-çıkış işlemlerinin yapılması
+* İlaç ve malzeme serfiyatı yapılması 
+* Ameliyathaneye sevk ve ameliyat işlemlerini takibi
+* Poliklinik listesinin tutulması
+
+= Uyarı Blokları :
+
+[NOTE]
+====
+NOTE uyarı bloğu istenilen notları eklemek için kullanılır !!
+
+AsciiDoc'ta birden fazla uyarı bloğu mevcuttur bunlar aşağıdaki gibi sıralanmakta :
+
+* NOTE
+* TIP
+* WARNING
+* CAUTION
+* IMPORTANT
+====
+
+[TIP]
+====
+Bu blok öneri için kullanılır.
+
+====
+[WARNING]
+====
+Uyarı için kullanılır.
+
+====
+[IMPORTANT]
+====
+Önemli notları eklemek içindir.
+
+====
+
+[CAUTION]
+====
+Dikkat edilmesi gereken kuralları gösterilir.
+
+====
+
+= Linkleri Ekleme :
+
+=== [red]#Externnal Links :#
+
+https://www.linkedin.com/ - automatic!
+
+https://www.linkedin.com/[LinkedIN]
+
+https://github.com/asciidoctor[Asciidoctor@*GitHub*]
+
+=== [red]#With spaces and special characters :#
+
+link:++https://example.org/?q=[a b]++[URL with special characters]
+
+link:https://example.org/?q=%5Ba%20b%5D[URL with special characters]
+
+=== [red]#Relative :#
+
+link:index.html[Docs]
+
+=== [red]#Link with attributes(Asciidoctor Only) :#
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor^]
+
+https://example.org["Google, Yahoo, Bing^", role="teal"]
+
+=== [red]#Inline anchors :#
+
+[[bookmark-a]]Inline anchors make arbitrary content referenceable.
+
+[#bookmark-b]#Inline anchors can be applied to a phrase like this one.#
+
+anchor:bookmark-c[]Use a cross reference to link to this location.
+
+[[bookmark-d,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.
+
+=== [red]#Internal cross references :#
+
+See <<paragraphs>> to learn how to write paragraphs.
+
+Learn how to organize the document into <<section-titles,sections>>.
+
+= Resim Ekleme :
+
+==== Block Images Ekleme :
+
+image::flowers.jpg[140,120]
+
+image::sunset.jpg[Sunset]
+
+
+.Dağ gün batımı
+[#img-sunset]
+[caption="Figure 1: ",link=https://www.flickr.com/photos/javh/5448336655]
+image::sunset.jpg[Sunset,220,170]
+
+image::https://asciidoctor.org/images/octocat.jpg[Github mascot]
+
+
+==== Inline Images Ekleme :
+
+Partiyi başlatmak için image:icons/play.png[Play, title="Play"] düğmeyi basınız.
+
+Ara vermek için image:icons/stop.png[title="Pause"] durdurma düğmesini basınız.
+
+==== Inline Image with positioning role :
+
+image:sunset.jpg[Sunset,160,160,role="right"] Gün batımı ne kadar güzel !!
+
+==== Embedded Images :
+===== [gray]#Document title#
+:data-uri:
+
+
+= Video Ekleme :
+
+==== Block Videos Ekleme :
+
+video::video_file.mp4[]
+
+video::video_file.mp4[width=540,start=60,end=140,options=autoplay]
+
+==== Embedded Youtube Video Ekleme :
+
+====== [green]#Observer Pattern ile ilgili bir youtube videosu :#
+
+video::https://www.youtube.com/watch?v=_BpmfnqjgzQ[youtube]
+
+= C++ Kaynak Kodu Ekleme :
+
+==== [green]#Code block with title and syntax highlighting :#
+.Hello_World.cpp
+[source,c++]
+----
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    cout << "Hello, World!";
+    return 0;
+}
+----
+==== [green]#Listing block with title, no syntax highlighting :#
+.Hellow_World.cpp
+----
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    cout << "Hello, World!";
+    return 0;
+}
+----
+
+==== [green]#Inline(monospace only) :#
+
+Reference code like `types` or `methods` inline.
+
+==== [green]#Inline(literal) :#
+
+Output literal text such as `+{backtick}+` by enclosing the text in pluses, then in backticks.
+
+==== [green]#linux bash script kod :#
+
+```sh
+# print the contents of foo.txt to STDOUT
+$ cat foo.txt ls
+$ dir
+$ mkdir yeniDosya
+
+```
+= Tablo Ekleme :
+
+==== [Red]#Table with two columns, a header, and two rows of content :#
+
+==== [green]#Risk Analizi (Teknink) :#
+
+[%header ,cols=2*]
+|===
+|Teknik Riskler 
+|Azaltma ve/veya Ortadan Kaldırma Yöntemi 
+
+|İletişim Altyapısının Yetersizliği 
+|Gerekli Ağ altyapısının kurulması ile giderilir.
+
+|Gizlilik ve Güvenliğin Sağlanması 
+|Gerekli güvenlik elamanlarının alınması ve kullanıcı kontrolü ile giderilebilir.
+|===
