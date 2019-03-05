@@ -32,3 +32,12 @@ Reference code like `types` or `methods` inline.
 
 Output literal text such as `+{backtick}+` by enclosing the text in pluses, then in backticks.
 
+==== [green]#linux bash script kod :#
+
+```sh
+# print the contents of foo.txt to STDOUT
+$ cat foo.txt ls
+$ dir
+$ mkdir yeniDosya
+
+```
