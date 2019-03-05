@@ -1,0 +1,15 @@
+==== [Red]#Table with two columns, a header, and two rows of content :#
+
+==== [green]#Risk Analizi (Teknink) :#
+
+[%header ,cols=2*]
+|===
+|Teknik Riskler 
+|Azaltma ve/veya Ortadan Kaldırma Yöntemi 
+
+|İletişim Altyapısının Yetersizliği 
+|Gerekli Ağ altyapısının kurulması ile giderilir.
+
+|Gizlilik ve Güvenliğin Sağlanması 
+|Gerekli güvenlik elamanlarının alınması ve kullanıcı kontrolü ile giderilebilir.
+|===

@@ -1,0 +1,34 @@
+==== [green]#Code block with title and syntax highlighting :#
+.Hello_World.cpp
+[source,c++]
+----
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    cout << "Hello, World!";
+    return 0;
+}
+----
+==== [green]#Listing block with title, no syntax highlighting :#
+.Hellow_World.cpp
+----
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    cout << "Hello, World!";
+    return 0;
+}
+----
+
+==== [green]#Inline(monospace only) :#
+
+Reference code like `types` or `methods` inline.
+
+==== [green]#Inline(literal) :#
+
+Output literal text such as `+{backtick}+` by enclosing the text in pluses, then in backticks.
+

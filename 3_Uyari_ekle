@@ -1,0 +1,34 @@
+[NOTE]
+====
+NOTE uyarı bloğu istenilen notları eklemek için kullanılır !!
+
+AsciiDoc'ta birden fazla uyarı bloğu mevcuttur bunlar aşağıdaki gibi sıralanmakta :
+
+* NOTE
+* TIP
+* WARNING
+* CAUTION
+* IMPORTANT
+====
+
+[TIP]
+====
+Bu blok öneri için kullanılır.
+
+====
+[WARNING]
+====
+Uyarı için kullanılır.
+
+====
+[IMPORTANT]
+====
+Önemli notları eklemek içindir.
+
+====
+
+[CAUTION]
+====
+Dikkat edilmesi gereken kuralları gösterilir.
+
+====

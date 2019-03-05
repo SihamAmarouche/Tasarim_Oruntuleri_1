@@ -1,0 +1,29 @@
+==== Block Images Ekleme :
+
+image::flowers.jpg[140,120]
+
+image::sunset.jpg[Sunset]
+
+
+.Dağ gün batımı
+[#img-sunset]
+[caption="Figure 1: ",link=https://www.flickr.com/photos/javh/5448336655]
+image::sunset.jpg[Sunset,220,170]
+
+image::https://asciidoctor.org/images/octocat.jpg[Github mascot]
+
+
+==== Inline Images Ekleme :
+
+Partiyi başlatmak için image:icons/play.png[Play, title="Play"] düğmeyi basınız.
+
+Ara vermek için image:icons/stop.png[title="Pause"] durdurma düğmesini basınız.
+
+==== Inline Image with positioning role :
+
+image:sunset.jpg[Sunset,160,160,role="right"] Gün batımı ne kadar güzel !!
+
+==== Embedded Images :
+===== [gray]#Document title#
+:data-uri:
+

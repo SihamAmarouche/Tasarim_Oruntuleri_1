@@ -1,0 +1,41 @@
+=== [red]#Externnal Links :#
+
+https://www.linkedin.com/ - automatic!
+
+https://www.linkedin.com/[LinkedIN]
+
+https://github.com/asciidoctor[Asciidoctor@*GitHub*]
+
+=== [red]#With spaces and special characters :#
+
+link:++https://example.org/?q=[a b]++[URL with special characters]
+
+link:https://example.org/?q=%5Ba%20b%5D[URL with special characters]
+
+=== [red]#Relative :#
+
+link:index.html[Docs]
+
+=== [red]#Link with attributes(Asciidoctor Only) :#
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor, role="external", window="_blank"]
+
+http://discuss.asciidoctor.org[Discuss Asciidoctor^]
+
+https://example.org["Google, Yahoo, Bing^", role="teal"]
+
+=== [red]#Inline anchors :#
+
+[[bookmark-a]]Inline anchors make arbitrary content referenceable.
+
+[#bookmark-b]#Inline anchors can be applied to a phrase like this one.#
+
+anchor:bookmark-c[]Use a cross reference to link to this location.
+
+[[bookmark-d,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.
+
+=== [red]#Internal cross references :#
+
+See <<paragraphs>> to learn how to write paragraphs.
+
+Learn how to organize the document into <<section-titles,sections>>.

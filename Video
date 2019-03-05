@@ -1,0 +1,11 @@
+==== Block Videos Ekleme :
+
+video::video_file.mp4[]
+
+video::video_file.mp4[width=540,start=60,end=140,options=autoplay]
+
+==== Embedded Youtube Video Ekleme :
+
+====== [green]#Observer Pattern ile ilgili bir youtube videosu :#
+
+video::https://www.youtube.com/watch?v=_BpmfnqjgzQ[youtube]
