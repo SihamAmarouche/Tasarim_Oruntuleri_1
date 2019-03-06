@@ -1,8 +1,8 @@
 ==== Block Videos Ekleme :
 
-video::videoplayback.mp4[]
+video::demo_video.mp4[]
 
-video::videoplayback.mp4[width=540,start=60,end=140,options=autoplay]
+video::demo_video.mp4[width=540,start=60,end=140,options=autoplay]
 
 ==== Embedded Youtube Video Ekleme :
 
