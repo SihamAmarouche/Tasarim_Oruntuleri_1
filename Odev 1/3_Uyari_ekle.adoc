@@ -1,3 +1,12 @@
+
+ifdef::env-github[]
+:tip-caption: :blub:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
 [NOTE]
 ====
 NOTE uyarı bloğu istenilen notları eklemek için kullanılır !!
