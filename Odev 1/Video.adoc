@@ -8,4 +8,4 @@ video::videoplayback.mp4[width=540,start=60,end=140,options=autoplay]
 
 ====== [green]#Observer Pattern ile ilgili bir youtube videosu :#
 
-video::v=_BpmfnqjgzQ[youtube]
+video::_BpmfnqjgzQ[youtube]
