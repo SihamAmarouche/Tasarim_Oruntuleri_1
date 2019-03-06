@@ -1,4 +1,0 @@
-
-= Hastane Poliklinik Otomasyonu
-
-=== [blue]#Tasarim Örüntüleri Ders Ödevi#
