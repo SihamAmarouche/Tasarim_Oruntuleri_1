@@ -1,8 +1,40 @@
 @startuml
 
-User -> (Start)
-User --> (Use the application) : A small label
+left to right direction
 
-:Main Admin: ---> (Use the application) : This is\nyet another\nlabel
+:Hasta Kayit Personel: as Personel
+(Hasta Dosya Ekle) as Ekle
+(Hasta Dosya Listeleme) as Listele
+
+:Personel: --> (Randevu)
+:Personel: --> (Ekle) 
+
+:Personel: --> (Listele)
+:Personel: --> (Hasta Arama)
+
+(Ekle) -> (Uyarı Ekle)
+(Ekle) -> (Hasta Muayene Kayıt)
+(Randevu) ---> (Hasta Muayene Kayıt)
+(Listele) ---> (Hasta Muayene Kayıt)
+
+
+Doctor --> (Tanı Ekle)
+(Tanı Ekle) --> (Konsultasyon Gönder)
+(Tanı Ekle) --> (Konsultasyon Cevapla)
+(Tanı Ekle) --> (Reçete)
+(Tanı Ekle) --> (Hasta Yatış)
+(Hasta Yatış) --> (Ameliyat Kayıt)
+(Tanı Ekle) --> (Hasta Çıkış)
+(Tanı Ekle) --> (Hasta Bilgisi Görüntüle)
+(Tanı Ekle) --> (Tetkik Giriş)
+
+
+Hemşire -->(Tanı\nEkle)
+(Tanı\nEkle) --> (Hasta Yatış)
+(Tanı\nEkle) --> (Hasta Çıkış)
+(Tanı\nEkle) --> (Hasta Bilgisi Görüntüle)
+(Tanı\nEkle) --> (Tetkik Giriş)
+
+
 
 @enduml
