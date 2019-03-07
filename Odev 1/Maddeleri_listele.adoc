@@ -1,18 +1,30 @@
 
-=== [green]#Numaralı Maddeler#
+==== [green]#Numaralı Maddeler#
 
-=== Planlama :
-. Projenin Amacı ve Kapsamı 
-. Projenin Hedefleri
-. Projenin Varsayımları
-. Projenin Engelleri
+===== Linux Ne İşe Yarar :
+. Linux öncelikle ücretsiz bir sistemdir. Sıfır maliyetli olmasının yanı sıra performans için gereksinim 
+duyduğu donanım açısından da oldukça avantajlıdır.
+. Linux; açık kodlu bir yazılım olması sebebi ile hızla geliştirilir. Yazılımdaki eksikler, hatalar ve yenilenmesi 
+gereken bölümler, açık kodlar sayesinde diğer kullanıcılar tarafından düzeltilir ve yenilenir.
+. Linux işletim sistemi tüm işletim sistemlerine göre standart bir donanım için çok daha hızlı ve etkili destek sağlar. 
+. Linux doğrudan TCP/IP desteği ile gelir. Bu açıdan TCP/IP temelli bilgisayar ağlarında hem istemci hem de sunucu olarak yaygın bir şekilde kullanılır.
 
-=== [green]#Numarasız Maddeler#
+==== [green]#Numarasız Maddeler#
 
-=== Projenin Hedefleri :
-* Randevu işlemlerinin yapılması 
-* Muayene kaydı ve polikliniklere yönlendirme yapılması
-* Hasta yatış-çıkış işlemlerinin yapılması
-* İlaç ve malzeme serfiyatı yapılması 
-* Ameliyathaneye sevk ve ameliyat işlemlerini takibi
-* Poliklinik listesinin tutulması
+===== Linux'un Desteklediği Donanımlar :
+* PCI, VESA, ISA ve MCA mimarilerinde her türlü anakartı desteklemektedir.
+* Teorik olarak 4 Gbyte'a kadar RAM desteklenmektedir.
+* AT uyumlu diskler (IDE, EIDE ve 16 bitlik MFM,RLL veya ESDI) desteklenmektedir. Kontrol kartına uyumlu destek bulunduğu sürece SCSI diskler ve diğer cihazlar desteklenmektedir.
+* Birçok 10 ve 100 Mbit ethernet kartı, ISDN, ATM, FDDI, SLIP, CSLIP, PPP desteği verilmektedir.
+* Başta SoundBlaster, Gravis Ultrasound olmak üzere birçok ses kartı desteklenmektedir.
+
+===== Linux'un Komutları :
+* ls : Bulunulan dizinin içeriğini göstermek
+* mkdir : Dizin yaratmak
+* cp : Dosya ve dizin kopyalamak
+* mv : Dosya ve dizin taşımak
+* rm : Dosya ve dizin silmek
+* df : Disk bölümleri kullanım bilgisi
+* du : Dosya ve dizinlerin boyutunu göstermek
+* ln : Dosya ve dizinlere kısayol oluşturmak
+* cd : Dizin değiştirmek
