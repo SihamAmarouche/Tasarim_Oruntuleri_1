@@ -4,6 +4,11 @@
 = Hastane Poliklinik Otomasyonu
 
 === [blue]#Tasarim Örüntüleri Ders Ödevi#
+=== 1) Projenin Amacı 
+Yazılımın ana hedefi, herhangi bir hastanenin gereksinimlerini karşılayacak düzeyde bir ticari yazılımdır. Ayrıca hastanedeki işlemleri hızlandırmak ve kolaylaştırmaktır. Herhangi bir hastanede hastaların, doktorların ortak bir veritabanı üzerinden işlemlerini takip edebilmelerini ve birimler arasında uyumlu çalışmalarını sağlamaktır. Bu yazılım, hastanenin bütün kaynaklarının (zaman, insan gücü, mal, vs.) en etkin şekilde kullanılmasına olanak verir. Önceleri elle takip edilen evrak ve yapılan işlemler, bu yazılım sayesinde bilgisayar tarafından takip edilir ve yönetilir. İdare ve sağlık birimleri arasında hem lokal, hem de global entegrasyon yapılarak, zaman kaybının minimuma indirilmesi mümkündür. 
+
+=== 2) Projenin Kapsamı 
+Hastane Poliklinik Bilgi sistemi, hastanelerin sürekli ve gerçek zamanlı olarak izlenebilmesini sağlamaktadır. Bu hizmetin ana beklentisi sadece mevcut iş akışının otomasyonunu sağlayan teknolojik bir alt yapıya sahip olmak değil, bundan çok daha önemlisi daha iyi kalitede sağlık hizmeti sunabilmek, kağıt ortamından kağıtsız ortama doğru pratik dönüşümü sağlayabilmek ve sağlık verilerinin tüm sağlık paydaşları için ulaşılabilir olmasını sağlayacak entegre ve beraber çalışabilir kağıtsız bir sağlık hizmeti ortamı sunmaktır.
 
 = Maddeleri Listeleme :
 
