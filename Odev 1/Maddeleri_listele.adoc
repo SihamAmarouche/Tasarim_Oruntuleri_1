@@ -1,7 +1,7 @@
 
 ==== [green]#Numaralı Maddeler#
 
-===== Linux Ne İşe Yarar :
+==== Linux Ne İşe Yarar :
 . Linux öncelikle ücretsiz bir sistemdir. Sıfır maliyetli olmasının yanı sıra performans için gereksinim 
 duyduğu donanım açısından da oldukça avantajlıdır.
 . Linux; açık kodlu bir yazılım olması sebebi ile hızla geliştirilir. Yazılımdaki eksikler, hatalar ve yenilenmesi 
@@ -11,14 +11,14 @@ gereken bölümler, açık kodlar sayesinde diğer kullanıcılar tarafından d�
 
 ==== [green]#Numarasız Maddeler#
 
-===== Linux'un Desteklediği Donanımlar :
+==== Linux'un Desteklediği Donanımlar :
 * PCI, VESA, ISA ve MCA mimarilerinde her türlü anakartı desteklemektedir.
 * Teorik olarak 4 Gbyte'a kadar RAM desteklenmektedir.
 * AT uyumlu diskler (IDE, EIDE ve 16 bitlik MFM,RLL veya ESDI) desteklenmektedir. Kontrol kartına uyumlu destek bulunduğu sürece SCSI diskler ve diğer cihazlar desteklenmektedir.
 * Birçok 10 ve 100 Mbit ethernet kartı, ISDN, ATM, FDDI, SLIP, CSLIP, PPP desteği verilmektedir.
 * Başta SoundBlaster, Gravis Ultrasound olmak üzere birçok ses kartı desteklenmektedir.
 
-===== Linux'un Komutları :
+==== Linux'un Komutları :
 * ls : Bulunulan dizinin içeriğini göstermek
 * mkdir : Dizin yaratmak
 * cp : Dosya ve dizin kopyalamak
