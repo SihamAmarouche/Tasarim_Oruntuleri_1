@@ -31,16 +31,20 @@ Hastane Poliklinik Bilgi sistemi, hastanelerin sürekli ve gerçek zamanlı olar
 * Poliklinik listesinin tutulması
 
 === Hastane Poliklinik Bilgi Sisteminin UML Diyagramları :
+
 === A) Use-Case Diyagramı :
+
 .Use-Case Diyagramı
 [#img-usecase]
 [caption="Figure 1: "]
-image::Usecase_Diagram_UML_Ornek1.PNG[Use Case,700,220]
+image::Usecase_Diagram_UML_Ornek1.PNG[Use Case,700,380]
+
 === B) Class Diyagramı :
+
 .Class Diyagramı
 [#img-class]
 [caption="Figure 1: "]
-image::Class_Diagram_UML_Orenk1.PNG[Class,700,220]
+image::Class_Diagram_UML_Orenk1.PNG[Class,700,280]
 
 
 = Uyarı Blokları :
