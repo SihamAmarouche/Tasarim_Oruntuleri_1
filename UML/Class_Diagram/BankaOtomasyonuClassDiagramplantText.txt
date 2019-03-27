@@ -1,0 +1,141 @@
+@startuml
+
+class Kullanici{
+
+- Kullanici_ID : String
+- Sifre : String
+- LoginDurumu : String
+- RegisterTarihi : Date
+- TC: String 
+- Dogum_Tarihi : Date 
++ Telefon_No : String
+
++ loginDogrulama():boolean
++ userListele() 
+}
+
+class Uyarý {
+- Uyari_ID : String
+- Uyari_Nedeni : String
+
++ uyariEkrandaGoster()
+}
+class Yönetici{ 
+
++ Yonetici_ad : String 
++ Yonetici_soyad : String 
+
++ musteriEkle()
++ musterSil()
++ personelEkle()
++ personelSil()
++ musteriyeHesabiEkle()
+- dovizKur()
+- subeIslemleriSagla()
+
+}
+
+Class Döviz {
++ Doviz_Turu : String
+- Doviz_Miktari : Float
+
++ dovizEkle()
++ dovizSil()
++ dovizListele() : ArrayList[String]
++ dovizTuruGoster() : String
+
+}
+
+class Müþteri{
++ Musteri_ad : String
++ Musteri_soyad : String
++ Adress : String
++ Email : String
+- MusteriHesaplari : String
+
++ profiliGoruntule()
+- paraYatir()
+- paraCek()
+- dovizSat_Al()
+- gecmisOdemeleriGoster()
+}
+
+Class Hesap{
+- Hesap_ID : String
+- HesapParaBirimi : String
+- HesapBakiye : Float
++ Sehir_Ulke : String
++ PinCode L String
++ HesapNo : String
+
++ hesapOlustur()
++ hesapOzetiGoster() : String
++ hesapBakiyeGoster() : Float
++ hesapAitOlduguSube() : String
++ hesapAitOlduguMerkeziBanka() : String
+
+
+}
+
+Class Sube {
+- SubeID : Ineteger
++ SubeKodu : String
+- SubeDovizi : String
++ SubeAdresi : String
++ Sube_TelefonNo : String
+
++ subeIletisimBilgileriGir()
++ setSubeAdresi()
++ setSubeTelefonNo()
++ getSubeAdresi()
++ getSubeTelefonNo()
++ getSubeKodu()
+
+}
+
+Class Odeme {
+- odeme_ID : Ineteger
+- Odeme_Turu: String
+- odeme_Miktari : Float
++ odeme_Tarihi : Date
++ odeme_Durumu : String
+
+
++ odemeTuruSec()
++ odemeYapilacakSubeSec()
++ makbuzYazdir()
+}
+
+Class Transfer_Islemi{
+- FromAccountNo : String
+- ToAccountNo : String
+
++ paraTransferEt() 
++ setFromAccountNo() 
++ setToAccountNo()
+
+}
+
+Class Kumbara_DepositeSagla{
+- DepositeTuru : String
+- DepositeAmaci : String
+
++ depositeBakiyeGoster()
++ setDepositeEdilecekOranti()
++ getDepositeEdlenOranti()
+}
+
+Kullanici --|> Müþteri 
+Kullanici --|> Yönetici
+
+Uyarý -- Kullanici: Hatalý Giriþ Yapýlýrsa
+Yönetici -- Döviz: Döviz Kur
+ Müþteri -- Odeme: Ödeme Yap
+
+Odeme --|> Transfer_Islemi
+Müþteri "1..*" --* "1" Hesap  
+Müþteri "0..*" --* "1" Kumbara_DepositeSagla 
+Hesap "0..*" --o "1" Sube 
+
+
+@enduml
