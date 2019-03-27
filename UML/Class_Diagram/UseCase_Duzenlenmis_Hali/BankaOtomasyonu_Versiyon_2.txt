@@ -1,0 +1,58 @@
+@startuml
+
+left to right direction
+
+
+
+:Yönetici: --> (Giriþ Yapar)
+:Yönetici: --> (Döviz Kur) 
+(Döviz Kur) --> (Listele)
+(Döviz Kur) --> (Ekle)
+(Döviz Kur) --> (Güncelle/Sil)
+
+
+:Yönetici: --> (Sisteme Müþteri Ekle)
+:Yönetici: --> (Personel Ekle/Çýkar/Listele)
+:Yönetici: --> (Þube Hesaplarý Sýrala)
+:Yönetici: --> (Þube iþlemleri -->Ekle/Güncelle/Ýþlemleri Listele)
+:Yönetici: --> (Banka Raporlarý)
+
+:Bireysel Müþteri: as Müþteri
+
+:Müþteri: --> (Giriþ Yapar)
+(Giriþ Yapar) <.. (Hesap Açma/Kurma) : <<extend>>
+(Giriþ Yapar) ..> (Kullanýcý kimliði doðrula ) : <<include>>
+(Giriþ Yapar) <.. (Hatalý giriþ\nuyarýsý göster) : <<extend>>
+
+:Müþteri: --> (Hesap Mevcut olup olmadi. Kontrolu)
+(Hesap Mevcut olup olmadi. Kontrolu)<..(Ek Hesap Oluþ.) : <<extend>>
+(Ek Hesap Oluþ.) ..> (Para birimi belirt) : <<include>>
+
+:Müþteri: --> (Para Yatýrma) 
+:Müþteri: --> (Para Çekme)
+(Para Çekme) <.. (MakbuzYazdýr) : <<extend>>
+(Para Çekme)  ..> (Yeterli Bakiye Kontrölü) : <<include>>
+(Yeterli Bakiye Kontrölü) <.. (Yetersiz Bakiye bildirimi ) : <<extend>>
+
+:Müþteri: --> (Para Transferi)
+(Para Transferi) ..> (Þube) : <<include>>
+(Para Transferi) ..> (Miktar) : <<include>>
+(Para Transferi) ..> (Alýcý hesap no.) : <<include>>
+(Para Transferi) ..> (Yeterli Bakiye Kontrolu) : <<include>>
+(Yeterli Bakiye Kontrolu) <.. (Yetersiz Bakiye bildirimi ) : <<extend>>
+
+:Müþteri: --> (Hesaplarým Mevcut hesaplarým)
+:Müþteri: --> (Ödeme Yap)
+(Ödeme Yap) ..> (Ödeme türü seç) : <<include>>
+:Müþteri: --> (Ödemeler /Geçmiþ ödemeleri göster)
+:Müþteri: --> (Profili görüntüle /edit yapýlýr)
+(Profili görüntüle /edit yapýlýr)<.. (Þifre deðiþtirme iþlemi) : <<extend>>
+:Müþteri: --> (Hesap Özeti)
+:Müþteri: --> (Para birimini dönüþtür\nDöviz Sat/Al)
+:Müþteri: --> (Bankomat kartý kayboldu) 
+(Bankomat kartý kayboldu) .> (Yeni karta baþvuru yap) : <<include>>
+
+
+
+
+@enduml

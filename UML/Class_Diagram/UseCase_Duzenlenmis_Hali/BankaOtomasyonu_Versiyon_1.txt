@@ -1,0 +1,53 @@
+@startuml
+
+left to right direction
+skinparam handwritten true
+
+skinparam packageStyle rectangle
+actor Yönetici
+:Bireysel Müþteri: as Müþteri
+
+skinparam actor {
+	BorderColor black
+	FontName Courier
+	    BackgroundColor IndianRed
+}
+
+skinparam usecase {
+	BackgroundColor DarkSeaGreen
+	BorderColor DarkSlateGray
+
+	BackgroundColor<< Main >> YellowGreen
+	BorderColor<< Main >> YellowGreen
+	
+	ArrowColor Olive
+}
+
+rectangle  BankaOto.Versiyon_1 {
+
+:Yönetici: --> (Giriþ Yapar)
+:Yönetici: --> (Döviz Kur) 
+(Döviz Kur) --> (Listele)
+(Döviz Kur) --> (Ekle)
+(Döviz Kur) --> (Güncelle/Sil)
+
+
+:Yönetici: --> (Sisteme Müþteri Ekle)
+:Yönetici: --> (Personel Ekle/Çýkar/Listele)
+:Yönetici: --> (Þube Hesaplarý Sýrala)
+:Yönetici: --> (Þube Ýþlemleri Ekle/Güncelle/Ýþlemleri Listele)
+:Yönetici: --> (Banka Raporlarý)
+
+
+:Müþteri: --> (Giriþ Yapar)
+:Müþteri: --> (Para Yatýrma)
+:Müþteri: --> (Para Çekme)
+:Müþteri: --> (Para Transferi)
+:Müþteri: --> (Hesaplarým)
+:Müþteri: --> (Ödeme Yap)
+:Müþteri: --> (Hesap Özeti)
+
+}
+
+
+@enduml
