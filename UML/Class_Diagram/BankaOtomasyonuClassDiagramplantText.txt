@@ -1,0 +1,135 @@
+@startuml
+
+abstract Kullanici{
+
+- Kullanici_ID : Integer
+- Sifre : String
+- LoginDurumu : String
+- RegisterTarihi : Date
+- TC: String 
+- Dogum_Tarihi : Date 
++ Telefon_No : String
+
++ loginDogrulama():boolean
++ userListele() 
+}
+
+class Yönetici{ 
+
++ Yonetici_ad : String 
++ Yonetici_soyad : String 
+
++ musteriEkle()
++ musterSil()
++ personelEkle()
++ personelSil()
++ musteriyeHesabiEkle()
+- dovizKur()
+- subeIslemleriSagla()
+
+}
+
+Class Döviz {
++ Doviz_Turu : String
+- Doviz_Miktari : Float
+
++ dovizEkle()
++ dovizSil()
++ dovizListele() : ArrayList[String]
++ dovizTuruGoster() : String
+
+}
+
+class Müþteri{
++ Musteri_ad : String
++ Musteri_soyad : String
++ Adress : String
++ Email : String
+- MusteriHesaplari : String
+
++ profiliGoruntule()
+- paraYatir()
+- paraCek()
+- dovizSat_Al()
+- gecmisOdemeleriGoster()
+}
+
+Class Hesap{
+- Hesap_ID : Integer
+- HesapParaBirimi : String
+- HesapBakiye : Float
++ Sehir_Ulke : String
++ PinCode L String
++ HesapNo : String
+
++ hesapOlustur()
++ hesapOzetiGoster() : String
++ hesapBakiyeGoster() : Float
++ hesapAitOlduguSube() : String
++ hesapAitOlduguMerkeziBanka() : String
+
+
+}
+
+Class Sube {
+- SubeID : Integer
++ SubeKodu : String
+- SubeDovizi : String
++ SubeAdresi : String
++ Sube_TelefonNo : String
+
++ subeIletisimBilgileriGir()
++ setSubeAdresi()
++ setSubeTelefonNo()
++ getSubeAdresi()
++ getSubeTelefonNo()
++ getSubeKodu()
+
+}
+
+abstract Odeme {
+- Odeme_ID : Integer
+- Odeme_Turu: String
+- Odeme_Miktari : Float
++ Odeme_Tarihi : Date
++ Odeme_Durumu : String
+
+
++ odemeTuruSec()
++ odemeYapilacakSubeSec()
++ makbuzYazdir()
+}
+
+Class Transfer_Islemi{
+- FromAccountNo : String
+- ToAccountNo : String
+
++ paraTransferEt() 
++ setFromAccountNo() 
++ setToAccountNo()
+
+}
+
+Class Kumbara_DepositeSagla{
+- DepositeTuru : String
+- DepositeAmaci : String
+
++ depositeBakiyeGoster()
++ setDepositeEdilecekOranti()
++ getDepositeEdlenOranti()
+}
+
+Kullanici <|-- Müþteri 
+Kullanici <|-- Yönetici
+
+
+Yönetici -- Döviz: Döviz Kur
+Müþteri -- Odeme: Ödeme Yap
+
+Odeme <|-- Transfer_Islemi
+Müþteri "1" *-- "1..*" Hesap  
+Müþteri "1" *-- "0..*" Kumbara_DepositeSagla 
+Hesap "0..*" --o "1" Sube 
+
+
+@enduml
