@@ -1,0 +1,60 @@
+@startuml
+
+abstract Parasalislemi{
+
++ islemTuru() 
+}
+
+
+class Yatirmaislemi{
++ islemTuru()
++ toString():String
+}
+
+Class Transferislemi{ 
++ islemTuru()
++ toString():String
+}
+
+abstract ParaislemiBuilder{
++ islemTutari(double):ParaislemiBuilder
++ hesapBakiye(double):ParaislemiBuilder
++ hesapNo(String):ParaislemiBuilder
++ hesapSahibi_Telefon(String):ParaislemiBuilder
+
++ build():Parasalislemi
+}
+
+
+class YatirmaislemiBuilder{
++ islemTutari(double):YatirmaislemiBuilde
++ hesapBakiye(double):YatirmaislemiBuilde
++ hesapNo(String):YatirmaislemiBuilde
++ hesapSahibi_Telefon(String):YatirmaislemiBuilde
+
++ build():Yatirmaislemi
+}
+
+Class TransferislemiBuilder{ 
++ islemTutari(double):TransferislemiBuilder
++ hesapBakiye(double):TransferislemiBuilder
++ hesapNo(String):TransferislemiBuilder
++ hesapSahibi_Telefon(String):TransferislemiBuilder
+
++ build():Transferislemi
+}
+
+class MainProgram{
++ main()
+}
+
+Parasalislemi <|-- Transferislemi:extends
+Parasalislemi <|-- Yatirmaislemi:extends
+
+ParaislemiBuilder <|-- YatirmaislemiBuilder:implements
+ParaislemiBuilder <|-- TransferislemiBuilder:implements
+
+Parasalislemi <.. ParaislemiBuilder:Creates
+MainProgram o--> ParaislemiBuilder:invokes
+
+@enduml
