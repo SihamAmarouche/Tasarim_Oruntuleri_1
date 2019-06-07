@@ -4,7 +4,7 @@ public class MementoPatternDemo {
 
 	public static void main(String[] args) {
 		
-		System.out.println("### Memento Design Pattern2's Example is Runing ###\n");
+		System.out.println("### Memento Design Pattern's Example is Runing ###\n");
 		
 		Bankahesabi_Orginator orginator = new Bankahesabi_Orginator();
 		Bankahesabi_CareTaker careTaker = new Bankahesabi_CareTaker();

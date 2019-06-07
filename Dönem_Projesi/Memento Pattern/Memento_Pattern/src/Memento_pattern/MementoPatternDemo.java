@@ -4,16 +4,18 @@ public class MementoPatternDemo {
 
 	public static void main(String[] args) {
 		
-		System.out.println("### Memento Design Pattern2's Example is Runing ###\n");
+		System.out.println("### Memento Design Pattern's Example is Runing ###\n");
 		
 		Bankahesabi_Orginator orginator = new Bankahesabi_Orginator();
 		Bankahesabi_CareTaker careTaker = new Bankahesabi_CareTaker();
 		
 		orginator.setState("Açýk");
-		careTaker.add(orginator.saveStateToMemento());
+		Bankahesabi_Memento memento_1 = orginator.saveStateToMemento();
+		careTaker.add(memento_1);
 		
 		orginator.setState("Kapatýldý");
-		careTaker.add(orginator.saveStateToMemento());
+		Bankahesabi_Memento memento_2 = orginator.saveStateToMemento();
+		careTaker.add(memento_2);
 
 		orginator.setState("Donduruldu");
 		System.out.println("Banka hesabinin þimdiki Durumu: "+orginator.getState());
