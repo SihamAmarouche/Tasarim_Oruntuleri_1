@@ -1,24 +1,24 @@
-## Behavioral design patterns:
-Yazılım mühendisliğinde davranışsal tasarım kalıpları, soruna göre nesneler arası ortak haberleşmeyi en iyi şekilde kurmamıza öneriler sunan tasarım kalıplarıdır. 
-Böylece, bu örüntüler bu iletişimi gerçekleştirmede esnekliği arttırır.
+## DavranÄ±ÅŸsal(Behavioral) tasarÄ±m desenleri:
+YazÄ±lÄ±m mÃ¼hendisliÄŸinde davranÄ±ÅŸsal tasarÄ±m kalÄ±plarÄ±, soruna gÃ¶re nesneler arasÄ± ortak haberleÅŸmeyi en iyi ÅŸekilde kurmamÄ±za Ã¶neriler sunan tasarÄ±m kalÄ±plarÄ±dÄ±r. 
+BÃ¶ylece, bu Ã¶rÃ¼ntÃ¼ler bu iletiÅŸimi gerÃ§ekleÅŸtirmede esnekliÄŸi arttÄ±rÄ±r.
 
 ### * Memento Pattern :
-Memento tasarım deseni behavior grubununa ait, bir nesnenin tamamının veya bazı özelliklerinin tutularak sonradan tekrar elde edilmesini yöneten tasarım desenidir. 
-Memento tasarım deseni nesnenin bir halinin kopyasını alıp sonra bu kopyanın tekrar elde edilmesini sağlar. Genelde geri al işlemi için kullanılır. 
+Memento tasarÄ±m deseni behavior grubununa ait, bir nesnenin tamamÄ±nÄ±n veya bazÄ± Ã¶zelliklerinin tutularak sonradan tekrar elde edilmesini yÃ¶neten tasarÄ±m desenidir. 
+Memento tasarÄ±m deseni nesnenin bir halinin kopyasÄ±nÄ± alÄ±p sonra bu kopyanÄ±n tekrar elde edilmesini saÄŸlar. Genelde geri al iÅŸlemi iÃ§in kullanÄ±lÄ±r. 
 
-#### Memento tasarım deseni 3 yapıdan oluşur:
+#### Memento tasarÄ±m deseni 3 yapÄ±dan oluÅŸur:
 
-*  Originator: Tamamının veya bazı özelliklerinin kopyasının tutulacağı nesnedir. Memento nesnesini oluşturan ve geri yüklenmesinden sorumludur.
+*  Originator: TamamÄ±nÄ±n veya bazÄ± Ã¶zelliklerinin kopyasÄ±nÄ±n tutulacaÄŸÄ± nesnedir. Memento nesnesini oluÅŸturan ve geri yÃ¼klenmesinden sorumludur.
 
-*  Memento: Originator nesnesinin saklanacak özelliklerinin tanımlı olduğu nesne.
+*  Memento: Originator nesnesinin saklanacak Ã¶zelliklerinin tanÄ±mlÄ± olduÄŸu nesne.
 
-*  Caretaker: Saklanacak olan memento nesnesinin referansını içinde barındıran nesnedir.
-#### Memento tasarım deseninin uml şeması aşağıdaki gibidir :
+*  Caretaker: Saklanacak olan memento nesnesinin referansÄ±nÄ± iÃ§inde barÄ±ndÄ±ran nesnedir.
+#### Memento tasarÄ±m deseninin uml ÅŸemasÄ± aÅŸaÄŸÄ±daki gibidir :
 
 image::memento_pattern_uml_diagram.jpg[memento]
 
-#### Örnek:
-Örnek uygulamamızda Banka hesabi nesnesi olsun ve bu nesne üzerinde memento tasarım desenini uygulandı. Bu tasarımın önemi banka hesabinin geçmiş durumları kaydetmemizi sağlar, banka hesabinin durumları 3 durumdan oluşur (Açık, kapatıldı, donduruldu). Kullanıcı istediği zaman hesabin geçmişini görüntüleyebilir. Uygulamanın class diyagramı aşağıdaki gibidir.
+#### Ã–rnek:
+Ã–rnek uygulamamÄ±zda Banka hesabi nesnesi olsun ve bu nesne Ã¼zerinde memento tasarÄ±m desenini uygulandÄ±. Bu tasarÄ±mÄ±n Ã¶nemi banka hesabinin geÃ§miÅŸ durumlarÄ± kaydetmemizi saÄŸlar, banka hesabinin durumlarÄ± 3 durumdan oluÅŸur (AÃ§Ä±k, kapatÄ±ldÄ±, donduruldu). KullanÄ±cÄ± istediÄŸi zaman hesabin geÃ§miÅŸini gÃ¶rÃ¼ntÃ¼leyebilir. UygulamanÄ±n class diyagramÄ± aÅŸaÄŸÄ±daki gibidir.
 
 image::Memento_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
 
@@ -31,7 +31,7 @@ package Memento_pattern;
 
 
 /// Bankahesabi_Memento Bankahesabi_Originator nesnesinin 
-/// saklanacak özelliklerinin tanımlı olduğu nesne.
+/// saklanacak Ã¶zelliklerinin tanÄ±mlÄ± olduÄŸu nesne.
 
 public class Bankahesabi_Memento {
 	/// Burada banka hesabin durumu kaydedeilecektir ..
@@ -49,8 +49,8 @@ public class Bankahesabi_Memento {
 .Bankahesabi_Orginator.java
 [source, java]
 ----
-//Tamamının veya bazı özelliklerinin kopyasının tutulacağı nesnedir. 
-//Bankahesabi_Orginator Bankahesabi_Memento nesnesini oluşturan ve geri yüklenmesinden sorumludur.
+//TamamÄ±nÄ±n veya bazÄ± Ã¶zelliklerinin kopyasÄ±nÄ±n tutulacaÄŸÄ± nesnedir. 
+//Bankahesabi_Orginator Bankahesabi_Memento nesnesini oluÅŸturan ve geri yÃ¼klenmesinden sorumludur.
 public class Bankahesabi_Orginator {
 	private String account_State;
 	
@@ -75,7 +75,7 @@ public class Bankahesabi_Orginator {
 import java.util.ArrayList;
 import java.util.List;
 
-//Saklanacak olan memento nesnesinin referansını içinde barındıran nesnedir.
+//Saklanacak olan memento nesnesinin referansÄ±nÄ± iÃ§inde barÄ±ndÄ±ran nesnedir.
 
 public class Bankahesabi_CareTaker {
 	
@@ -102,22 +102,22 @@ public class MementoPatternDemo {
 		Bankahesabi_Orginator orginator = new Bankahesabi_Orginator();
 		Bankahesabi_CareTaker careTaker = new Bankahesabi_CareTaker();
 		
-		orginator.setState("Açık");
+		orginator.setState("AÃ§Ä±k");
 		Bankahesabi_Memento memento_1 = orginator.saveStateToMemento();
 		careTaker.add(memento_1);
 		
-		orginator.setState("Kapatıldı");
+		orginator.setState("KapatÄ±ldÄ±");
 		Bankahesabi_Memento memento_2 = orginator.saveStateToMemento();
 		careTaker.add(memento_2);
 
 		orginator.setState("Donduruldu");
-		System.out.println("Banka hesabinin şimdiki Durumu: "+orginator.getState());
+		System.out.println("Banka hesabinin ÅŸimdiki Durumu: "+orginator.getState());
 		
 		orginator.getStateFromMemento(careTaker.get(0));
-		System.out.println("Hesabın Kaydedilen İlk Durumu: "+ orginator.getState());
+		System.out.println("HesabÄ±n Kaydedilen Ä°lk Durumu: "+ orginator.getState());
 		
 		orginator.getStateFromMemento(careTaker.get(1));
-		System.out.println("Hesabın Kaydedilen İkinci Durumu: "+ orginator.getState());
+		System.out.println("HesabÄ±n Kaydedilen Ä°kinci Durumu: "+ orginator.getState());
 
 	
 	}
@@ -130,7 +130,7 @@ public class MementoPatternDemo {
 ----
 ### Memento Design Pattern2's Example is Runing ###
 
-Banka hesabinin şimdiki Durumu: Donduruldu
-Hesabın Kaydedilen İlk Durumu: Açık
-Hesabın Kaydedilen İkinci Durumu: Kapatıldı
+Banka hesabinin ÅŸimdiki Durumu: Donduruldu
+HesabÄ±n Kaydedilen Ä°lk Durumu: AÃ§Ä±k
+HesabÄ±n Kaydedilen Ä°kinci Durumu: KapatÄ±ldÄ±
 ----
