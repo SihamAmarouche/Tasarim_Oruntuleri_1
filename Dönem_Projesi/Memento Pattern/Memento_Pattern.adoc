@@ -1,6 +1,6 @@
 ## Behavioral design patterns:
-
-
+Yazılım mühendisliğinde davranışsal tasarım kalıpları, soruna göre nesneler arası ortak haberleşmeyi en iyi şekilde kurmamıza öneriler sunan tasarım kalıplarıdır. 
+Böylece, bu örüntüler bu iletişimi gerçekleştirmede esnekliği arttırır.
 
 ### * Memento Pattern :
 Memento tasarım deseni behavior grubununa ait, bir nesnenin tamamının veya bazı özelliklerinin tutularak sonradan tekrar elde edilmesini yöneten tasarım desenidir. 
@@ -16,8 +16,13 @@ Memento tasarım deseni nesnenin bir halinin kopyasını alıp sonra bu kopyanı
 #### Memento tasarım deseninin uml şeması aşağıdaki gibidir :
 
 image::memento_pattern_uml_diagram.jpg[memento]
- 
-#### CODES:
+
+#### Örnek:
+Örnek uygulamamızda Banka hesabi nesnesi olsun ve bu nesne üzerinde memento tasarım desenini uygulandı. Bu tasarımın önemi banka hesabinin geçmiş durumları kaydetmemizi sağlar, banka hesabinin durumları 3 durumdan oluşur (Açık, kapatıldı, donduruldu). Kullanıcı istediği zaman hesabin geçmişini görüntüleyebilir. Uygulamanın class diyagramı aşağıdaki gibidir.
+
+image::Memento_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+#### CODE:
 
 *  Class Bankahesabi_Memento
 [source, java]
@@ -41,7 +46,12 @@ public class Bankahesabi_Memento {
 	
 }
 ----
-* 
-[source, Java]
+#### Result:
+[source, ]
 ----
+### Memento Design Pattern2's Example is Runing ###
+
+Banka hesabinin şimdiki Durumu: Donduruldu
+Hesabın Kaydedilen İlk Durumu: Açık
+Hesabın Kaydedilen İkinci Durumu: Kapatıldı
 ----
