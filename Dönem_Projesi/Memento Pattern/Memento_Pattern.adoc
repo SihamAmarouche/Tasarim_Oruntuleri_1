@@ -1,0 +1,47 @@
+## Behavioral design patterns:
+
+
+
+### * Memento Pattern :
+Memento tasarım deseni behavior grubununa ait, bir nesnenin tamamının veya bazı özelliklerinin tutularak sonradan tekrar elde edilmesini yöneten tasarım desenidir. 
+Memento tasarım deseni nesnenin bir halinin kopyasını alıp sonra bu kopyanın tekrar elde edilmesini sağlar. Genelde geri al işlemi için kullanılır. 
+
+#### Memento tasarım deseni 3 yapıdan oluşur:
+
+*  Originator: Tamamının veya bazı özelliklerinin kopyasının tutulacağı nesnedir. Memento nesnesini oluşturan ve geri yüklenmesinden sorumludur.
+
+*  Memento: Originator nesnesinin saklanacak özelliklerinin tanımlı olduğu nesne.
+
+*  Caretaker: Saklanacak olan memento nesnesinin referansını içinde barındıran nesnedir.
+#### Memento tasarım deseninin uml şeması aşağıdaki gibidir :
+
+image::memento_pattern_uml_diagram.jpg[memento]
+ 
+#### CODES:
+
+*  Class Bankahesabi_Memento
+[source, java]
+----
+package Memento_pattern;
+
+
+/// Bankahesabi_Memento Bankahesabi_Originator nesnesinin 
+/// saklanacak özelliklerinin tanımlı olduğu nesne.
+
+public class Bankahesabi_Memento {
+	/// Burada banka hesabin durumu kaydedeilecektir ..
+	private String account_State;
+	
+	public Bankahesabi_Memento(String account_State){
+		this.account_State = account_State;
+	}
+	public String getState(){
+		return account_State;
+	}
+	
+}
+----
+* 
+[source, Java]
+----
+----
