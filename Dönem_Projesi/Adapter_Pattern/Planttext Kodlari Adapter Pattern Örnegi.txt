@@ -1,0 +1,33 @@
+@startuml
+
+interface ParaBirimi{
+
++ paraBirimiBilgileri() : void
++ getParaMiktari(double) : void
++ paraDegeri() : void
+}
+
+class ParaBirimiAdapter{
++ dA : DolarBirimi_Adaptee
++ paraBirimiBilgileri() : void
++ getParaMiktari(double) : void
++ paraDegeri() : void
+
+}
+
+class DolarBirimi_Adaptee{
++ dolar_paraBirimiBilgileri() : void
++ dolar_getParaMiktari(double) : void
++ dolar_paraDegeri() : void
+}
+class Client{
++ main():void
+- alisverisYap(ParaBirimi) : void
+}
+Client -> ParaBirimi : target
+ParaBirimi <|-- ParaBirimiAdapter:implements
+
+ParaBirimiAdapter -> DolarBirimi_Adaptee : adaptee
+
+
+@enduml
