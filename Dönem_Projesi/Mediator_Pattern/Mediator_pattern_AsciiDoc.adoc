@@ -7,7 +7,7 @@ Mediator design pattern (aracı tasarım deseni), behavior grubununa ait, çalı
 
 Bazı durumlarda nesnelerin davranışları kendi türünden başka nesnelere bağlı olabilir. Mediator tasarım deseni birbirleri ile ilişkili olan bu nesneler arasında ki iletişimin ana bir nesne üzerinden (mediator) yapılmasını sağlar. Böylece nesneler arasındaki bağ zayıflatılır ve geliştirme aşamasında kod karmaşasını önler ve kodun yönetilmesini kolaylaştırır.
 
-#### Memento tasarım deseninin uml şeması aşağıdaki gibidir :
+#### Mediator tasarım deseninin uml şeması aşağıdaki gibidir :
 
 image::mediator_pattern_genel_uml.png[350,450]
 
