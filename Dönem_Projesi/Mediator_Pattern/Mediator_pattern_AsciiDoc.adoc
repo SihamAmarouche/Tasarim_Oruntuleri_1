@@ -9,7 +9,7 @@ Bazı durumlarda nesnelerin davranışları kendi türünden başka nesnelere ba
 
 #### Memento tasarım deseninin uml şeması aşağıdaki gibidir :
 
-image::mediator_pattern_genel_uml.png[300,400]
+image::mediator_pattern_genel_uml.png[400,550]
 
 #### Görüldüğü üzere mediator tasarım deseninde 4 temel yapı bulunur:
 
@@ -17,7 +17,7 @@ image::mediator_pattern_genel_uml.png[300,400]
 
 *  ConcreteMediator: Nesneler arasındaki ilişkiyi sağlayacak gerçek nesnedir. Mediator arayüzünü uygular. İçinde Colleague ara yüzünden türeyen nesnelerin listesini barındırır.
 
-*  Colleague: ConcreteMediator u kullanarak işlem gerçekleştirecek olan nesnelerin uygulaması gereken arayüzü temsil eder. Kendi içinde ConcreteMediator nesnesi barındırır.
+*  Colleague: ConcreteMediator'u kullanarak işlem gerçekleştirecek olan nesnelerin uygulaması gereken arayüzü temsil eder. Kendi içinde ConcreteMediator nesnesi barındırır.
 
 *  ConcreteColleague: ConcreteMediator üzerinden birbirleri ile ilişkili nesnelerdir. Colleague arayüzünü uygularlar.
 #### Örnek:
@@ -25,7 +25,8 @@ image::mediator_pattern_genel_uml.png[300,400]
 bir banka şübesi tarafından gönderilen bilgilerndirme mesajı diğer banka şübelere iletilme işlemini yönetilsin böylece
 Mediator tasarım desenini uygulanmış oluruz. Bu tasarımın önemi nesneler arasındaki bağ zayıflatılır ve geliştirme
 aşamasında kod karmaşasını önler ve kodun yönetilmesini kolaylaştırır.
-image::Mediator_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+image::Mediator_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[750,680]
 
 #### CODE:
 
