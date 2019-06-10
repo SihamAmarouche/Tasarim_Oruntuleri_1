@@ -31,11 +31,11 @@ dolaşmamızı sağlar koleksiyonun iç yapısı bilmeden. MusteriContainer sın
 YoneticiContainer ise Yonetici sınıfından oluşturulan nesneleri Hashtable setinde sklanır. Böylece Iterator deseni gerçekleştirmiş oluruz ve koleksiyon yapısı bilinmesine ihtiyaç olmadan koleksiyon elemanları 
 üzerinde işlem yapılabilmesini sağlanmış olur.Uygulamanın class diyagramlari aşağıdaki gibidir.
 
-##### Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram :
+#### *Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram :
 
 image::Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram Example_1.png[]
 
-##### Yonetici Iterator ve YoneticiContainer Ornegi icin UML class diyagram :
+#### *Yonetici Iterator ve YoneticiContainer Ornegi icin UML class diyagram :
 
 image::Yonetici Iterator Ornegi icin UML class diyagram Example_2.png[]
 
