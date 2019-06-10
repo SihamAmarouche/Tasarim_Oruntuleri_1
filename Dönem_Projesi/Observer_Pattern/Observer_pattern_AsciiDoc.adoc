@@ -11,8 +11,9 @@ Observer tasarım deseni; birbirleri ile bire çok (yani bir nesnenin içinde ba
 image::observer_genel_yapi_uml.jpg[observer,350,250]
 
 #### Örnek:
-Örnek uygulamamızda 
-. Uygulamanın class diyagramı aşağıdaki gibidir.
+Örnek uygulamamızda Observer Bankanın kullanıcıları ve Subject(Observable) nesnesi Bankaların kampanya mesajları olsun. Bu şekilde Obsever tasarım deseni uygulanmış olur ve yeni bilgilendirme mesajları geldikçe kampanya uyarısına üye olan banka kullanıcılarına bildirim gönderilir.
+
+Uygulamanın class diyagramı aşağıdaki gibidir.
 
 image::Observer_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,700]
 
