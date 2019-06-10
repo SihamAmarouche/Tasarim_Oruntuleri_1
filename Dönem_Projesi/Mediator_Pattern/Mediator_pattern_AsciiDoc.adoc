@@ -9,7 +9,7 @@ Bazı durumlarda nesnelerin davranışları kendi türünden başka nesnelere ba
 
 #### Memento tasarım deseninin uml şeması aşağıdaki gibidir :
 
-image::mediator_pattern_genel_uml.png[400,550]
+image::mediator_pattern_genel_uml.png[350,450]
 
 #### Görüldüğü üzere mediator tasarım deseninde 4 temel yapı bulunur:
 
@@ -26,7 +26,7 @@ bir banka şübesi tarafından gönderilen bilgilerndirme mesajı diğer banka �
 Mediator tasarım desenini uygulanmış oluruz. Bu tasarımın önemi nesneler arasındaki bağ zayıflatılır ve geliştirme
 aşamasında kod karmaşasını önler ve kodun yönetilmesini kolaylaştırır.
 
-image::Mediator_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[750,680]
+image::Mediator_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
 
 #### CODE:
 
