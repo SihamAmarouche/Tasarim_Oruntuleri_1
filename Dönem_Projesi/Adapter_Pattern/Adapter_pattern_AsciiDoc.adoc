@@ -1,0 +1,162 @@
+## Structural(Yapısal) tasarım desenleri:  
+
+Yazılım mühendisliğinde structural(yapısal) tasarım kalıpları, nesnelerin birbirleri ile olan ilişkilerini düzenleyen desenlerdir.
+
+### *  Adapter Pattern :
+Bazı durumlarda zaten var olan başka bir yapıyı uygulamamız içinde ki bir yapıya uyarlayıp kullanmamız gerekebilir. Burada uyarlanacak yapı net kütüphanesi olması gerekmez. Com nesnesi gibi bir yapı da olabilir veya zaten geliştirdiğimiz uygulamadaki başka bir yapı da olabilir. Bu uyarlama işlemini yazacağımız bir Adapter nesnesi ile sağlayabiliriz.
+
+#### Adapter tasarım deseninin uml şeması aşağıdaki gibidir :
+
+image:adapter_genel_yapi_uml.png:[adapter]
+
+#### Örnek:
+Örnek uygulamamızda 
+
+. Uygulamanın class diyagramı aşağıdaki gibidir.
+
+image::Adapter_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+#### CODE:
+
+.Class DolarBirimi_Adaptee.java
+[source, java]
+----
+ package Adapter_Pattern;
+
+public class DolarBirimi_Adaptee {
+
+	
+	public void dolar_paraBirimiBilgileri() {
+		 System.out.println("Alışverişte Kullanılan Para Birimi: Dolar (USD)");
+		
+	}
+
+	
+	public void dolar_getParaMiktari(double miktar) {
+		double m = miktar/6.044;
+		System.out.printf("Alışverişte kullanılacak para miktarı = %.2f Dolar(USD)\n", m);		
+	}
+
+	
+	public void dolar_paraDegeri() {
+		System.out.println("Dolar değeri Türk Lirası cinsinden ==> 1 Dolar = 6.044 TL \n");
+		
+	}
+
+}
+----
+.ParaBirimiAdapter.java
+[source, java]
+----
+package Adapter_Pattern;
+
+public class ParaBirimiAdapter implements ParaBirimi{
+	
+	DolarBirimi_Adaptee dA;
+	public ParaBirimiAdapter(DolarBirimi_Adaptee dA){
+		this.dA = dA;
+	}
+	@Override
+	public void paraBirimiBilgileri() {
+		dA.dolar_paraBirimiBilgileri();	
+	}
+
+	@Override
+	public void getParaMiktari(double m) {
+		dA.dolar_getParaMiktari(m);
+	}
+
+	@Override
+	public void paraDegeri() {
+		dA.dolar_paraDegeri();
+	}
+	
+	
+}
+
+----
+.ParaBirimi.java
+[source, java]
+----
+ package Adapter_Pattern;
+ 
+ // Target
+public interface ParaBirimi {
+	void paraBirimiBilgileri();
+	void getParaMiktari(double m);
+	void paraDegeri();
+	
+}
+----
+.TurkLiraBirimi.java
+[source, java]
+----
+package Adapter_Pattern;
+
+public class TurkLiraBirimi implements ParaBirimi{
+
+	@Override
+	public void paraBirimiBilgileri() {
+	 System.out.println("Alışverişte Kullanılan Para Birimi: Türk Lirası");
+		
+	}
+
+	@Override
+	public void getParaMiktari(double miktar) {
+		double m = miktar;
+		System.out.printf("Alışverişte kullanılacak para miktarı = %.2f TL\n", m);
+
+	}
+
+	@Override
+	public void paraDegeri() {
+		System.out.println("Türk Lirası değeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar \n");
+		
+	}
+	
+
+}
+----
+.Client.java
+[source, java]
+----
+package Adapter_Pattern;
+
+public class Client {
+	public static void main(String[] args){
+		
+		System.out.println("### Adapter Design Pattern's Example is Runing ###\n");
+
+		ParaBirimi turkLira = new TurkLiraBirimi();
+		ParaBirimi dolar_parasi = new ParaBirimiAdapter(new DolarBirimi_Adaptee());
+		
+		alisverisYap(turkLira);
+		alisverisYap(dolar_parasi);
+		
+		System.out.println("--------------------------------------------------------");
+
+	}
+
+	private static void alisverisYap(ParaBirimi para) {
+		para.paraBirimiBilgileri();
+		para.getParaMiktari(1250.0);
+		para.paraDegeri();		
+		
+	}
+
+}
+----
+#### Result:
+[source, ]
+----
+### Adapter Design Pattern's Example is Runing ###
+
+Alışverişte Kullanılan Para Birimi: Türk Lirası
+Alışverişte kullanılacak para miktarı = 1250,00 TL
+Türk Lirası değeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar 
+
+Alışverişte Kullanılan Para Birimi: Dolar (USD)
+Alışverişte kullanılacak para miktarı = 206,82 Dolar(USD)
+Dolar değeri Türk Lirası cinsinden ==> 1 Dolar = 6.044 TL 
+--------------------------------------------------------
+----
