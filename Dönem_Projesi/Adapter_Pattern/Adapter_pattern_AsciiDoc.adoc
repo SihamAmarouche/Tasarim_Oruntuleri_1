@@ -7,14 +7,14 @@ Bazı durumlarda zaten var olan başka bir yapıyı uygulamamız içinde ki bir 
 
 #### Adapter tasarım deseninin uml şeması aşağıdaki gibidir :
 
-image:adapter_genel_yapi_uml.png[400,350]
+image:adapter_genel_yapi_uml.png[600,450]
 
 #### Örnek:
 Örnek uygulamada ParaBiriminden olan Türk Lirasını Dolar parasına uyarlanmaya çalışılıdı, var olan bir yapı uygulamamız içinde ki bir yapıya uyarlayıp kullanmamızı sağlandı böylece adapter deseni uygulanmış olur.
 
 Uygulamanın class diyagramı aşağıdaki gibidir.
 
-image::Adapter_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+image::Adapter_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,700]
 
 #### CODE:
 
