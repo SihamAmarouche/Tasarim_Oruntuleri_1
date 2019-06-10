@@ -8,13 +8,13 @@ Observer tasarım deseni; birbirleri ile bire çok (yani bir nesnenin içinde ba
 
 #### Observer tasarım deseninin uml şeması aşağıdaki gibidir :
 
-image::observer_genel_yapi_uml.jpg[observer]
+image::observer_genel_yapi_uml.jpg[observer,350,250]
 
 #### Örnek:
 Örnek uygulamamızda 
 . Uygulamanın class diyagramı aşağıdaki gibidir.
 
-image::Observer_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+image::Observer_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,700]
 
 #### CODE:
 
