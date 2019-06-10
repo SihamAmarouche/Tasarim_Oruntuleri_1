@@ -2,7 +2,8 @@
 Yazılım mühendisliğinde davranışsal tasarım kalıpları, soruna göre nesneler arası ortak haberleşmeyi en iyi şekilde kurmamıza öneriler sunan tasarım kalıplarıdır. 
 Böylece, bu örüntüler bu iletişimi gerçekleştirmede esnekliği arttırır.
 
-### * Iterterator (tekrarlayıcı) tasarım deseni, behavior grubununa ait, nesne koleksyonlarının (list,array,queue) elemanlarını belirlenen kurallara göre elde edilmesini düzenleyen tasarım desenidir.ator Pattern :
+### * Iterator Pattern: 
+Iterterator (tekrarlayıcı) tasarım deseni, behavior grubununa ait, nesne koleksyonlarının (list,array,queue) elemanlarını belirlenen kurallara göre elde edilmesini düzenleyen tasarım desenidir.ator Pattern :
 terator (tekrarlayıcı) tasarım deseni, behavior grubununa ait, nesne koleksyonlarının (list,array,queue) elemanlarını belirlenen kurallara göre elde edilmesini düzenleyen tasarım desenidir.
 
 Iterator tasarım deseni ile koleksiyon yapısı bilinmesine ihtiyaç olmadan koleksiyon elemanları üzerinde işlem yapılabilmesini sağlar. Yani iterator tasarım deseni kullanılarak koleksiyonun array, queue, 
