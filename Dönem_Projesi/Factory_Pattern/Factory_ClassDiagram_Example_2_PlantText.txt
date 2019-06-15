@@ -1,0 +1,36 @@
+@startuml
+
+abstract Kullanici{
+- Kullanici_turu : String
+- Age : integer
++<<constructor>> Kullanici(kullanici_turu:String)
++ showUp():void
++ setAge(age:int):void
++ getAge(): integer
++ getKullanici_turu(): String
+}
+
+class Musteri{ 
++ <<constructor>> Musteri()
+}
+class Yonetici{
++ <<constructor>> Yonetici()
+}
+
+
+
+Class SystemElementFactory{
+{static}+ createKullanici(id : int):Kullanici
+}
+
+Class CreateElement{
++ main():void
+}
+Kullanici <-- Musteri
+Kullanici <-- Yonetici
+
+Kullanici <-- SystemElementFactor : Create
+CreateElement --> SystemElementFactor : Asks
+
+
+@enduml
