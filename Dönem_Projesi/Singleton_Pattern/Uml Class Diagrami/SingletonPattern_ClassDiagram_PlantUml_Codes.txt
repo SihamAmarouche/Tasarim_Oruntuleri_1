@@ -1,0 +1,22 @@
+@startuml
+
+Class hesapBakiye{
+
+- hesapBakiye_sample : hesapBakiye
+
++ CreateObject() : hesapBakiye
++ setBakiye(double) : void
++ getBakiye() : double
++ ParaCek(double):boolean
++ ParaYatir(double):boolean
+
+}
+
+Class hesapBakiyeMain{
++ main():void
+}
+hesapBakiye -> hesapBakiye : new
+hesapBakiyeMain->hesapBakiye : <<uses>>
+
+
+@enduml
