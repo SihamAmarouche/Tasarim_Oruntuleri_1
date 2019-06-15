@@ -17,7 +17,7 @@ sınıfın içinde kendi türünden static bir sınıf tanımlanır. Tanımlanan
 
 #### Singleton tasarım deseninin uml şeması aşağıdaki gibidir :
 
-image::singleton_pattern_genel_uml_diagram.jpg[]
+image::singleton_pattern_genel_uml_diagram.jpg[230,250]
 
 #### Örnek:
 Bu patern Bir sınıfın bir anda sadece bir örneğinin olması istenildiği zamanlarda kullanıldığından dolayı biz de Hesap Bankalarında olan hesap Bakiyesi nesnesi için kullandık sonuçta 
