@@ -18,7 +18,7 @@ tür durumlarda sıklıkla kullanılan ve performansı da ciddi şekilde arttır
 
 image::ObjectPoolPattern_1.PNG[450,520]
 
-#### 1.Örnek:
+#### Örnek:
 Bu örnek uygulamamızda sistemde kullanıcıya sınırlı sayıda oturum ayarlanmakta. Banka sistemine atak gerçekleştirememek için kullanıcıya sınırlı sayıda oturum ayarlanıyor oturum havuzu
 mevcuttur eğer oturumu açılmak isteniyorsa havuzdan yer ayarlanıyor eğer oturumu kapatılmak isteniyorsa havuza nesneyi geri döndürülüyor.Uygulamanın class diyagramlari aşağıdaki gibidir.
 
