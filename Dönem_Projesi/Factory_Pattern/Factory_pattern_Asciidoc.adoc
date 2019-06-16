@@ -1,1 +1,267 @@
+## Yarartımsal(Creational) tasarım desenleri:
+Bu paternler, yazılım nesnelerinin nasıl yaratılacağı hakkında genel olarak öneriler sunarak kullandığı esnek yapı sayesinde daha önceden belirlenen durumlara bağlı olarak gerekli nesneleri yaratır. Yaratımsal(Creational) desenler, hangi nesnenin çağrılması gerektiğini izlemeden sistemin uygun nesneyi çağırmasını sağlayan tasarım kalıplarıdır. Nesnelerin yaratılması gerektiği durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, iyi bir yazılımın içinde barındırdığı nesnelerin nasıl yaratıldığından bağımsız olarak tasarlanması gerekliliğidir.
 
+### * Factory Pattern: 
+Bazı nesneler doğrudan kullanıcı tarafından yaratılması istenmemektedir(new ile yartma işlemi). Yani bazı nesneler kullanıcıdan gizlenmiştir. 
+Asıl amaç, oluşturmak istediğimiz sınıfın kendisinden bir örnek istemek yerine Factory Metod patterni sayesinde tek bir instance üzerinden gerekli nesnenin üretilmesini sağlamaktır. Algoritmada belirli adımlarda farklı tiplerde nesnelere ihtiyacınız olabilir. Bu nesneleri if – else veyahut switch yapıları aracılığıyla, duruma göre oluşturabiliriz. Örneğin SystemElementFactory sınıfının createKullanici() isimli üyesi factory method durumundadır. Kullanici sample = SystemElementFactory.createKullanici(); kullanici türünden nesne geri döndürülür.
+
+#### Factory tasarım deseninin uml şeması aşağıdaki gibidir :
+
+image::Factory_Patern_Genel_UML.gif[]
+
+#### 1.Örnek:
+Bu örnek uygulamamızda parasal işlemi türlerinden olan transfer işlemi,yatırma işlemi ve borç kredi işlemi bu işlemler direk kullanıcıdan yaratılmak istemediğimizden dolayı ParasalislemiFactory sınıfının CreateIslem metodunu kullanarak tek bir instance(Parasalislemi) üzerinden gerekli nesnenin üretilmesi sağlamaktadır. Uygulamanın class diyagramlari aşağıdaki gibidir.
+
+#### *Factory Pattern Ornegi icin UML class diyagram :
+
+image::Factory_ClassDiagram_Example_1.png[]
+
+
+#### *Factory Pattern Örneğin Kodları:
+
+.BorcKrediOdeme.java
+[source, java]
+----
+package FactoryPattern_Example_1;
+
+public class BorcKrediOdeme extends Parasalislemi{
+	
+	public void islemTuru(){
+		System.out.println("Borç/kredi ödeme işlemi gerçekleşecektir!!");
+	}
+
+}
+----
+.Transferislemi.java
+[source, java]
+----
+package FactoryPattern_Example_1;
+
+public class Transferislemi extends Parasalislemi{
+	
+	public void islemTuru(){
+		System.out.println("Para transfer işlemi gerçekleşecektir!!");
+	}
+
+}
+----
+.Yatirmaislemi.java
+[source, java]
+----
+package FactoryPattern_Example_1;
+
+public class Yatirmaislemi extends Parasalislemi{
+	
+	public void islemTuru(){
+		System.out.println("Hesabınıza para yatırma işlemi gerçekleşecektir!!");
+	}
+
+}
+----
+.Parasalislemi.java
+[source, java]
+----
+package FactoryPattern_Example_1;
+
+public abstract class Parasalislemi {
+	
+	public void islemTuru() {
+		
+		System.out.println("Hesabınız ile bir parasal işlemi gerçekleşetirilecektir!!");
+
+	}
+}
+----
+.ParasalislemiFactory.java
+[source, java]
+----
+package FactoryPattern_Example_1;
+
+public class ParasalislemiFactory {
+
+	public static Parasalislemi CreateIslem(String instanceName){
+		if (instanceName.equals("borc")){
+			return new BorcKrediOdeme();
+		}
+		else if (instanceName.equals("transfer")){
+			return new Transferislemi();
+		}
+		else if (instanceName.equals("yatirim")){
+			return new Yatirmaislemi();
+		}else
+			return null;
+	}
+}
+----
+.Program.java
+[source, java]
+----
+package FactoryPattern_Example_1;
+
+public class Program {
+
+	public static void main(String[] args) {
+		System.out.println("### Factory Design Pattern's Example is Runing ###\n");
+
+		Parasalislemi islem = ParasalislemiFactory.CreateIslem("transfer");
+		islem.islemTuru();
+		
+		System.out.print("\n");
+		
+	    islem = ParasalislemiFactory.CreateIslem("borc");
+	    islem.islemTuru();	
+	}
+}
+----
+#### Result:
+[source, ]
+----
+### Factory Design Pattern's Example is Runing ###
+
+Para transfer işlemi gerçekleşecektir!!
+
+Borç/kredi ödeme işlemi gerçekleşecektir!!
+----
+
+
+
+#### 2.Örnek:
+Bu örnek uygulamamızda Kullanıcı türlerinden olan müşteri ve yönetici nesnelerini direk kullanıcıdan yaratılmak istemediğimizden dolayı SystemElementFactory sınıfının createKullanici metodunu kullanarak tek bir instance(Kullanici) üzerinden gerekli nesnenin üretilmesi sağlamaktadır. Uygulamanın class diyagramlari aşağıdaki gibidir.
+
+#### *Factory Pattern Ornegi icin UML class diyagram :
+
+image::Factory_ClassDiagram_Example_2.png[]
+
+
+#### *Factory Pattern Örneğin Kodları:
+
+.Kullanici.java
+[source, java]
+----
+package FactoryPattern_Example_2;
+
+public abstract class Kullanici {
+	
+	private String kullanici_turu;
+	private int age;
+	
+	public void setKullanici_turu(String kullanici_turu){
+		this.kullanici_turu = kullanici_turu;
+	}
+	public void setAge(int age){
+		this.age = age;
+	}
+	public String getKullanici_turu(){
+		return this.kullanici_turu;
+	}
+	public int getAge(){
+		return this.age;	
+	}
+	
+	
+	public void showUp(){
+		System.out.printf("Kullanıcı türü :[%s], Kullanıcı Yaşı:[%d]\n", getKullanici_turu(),getAge());
+	}
+	
+}
+----
+.Musteri.java
+[source, java]
+----
+package FactoryPattern_Example_2;
+
+import java.util.Random;
+public class Musteri extends Kullanici{
+	Random rand = new Random();
+
+	public Musteri(){
+		setKullanici_turu("Müşteri");
+		int value = rand.nextInt(51)+20;
+		setAge(value);
+	}
+}
+----
+.Yonetici.java
+[source, java]
+----
+package FactoryPattern_Example_2;
+
+import java.util.Random;
+
+public class Yonetici extends Kullanici{
+	
+	Random rand = new Random();
+	
+	public Yonetici(){
+		setKullanici_turu("Yönetici");
+		int value = rand.nextInt(51)+20;
+		setAge(value);
+	}
+}
+----
+.SystemElementFactory.java
+[source, java]
+----
+package FactoryPattern_Example_2;
+
+public class SystemElementFactory {
+	
+	public static final int Musteri=1;
+	public static final int Yonetici=2;
+	
+	public static Kullanici createKullanici(int id){
+		
+		switch(id){
+		case Musteri:
+			return new Musteri();
+		case Yonetici:
+			return new Yonetici();
+		default:
+			return null;
+		}
+	}	
+}
+----
+.CreateElement.java
+[source, java]
+----
+package FactoryPattern_Example_2;
+
+import java.util.Random;
+
+public class CreateElement {
+	
+	static Random random = new Random();
+	
+	public static void main(String[] args) {
+		System.out.println("### Factory Design Pattern's Example is Runing ###\n");
+
+		// Random olarak olusturulacak
+		int loop=7;
+		while(loop>0){
+			Kullanici kullanici = SystemElementFactory.createKullanici(getRandom(1,2));
+			kullanici.showUp();
+			loop--;
+		}
+
+	}
+	public static int getRandom(int min, int max){
+		return random.nextInt((max-min)+1)+ min;
+	}
+
+}
+----
+
+#### Result:
+[source, ]
+----
+### Factory Design Pattern's Example is Runing ###
+
+Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[69]
+Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[32]
+Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[33]
+Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[70]
+Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[66]
+Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[58]
+Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[47]
+----
