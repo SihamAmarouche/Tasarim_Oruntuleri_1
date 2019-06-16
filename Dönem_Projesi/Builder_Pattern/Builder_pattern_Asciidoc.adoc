@@ -1,1 +1,341 @@
+## Yarartımsal(Creational) tasarım desenleri:
+Bu paternler, yazılım nesnelerinin nasıl yaratılacağı hakkında genel olarak öneriler sunarak kullandığı 
+esnek yapı sayesinde daha önceden belirlenen durumlara bağlı olarak gerekli nesneleri yaratır. Yaratımsal(Creational) desenler, 
+hangi nesnenin çağrılması gerektiğini izlemeden sistemin uygun nesneyi çağırmasını sağlayan tasarım kalıplarıdır. 
+Nesnelerin yaratılması gerektiği durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
+iyi bir yazılımın içinde barındırdığı nesnelerin nasıl yaratıldığından bağımsız olarak tasarlanması gerekliliğidir.
 
+### * Builder Pattern : 
+Builder (İnşaatçı) tasarım deseni creational grubununa ait, biden fazla parçadan oluşan nesnelerin üretilmesinden sorumlu bir tasarım desenidir.
+Kompleks yapıya sahip nesneleri ve birden fazla girişe sahip olan nesneleri oluşturmak için kullanılır.Kompleks ürünün farklı paraçalarla oluşturulup farklı 
+sunumların elde edilmesidir.
+
+#### Builder desenini oluşturan 4 yapı vardır:
+
+* Product: Oluşturulan nesne.
+* Builder: Product oluşturacak nesnelerin (Concrete Builder) uygulaması gereken arayüz.
+* Concrete Builder: Product nesnesini oluşturan nesne veya özelliklerin oluşturulduğu sınıflar. 
+Her concrete builder sınıfı aynı arayüzde farklı bir ürünün oluşturulmasını sağlar.
+* Director: Verilen builder nesnesine göre product örneği oluşturur.
+
+#### Builder tasarım deseninin genel uml şeması aşağıdaki gibidir :
+
+image::builder_pattern.PNG[]
+
+#### Örnek:
+Örnek uygulamamızda islemTutari, hesapBakiye, hesapNo ve hesapSahibi_Telefon_No özellikleri olan bir Parasal işlemi nesnemiz olsun. 
+Bu parasal işlemi(Yatırma işlemi veya Transfer işlemi) nesnemizin özelliklerinin farklı değerler alması 
+ile farklı özelliklerde parasal işlemi(Yatırma işlemi veya Transfer işlemi) nesnesi üretebiliriz. Builder tasarım deseni ile bu senaryoyu gerçekleştirelim. 
+.Uygulamanın class diyagramlari aşağıdaki gibidir.
+
+#### *Builder Pattern Ornegi icin UML class diyagram :
+
+image::Builder Pattern Örneğimin Class Diyagrami.png[]
+
+
+#### *Builder Pattern Örneğin Kodları:
+
+.ParaislemiBuilder.java
+[source, java]
+----
+package BuilderPattern_Example_1;
+
+
+public interface ParaislemiBuilder {
+	
+	public ParaislemiBuilder islemTutari(double islemTutari);
+	public ParaislemiBuilder hesapBakiye(double hesapBakiye);
+	public ParaislemiBuilder hesapNo(String hesapNo);
+	public ParaislemiBuilder hesapSahibi_Telefon_No(String hesapSahibi_Telefon_No);
+	
+	// This method return final Kullanici object
+	public Parasalislemi build();
+	
+}
+----
+.TransferislemiBuilder.java
+[source, java]
+----
+package BuilderPattern_Example_1;
+
+import java.text.DecimalFormat;
+
+public class TransferislemiBuilder implements ParaislemiBuilder {
+	
+	private static DecimalFormat df2=new DecimalFormat("#.##");
+	
+	double islemTutari;
+	double hesapBakiye;
+	String hesapNo;
+	String hesapSahibi_Telefon_No;
+	
+	@Override
+	public TransferislemiBuilder islemTutari(double islemTutari) {
+		
+		this.islemTutari=islemTutari;
+		System.out.println("Transfer Edilecek Para Tutari : "+df2.format(islemTutari)+"TL");
+		return this;
+	}
+
+	@Override
+	public TransferislemiBuilder hesapBakiye(double hesapBakiye) {
+		this.hesapBakiye=hesapBakiye;
+		System.out.println("Para Transferi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+		return this;
+	}
+
+	@Override
+	public TransferislemiBuilder hesapNo(String hesapNo) {
+		this.hesapNo=hesapNo;
+		System.out.println("Para Transferi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		return this;
+	}
+
+	@Override
+	public TransferislemiBuilder hesapSahibi_Telefon_No(String hesapSahibi_Telefon_No) {
+		this.hesapSahibi_Telefon_No=hesapSahibi_Telefon_No;
+		System.out.println("Hesap Sahibinin Telefon Numarasi : "+hesapSahibi_Telefon_No);
+		return this;
+	}
+
+	@Override
+	public Transferislemi build() {
+		Transferislemi transfer=new Transferislemi(islemTutari,hesapBakiye,hesapNo,hesapSahibi_Telefon_No);
+		return transfer;
+	}
+	
+	
+}
+
+----
+.YatirmaislemiBuilder.java
+[source, java]
+----
+package BuilderPattern_Example_1;
+
+import java.text.DecimalFormat;
+
+public class YatirmaislemiBuilder implements ParaislemiBuilder{
+	
+	 private static DecimalFormat df2=new DecimalFormat("#.##");
+	 
+	double islemTutari;
+	double hesapBakiye;
+	String hesapNo;
+	String hesapSahibi_Telefon_No;
+	@Override
+	public YatirmaislemiBuilder islemTutari(double islemTutari) {
+		this.islemTutari=islemTutari;
+		System.out.println("Yatırım Edilecek Para Tutari : "+df2.format(islemTutari)+"TL");
+		return this;
+	}
+
+	@Override
+	public YatirmaislemiBuilder hesapBakiye(double hesapBakiye) {
+		System.out.println("Para Yatirma İşlemi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+        this.hesapBakiye=hesapBakiye;
+		return this;
+	}
+
+	@Override
+	public YatirmaislemiBuilder hesapNo(String hesapNo) {
+		System.out.println("Para Yatırma İşlemi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		this.hesapNo=hesapNo;
+		return this;
+	}
+
+	@Override
+	public YatirmaislemiBuilder hesapSahibi_Telefon_No(String hesapSahibi_Telefon_No) {
+		System.out.println("Hesap Sahibinin Telefon Numarasi : "+hesapSahibi_Telefon_No);
+		this.hesapSahibi_Telefon_No=hesapSahibi_Telefon_No;
+		return this;
+	}
+
+	@Override
+	public Yatirmaislemi build() {
+		Yatirmaislemi yatirim = new Yatirmaislemi(islemTutari,hesapBakiye,hesapNo,hesapSahibi_Telefon_No);
+		return yatirim;
+	}
+
+}
+----
+.Parasalislemi.java
+[source, java]
+----
+package BuilderPattern_Example_1;
+
+public abstract class Parasalislemi {
+	
+	public void islemTuru() {
+		System.out.println("Hesabınız ile bir parasal işlemi gerçekleşetirilecektir!!");
+	}
+	public abstract double getIslemTutari();
+	public abstract double getHesapBakiye();
+	public abstract String getHesapNo();
+	public abstract String getHesapSahibi_TelefonNo();
+	
+}
+----
+.Transferislemi.java
+[source, java]
+----
+package BuilderPattern_Example_1;
+
+import java.text.DecimalFormat;
+
+public class Transferislemi extends Parasalislemi{
+	
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
+
+	double islemTutari;
+	double hesapBakiye;
+	String hesapNo;
+	String hesapSahibi_Telefon_No;
+	
+	public void islemTuru(){
+		System.out.println("**** !! Para transfer işlemi başarıyla gerçekleştirilmiştir !! ****");
+	}
+	public Transferislemi(double islemTutari,double hesapBakiye,String hesapNo,String hesapSahibi_TelefonNo){
+		this.islemTutari=islemTutari;
+		this.hesapBakiye=hesapBakiye;
+		this.hesapNo=hesapNo;
+		this.hesapSahibi_Telefon_No=hesapSahibi_TelefonNo;
+	}
+
+	@Override
+	public double getIslemTutari(){
+		System.out.println("Transfer Edilecek Para Tutari : "+df2.format(islemTutari)+" TL");
+		return islemTutari;
+	}
+
+	@Override
+	public double getHesapBakiye(){
+		System.out.println("Para Transferi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+		return hesapBakiye;
+	}
+
+	@Override
+	public String getHesapNo() {
+		System.out.println("Para Transferi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		return hesapNo;
+	}
+
+	@Override
+	public String getHesapSahibi_TelefonNo() {
+		System.out.println("Hesap Sahibinin Telefon Numarasi : "+hesapSahibi_Telefon_No);
+		return hesapSahibi_Telefon_No;
+	}
+	@Override
+	public String toString() {
+		return "Transferislemi [islemTutari=" + df2.format(islemTutari) + "TL , hesapBakiye=" + df2.format(hesapBakiye) + "TL , hesapNo=" + hesapNo
+				+ ", hesapSahibi_Telefon_No=" + hesapSahibi_Telefon_No + "]";
+	}
+
+	
+}
+----
+.Yatirmaislemi.java
+[source, java]
+----
+package BuilderPattern_Example_1;
+
+import java.text.DecimalFormat;
+
+public class Yatirmaislemi extends Parasalislemi{
+	
+    private static DecimalFormat df2=new DecimalFormat("#.##");
+	
+	double islemTutari;
+	double hesapBakiye;
+	String hesapNo;
+	String hesapSahibi_Telefon_No;
+	
+	public Yatirmaislemi(double islemTutari,double hesapBakiye,String hesapNo,String hesapSahibi_TelefonNo){
+		this.islemTutari=islemTutari;
+		this.hesapBakiye=hesapBakiye;
+		this.hesapNo=hesapNo;
+		this.hesapSahibi_Telefon_No=hesapSahibi_TelefonNo;
+	}
+
+	public void islemTuru(){
+		System.out.println("**** !! Hesabınıza para yatırma işlemi başarıyla gerçekleştirilmiştir !! ****");
+	}
+	@Override
+	public double getIslemTutari() {
+		System.out.println("Yatırım Edilecek Para Tutari : "+df2.format(islemTutari)+" TL");
+		return islemTutari;
+	}
+
+	@Override
+	public double getHesapBakiye() {
+		System.out.println("Para Yatirma İşlemi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+		return hesapBakiye;
+	}
+
+	@Override
+	public String getHesapNo() {
+		System.out.println("Para Yatırma İşlemi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		return hesapNo;
+	}
+
+	@Override
+	public String getHesapSahibi_TelefonNo() {
+		System.out.println("Hesap Sahibinin Telefon Numarasi : "+hesapSahibi_Telefon_No);
+		return hesapSahibi_Telefon_No;
+	}
+
+	@Override
+	public String toString() {
+		return "Yatirmaislemi [islemTutari= " + df2.format(islemTutari) + " TL, hesapBakiye= " + df2.format(hesapBakiye) + " TL, hesapNo=" + hesapNo
+				+ ", hesapSahibi_Telefon_No=" + hesapSahibi_Telefon_No + "]";
+	}
+
+}
+----
+.MainProgram.java
+[source, java]
+----
+package BuilderPattern_Example_1;
+
+public class MainProgram {
+
+	public static void main(String[] args) {
+		
+		System.out.println("### Builder Design Pattern's Example is Runing ###\n");
+
+		Transferislemi transfer_1=new TransferislemiBuilder()
+				.islemTutari(50.246).hesapBakiye(1000).hesapNo("1235 6786 8335 4467")
+				.hesapSahibi_Telefon_No("+90 5647869843").build();
+		transfer_1.islemTuru();
+		System.out.println(transfer_1+"\n");
+		
+		
+		Yatirmaislemi yatirim_1=new YatirmaislemiBuilder()
+				.islemTutari(100.949).hesapBakiye(34500).hesapNo("4789 6786 9084 3267")
+				.hesapSahibi_Telefon_No("+90 5268692843").build();
+		yatirim_1.islemTuru();
+		System.out.println(yatirim_1+"\n");
+
+	}
+
+}
+----
+#### Result:
+[source, ]
+----
+### Builder Design Pattern's Example is Runing ###
+
+Transfer Edilecek Para Tutari : 50,25TL
+Para Transferi İçin Kullanılacak Hesabın Hesap Bakiyesi: 1000 TL
+Para Transferi İçin Kullanılan Hesabın Hesap Numarasi:1235 6786 8335 4467
+Hesap Sahibinin Telefon Numarasi : +90 5647869843
+**** !! Para transfer işlemi başarıyla gerçekleştirilmiştir !! ****
+Transferislemi [islemTutari=50,25TL , hesapBakiye=1000TL , hesapNo=1235 6786 8335 4467, hesapSahibi_Telefon_No=+90 5647869843]
+
+Yatırım Edilecek Para Tutari : 100,95TL
+Para Yatirma İşlemi İçin Kullanılacak Hesabın Hesap Bakiyesi: 34500 TL
+Para Yatırma İşlemi İçin Kullanılan Hesabın Hesap Numarasi:4789 6786 9084 3267
+Hesap Sahibinin Telefon Numarasi : +90 5268692843
+**** !! Hesabınıza para yatırma işlemi başarıyla gerçekleştirilmiştir !! ****
+Yatirmaislemi [islemTutari= 100,95 TL, hesapBakiye= 34500 TL, hesapNo=4789 6786 9084 3267, hesapSahibi_Telefon_No=+90 5268692843]
+----
