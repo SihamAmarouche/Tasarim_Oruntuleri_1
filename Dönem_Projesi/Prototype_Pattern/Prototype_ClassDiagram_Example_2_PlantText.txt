@@ -1,0 +1,30 @@
+@startuml
+
+Class BankaSubeleri{
+- BankaName:String
++ subeler:List<Sube>
++ setBankaName(BankaName String):void
++ setSubeler(subeler List<Sube>):void
++ getBankaName():String
++ getSubeler():List<Subeler>
++ toString():String
+# clone():BankaSubeleri
+}
+
+class Sube{ 
+- bid:int
+- sube_name:String
++ setBid(bid:int):void
++ setSube_name(sube_name:String):void
++ getSube_name():String
++ toString():String
+}
+
+Class Demo{
++ main():void
+}
+
+BankaSubeleri <-- Demo:uses
+
+
+@enduml
