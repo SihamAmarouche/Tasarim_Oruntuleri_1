@@ -1,0 +1,74 @@
+@startuml
+
+abstract AbstractFactory{
+
++{abstract} getIslemSorumlusu(kullaniciTuru:String):Kullanici
++{abstract} getParasalislemi(islemTuru:String):Parasalislemi
+
+}
+
+Class TransferIslemiFactory{
++ Yonetici_Kullanici:String
++ transfer_islemi:String
+
++ getIslemSorumlusu(kullaniciTuru:String):Kullanici
++ getParasalislemi(islemTuru:String):Parasalislemi
+}
+Class YatirmaIslemiFactory{
++ yatirma_islemi:String
++ Musteri_Kullanici:String
+
++ getIslemSorumlusu(kullaniciTuru:String):Kullanici
++ getParasalislemi(islemTuru:String):Parasalislemi
+}
+abstract Parasalislemi{
++ islemTuru():void
+}
+Class Transferislemi{
++ islemTuru():void
+}
+Class Yatirmaislemi{
++ islemTuru():void
+}
+abstract Kullanici{
+- kullanici_turu:String
+- age:int
++ setKullanici_turu(kullanici_turu:String):void
++ setAge(age:int):void
++ getKullanici_turu():String
++ getAge():int
++ showUp():void
+}
+Class Musteri{
++ rand:Random
++<<constructor>> Musteri()
+}
+Class Yonetici{
++ rand:Random
++<<constructor>> Yonetici()
+}
+class AbstractFactoryPatternMain{
++ main()
+}
+Parasalislemi <|-- Transferislemi:extends
+Parasalislemi <|- Yatirmaislemi:extends
+
+
+Kullanici <|-- Musteri
+Kullanici <|-- Yonetici
+
+AbstractFactory <|-- TransferIslemiFactory:extends
+AbstractFactory <|-- YatirmaIslemiFactory:extends
+
+
+AbstractFactoryPatternMain --> AbstractFactory:<<uses>>
+TransferIslemiFactory ..> Transferislemi:<<instantiate>>
+YatirmaIslemiFactory ..> Yatirmaislemi:<<instantiate>>
+
+TransferIslemiFactory ..> Yonetici:<<instantiate>>
+
+YatirmaIslemiFactory ..> Musteri:<<instantiate>>
+
+
+
+@enduml
