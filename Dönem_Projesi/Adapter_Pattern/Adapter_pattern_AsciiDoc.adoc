@@ -14,9 +14,7 @@ Adapter tasarım deseninin uml şeması aşağıdadır.
 image::adapter_genel_yapi_uml.png[600,500]
 
 #### Örnek:
-Örnek uygulamamızda adapter pattern uygulandı var olan başka bir yapıyı uygulamanın içinde ki başka bir yapıya uyarlayıp kullanmamız gerekiyor, 
-DolarBirimi_Adaptee sınıfı ParaBirimi arayüzünden türetilen TürkLiraBirimi sınıfına uyarlamak için ParaBirimi arayüzünden türetilen 
-ParaBirimiAdapter adapteri kullanıldı.Uygulamanın class diyagramlari aşağıdaki gibidir.
+Örnek uygulamamızda adapter pattern uygulandı var olan başka bir yapıyı uygulamanın içinde ki başka bir yapıya uyarlayıp kullanmamız gerekebiliyor, bu yüzden DolarBirimi_Adaptee sınıfı ParaBirimi arayüzünden türetilen TürkLiraBirimi sınıfına uyarlamak için ParaBirimi arayüzünden türetilen ParaBirimiAdapter adapteri kullanıldı. Uygulamanın class diyagramlari aşağıdaki gibidir.
 
 #### *Adapter Pattern Ornegi icin UML class diyagram :
 
