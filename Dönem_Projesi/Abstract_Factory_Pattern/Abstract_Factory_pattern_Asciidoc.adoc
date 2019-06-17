@@ -1,1 +1,282 @@
+## Yarartımsal(Creational) tasarım desenleri:
+Bu paternler, yazılım nesnelerinin nasıl yaratılacağı hakkında genel olarak öneriler sunarak kullandığı 
+esnek yapı sayesinde daha önceden belirlenen durumlara bağlı olarak gerekli nesneleri yaratır. Yaratımsal(Creational) desenler, 
+hangi nesnenin çağrılması gerektiğini izlemeden sistemin uygun nesneyi çağırmasını sağlayan tasarım kalıplarıdır. 
+Nesnelerin yaratılması gerektiği durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
+iyi bir yazılımın içinde barındırdığı nesnelerin nasıl yaratıldığından bağımsız olarak tasarlanması gerekliliğidir.
 
+### * Abstract Factory Pattern: 
+Benzer özelliklere sahip objeler varsa, veya birden fazla ürün ailesi çalışmak zorunda kaldığımızda kullanacağımız ürün ailesi ile istemci tarafı soyutlamak için kullanılır
+"Abstract Factory" birbirleriyle ilişkili yada birbirlerine bağlı olan nesnelerin oluşturulmasını en etkin bir şekilde çözmeyi hedefler. 
+Bu hedefe ulaşmak için soyut sınıflardan(abstract class) veya arayüzlerden(interface) yoğun bir şekilde faydalanmaktadır. 
+"Abstract Factory" deseninin ana teması belirli sınıfların içerdiği ortak arayüzü soyut bir sınıf yada arayüz olarak tasarlamaktır. 
+Böylece nesneleri üreten sınıf, hangi nesnenin üretileceği ile pek fazla ilgilinmesi gerekmez. İlgilenmesi gereken nokta oluşturacağı 
+nesnenin hangi arayüzleri desteklediği yada uyguladığıdır. Bahsi geçen mekanizmalarla deseni oluşturduğumuz anda çalışma zamanında hangi 
+nesnenin oluşturulması gerektiğini bilmeden nesnelerin oluşturulmasını yönetebiliriz. 
+
+Eğer bir nesne oluşturacaksanız ve tam olarak hangi nesnenin oluşturulacağına bir switch yada if deyimi ile karar veriyorsanız muhtemelen 
+her nesneyi oluştruduğunuzda aynı switch yapısını kullanmak zorunda kalacaksınız. Bu tür tekrarları önlemek için "Abstarct Factory" deseninden 
+faydalanılabilir. Bu elbetteki nesnelerin ortak bir arayüzü uygulamış olma zorunluluğunun getirdiği bir faydadır.
+
+#### Abstract Factory tasarım deseninin genel uml şeması aşağıdaki gibidir :
+
+image::abstract factory diagram.png[600,500]
+
+#### Örnek:
+Bu örnek uygulamada Abstract Factory paterni uygulandı iki tane Factoryimiz mevcuttur YatirmaIslemiFactory'i Kullanarak Yatırma İşlemi ve Sorumlusu Olan Müşteri Kullanıcımızı Oluşturuluyor.
+TransferIslemiFactory ise Transfer İşlemi ve Sorumlusu Olan Yönetici Kullanıcımızı Oluşturuyor. Uygulamanın class diyagramlari aşağıdaki gibidir.
+
+#### *Abstract Factory Pattern Ornegi icin UML class diyagram :
+
+image::Kendi Örneğimin Abstract Factory Patternin Diyagrami(Özel).png[]
+
+
+#### *Abstract Factory Pattern Örneğin Kodları:
+
+.AbstractFactoryPatternMain.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public class AbstractFactoryPatternMain {
+
+	public static void main(String[] args) {
+	
+		System.out.println("### Abstract Factory Pattern's Example is Runing ###\n");
+
+		TransferIslemiFactory transferIslemiFactory = new TransferIslemiFactory();
+		YatirmaIslemiFactory yatirmaIslemiFactory = new YatirmaIslemiFactory();
+
+		System.out.println("YatirmaIslemiFactory'i Kullanarak Yatırma İşlemi ve Sorumlusu Olan Müşteri Kullanıcımızı Oluşturuluyor:");
+		Parasalislemi yatirmaIslemi= yatirmaIslemiFactory.getParasalislemi("yatirma");
+		Kullanici musteriKullanici= yatirmaIslemiFactory.getIslemSorumlusu("Musteri");
+		yatirmaIslemi.islemTuru();
+		musteriKullanici.showUp();
+		
+		
+		System.out.print("\n");
+		
+		System.out.println("TransferIslemiFactory'i Kullanarak Transfer İşlemi ve Sorumlusu Olan Yönetici Kullanıcımızı Oluşturuluyor: ");
+		Parasalislemi transferIslemi= transferIslemiFactory.getParasalislemi("transfer");
+		Kullanici yoneticiKullanici = transferIslemiFactory.getIslemSorumlusu("Yonetici");
+        transferIslemi.islemTuru();
+		yoneticiKullanici.showUp();
+        
+		System.out.print("\n");
+		
+	}
+
+}
+----
+.AbstractFactory.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public abstract class AbstractFactory {
+	
+	abstract Kullanici getIslemSorumlusu(String kullaniciTuru);
+	abstract Parasalislemi getParasalislemi(String islemTuru);
+
+}
+----
+.TransferIslemiFactory.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public class TransferIslemiFactory extends AbstractFactory{
+	
+	final String Yonetici_Kullanici="Yonetici";
+	final String transfer_islemi="transfer";
+
+	@Override
+	Kullanici getIslemSorumlusu(String kullaniciTuru) {
+		
+		if (Yonetici_Kullanici.equals(kullaniciTuru)){
+			return new Yonetici();
+		}else 
+			return null;	
+		
+	}
+
+	@Override
+	Parasalislemi getParasalislemi(String islemTuru) {
+		if(islemTuru.equals("transfer")){
+			return new Transferislemi();
+		}else
+			return null;
+	}
+
+}
+
+----
+.YatirmaIslemiFactory.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public class YatirmaIslemiFactory extends AbstractFactory{
+	
+	final String yatirma_islemi="yatirma";
+	final String Musteri_Kullanici="Musteri";
+	@Override
+	Parasalislemi getParasalislemi(String islemTuru) {
+		if (yatirma_islemi.equals(islemTuru)){
+			return new Yatirmaislemi();
+		}else
+			return null;
+	}
+
+	@Override
+	Kullanici getIslemSorumlusu(String kullaniciTuru) {
+		if (Musteri_Kullanici.equals(kullaniciTuru)){
+			return new Musteri();
+		}else 
+			return null;	
+	}
+
+}
+
+----
+.FactoryProducer.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public class FactoryProducer {
+	
+	final static String KULLANICI = "Kullanici";
+	final static String PARASALISLEM = "Parasalislemi";
+	
+	public static AbstractFactory getFactory(String factory){
+		if(KULLANICI.equalsIgnoreCase(factory)){
+			return new KullaniciFactory();
+		}else if(PARASALISLEM.equalsIgnoreCase(factory)){
+			return new ParasalislemiFactory();
+		}
+		return null;
+	}
+}
+----
+.Kullanici.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public class Kullanici {
+	
+	private String kullanici_turu;
+	private int age;
+	
+	public void setKullanici_turu(String kullanici_turu){
+		this.kullanici_turu = kullanici_turu;
+	}
+	public void setAge(int age){
+		this.age = age;
+	}
+	public String getKullanici_turu(){
+		return this.kullanici_turu;
+	}
+	public int getAge(){
+		return this.age;	
+	}
+	
+	
+	public void showUp(){
+		System.out.printf("Kullanıcı türü :[%s], Kullanıcı Yaşı:[%d]\n", getKullanici_turu(),getAge());
+	}
+
+}
+----
+.Musteri.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+import java.util.Random;
+
+public class Musteri extends Kullanici{
+	Random rand = new Random();
+
+	public Musteri(){
+		setKullanici_turu("Müşteri");
+		int value = rand.nextInt(51)+20;
+		setAge(value);
+	}
+	
+}
+
+----
+.Yonetici.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+import java.util.Random;
+
+public class Yonetici extends Kullanici{
+	
+    Random rand = new Random();
+	
+	public Yonetici(){
+		setKullanici_turu("Yönetici");
+		int value = rand.nextInt(51)+20;
+		setAge(value);
+	}
+}
+----
+.Parasalislemi.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public abstract class Parasalislemi {
+	
+	public void islemTuru() {
+		
+		System.out.println("Hesabınız ile bir parasal işlemi gerçekleşetirilecektir!!");
+
+	}
+}
+----
+.Transferislemi.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public class Transferislemi extends Parasalislemi{
+	
+	public void islemTuru(){
+		System.out.println("Para transfer ettirme işlemi yönetici tarafından gerçekleştirilecektir!!");
+	}
+
+}
+----
+.Yatirmaislemi.java
+[source, java]
+----
+package AbstractFactory_Pattern;
+
+public class Yatirmaislemi extends Parasalislemi{
+	
+	public void islemTuru(){
+		System.out.println("Hesaba para yatırma işlemi müşteri tarafından gerçekleştirilecektir!!");
+	}
+
+}
+----
+#### Result:
+[source, ]
+----
+### Abstract Factory Pattern's Example is Runing ###
+
+YatirmaIslemiFactory'i Kullanarak Yatırma İşlemi ve Sorumlusu Olan Müşteri Kullanıcımızı Oluşturuluyor:
+Hesaba para yatırma işlemi müşteri tarafından gerçekleştirilecektir!!
+Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[40]
+
+TransferIslemiFactory'i Kullanarak Transfer İşlemi ve Sorumlusu Olan Yönetici Kullanıcımızı Oluşturuluyor: 
+Para transfer ettirme işlemi yönetici tarafından gerçekleştirilecektir!!
+Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[55]
+
+----
