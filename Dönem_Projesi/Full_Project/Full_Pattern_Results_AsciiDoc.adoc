@@ -5,10 +5,11 @@ Bu projede Banka Otomasyonuna 12 tane tasarım deseni uygulanmıştır. Projenin
 image::Donem_Projesi_Uml/PLANTUml_For_Full_Project.png[]
 
 #### Banka Otomasyon Projesi İki Farklı Şekilde Geliştirilmiştir. 
-#### 1) Full Project With Interface : Burada arayüzle geliştirilmeye çalışıldı, buttonları ekleyip buttonları etkin hale getirilip her tasarım desene özel çıktı sağlanır
-sonuçlar örneğin (Adapter pattern ve Observer patter) için aşağıdaki fotoğraflarda gösterildi gibi:
+#### 1) Full Project With Interface : Burada arayüzle geliştirilmeye çalışıldı, buttonları ekleyip buttonları etkin hale getirilip her tasarım desene özel çıktı sağlanır. Sonuçlar örneğin (Adapter pattern ve Observer patter) için aşağıdaki fotoğraflarda gösterildi gibi:
 
 image::Donem_Projesi_Uml/Adapter.PNG[]
+
+
 
 image::Donem_Projesi_Uml/Observer.PNG[]
 
