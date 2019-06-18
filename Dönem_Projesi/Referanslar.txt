@@ -1,0 +1,7 @@
+http://harunozer.com/Makale/memento_tasarim_deseni__memento_design_pattern.htm
+https://www.tutorialspoint.com/design_pattern/
+https://www.javatpoint.com/object-pool-pattern
+http://harunozer.com/tags/tasarim_desenleri_86.htm
+http://bidb.itu.edu.tr/seyir-defteri/blog/2013/09/08/yarat%C4%B1msal-tasar%C4%B1m-kal%C4%B1plar%C4%B1-(creational-design-patterns)
+http://www.csharpnedir.com/articles/read/?id=146
+https://www.kodlamamerkezi.com/asp-net/mvc-model-view-controller-nedir/
