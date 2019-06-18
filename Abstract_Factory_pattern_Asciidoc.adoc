@@ -1,37 +1,37 @@
-## Yarartımsal(Creational) tasarım desenleri:
-Bu paternler, yazılım nesnelerinin nasıl yaratılacağı hakkında genel olarak öneriler sunarak kullandığı 
-esnek yapı sayesinde daha önceden belirlenen durumlara bağlı olarak gerekli nesneleri yaratır. Yaratımsal(Creational) desenler, 
-hangi nesnenin çağrılması gerektiğini izlemeden sistemin uygun nesneyi çağırmasını sağlayan tasarım kalıplarıdır. 
-Nesnelerin yaratılması gerektiği durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
-iyi bir yazılımın içinde barındırdığı nesnelerin nasıl yaratıldığından bağımsız olarak tasarlanması gerekliliğidir.
+## YarartÄ±msal(Creational) tasarÄ±m desenleri:
+Bu paternler, yazÄ±lÄ±m nesnelerinin nasÄ±l yaratÄ±lacaÄŸÄ± hakkÄ±nda genel olarak Ã¶neriler sunarak kullandÄ±ÄŸÄ± 
+esnek yapÄ± sayesinde daha Ã¶nceden belirlenen durumlara baÄŸlÄ± olarak gerekli nesneleri yaratÄ±r. YaratÄ±msal(Creational) desenler, 
+hangi nesnenin Ã§aÄŸrÄ±lmasÄ± gerektiÄŸini izlemeden sistemin uygun nesneyi Ã§aÄŸÄ±rmasÄ±nÄ± saÄŸlayan tasarÄ±m kalÄ±plarÄ±dÄ±r. 
+Nesnelerin yaratÄ±lmasÄ± gerektiÄŸi durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaÃ§, 
+iyi bir yazÄ±lÄ±mÄ±n iÃ§inde barÄ±ndÄ±rdÄ±ÄŸÄ± nesnelerin nasÄ±l yaratÄ±ldÄ±ÄŸÄ±ndan baÄŸÄ±msÄ±z olarak tasarlanmasÄ± gerekliliÄŸidir.
 
 ### * Abstract Factory Pattern: 
-Benzer özelliklere sahip objeler varsa, veya birden fazla ürün ailesi çalışmak zorunda kaldığımızda kullanacağımız ürün ailesi ile istemci tarafı soyutlamak için kullanılır
-"Abstract Factory" birbirleriyle ilişkili yada birbirlerine bağlı olan nesnelerin oluşturulmasını en etkin bir şekilde çözmeyi hedefler. 
-Bu hedefe ulaşmak için soyut sınıflardan(abstract class) veya arayüzlerden(interface) yoğun bir şekilde faydalanmaktadır. 
-"Abstract Factory" deseninin ana teması belirli sınıfların içerdiği ortak arayüzü soyut bir sınıf yada arayüz olarak tasarlamaktır. 
-Böylece nesneleri üreten sınıf, hangi nesnenin üretileceği ile pek fazla ilgilinmesi gerekmez. İlgilenmesi gereken nokta oluşturacağı 
-nesnenin hangi arayüzleri desteklediği yada uyguladığıdır. Bahsi geçen mekanizmalarla deseni oluşturduğumuz anda çalışma zamanında hangi 
-nesnenin oluşturulması gerektiğini bilmeden nesnelerin oluşturulmasını yönetebiliriz. 
+Benzer Ã¶zelliklere sahip objeler varsa, veya birden fazla Ã¼rÃ¼n ailesi Ã§alÄ±ÅŸmak zorunda kaldÄ±ÄŸÄ±mÄ±zda kullanacaÄŸÄ±mÄ±z Ã¼rÃ¼n ailesi ile istemci tarafÄ± soyutlamak iÃ§in kullanÄ±lÄ±r
+"Abstract Factory" birbirleriyle iliÅŸkili yada birbirlerine baÄŸlÄ± olan nesnelerin oluÅŸturulmasÄ±nÄ± en etkin bir ÅŸekilde Ã§Ã¶zmeyi hedefler. 
+Bu hedefe ulaÅŸmak iÃ§in soyut sÄ±nÄ±flardan(abstract class) veya arayÃ¼zlerden(interface) yoÄŸun bir ÅŸekilde faydalanmaktadÄ±r. 
+"Abstract Factory" deseninin ana temasÄ± belirli sÄ±nÄ±flarÄ±n iÃ§erdiÄŸi ortak arayÃ¼zÃ¼ soyut bir sÄ±nÄ±f yada arayÃ¼z olarak tasarlamaktÄ±r. 
+BÃ¶ylece nesneleri Ã¼reten sÄ±nÄ±f, hangi nesnenin Ã¼retileceÄŸi ile pek fazla ilgilinmesi gerekmez. Ä°lgilenmesi gereken nokta oluÅŸturacaÄŸÄ± 
+nesnenin hangi arayÃ¼zleri desteklediÄŸi yada uyguladÄ±ÄŸÄ±dÄ±r. Bahsi geÃ§en mekanizmalarla deseni oluÅŸturduÄŸumuz anda Ã§alÄ±ÅŸma zamanÄ±nda hangi 
+nesnenin oluÅŸturulmasÄ± gerektiÄŸini bilmeden nesnelerin oluÅŸturulmasÄ±nÄ± yÃ¶netebiliriz. 
 
-Eğer bir nesne oluşturacaksanız ve tam olarak hangi nesnenin oluşturulacağına bir switch yada if deyimi ile karar veriyorsanız muhtemelen 
-her nesneyi oluştruduğunuzda aynı switch yapısını kullanmak zorunda kalacaksınız. Bu tür tekrarları önlemek için "Abstarct Factory" deseninden 
-faydalanılabilir. Bu elbetteki nesnelerin ortak bir arayüzü uygulamış olma zorunluluğunun getirdiği bir faydadır.
+EÄŸer bir nesne oluÅŸturacaksanÄ±z ve tam olarak hangi nesnenin oluÅŸturulacaÄŸÄ±na bir switch yada if deyimi ile karar veriyorsanÄ±z muhtemelen 
+her nesneyi oluÅŸtruduÄŸunuzda aynÄ± switch yapÄ±sÄ±nÄ± kullanmak zorunda kalacaksÄ±nÄ±z. Bu tÃ¼r tekrarlarÄ± Ã¶nlemek iÃ§in "Abstarct Factory" deseninden 
+faydalanÄ±labilir. Bu elbetteki nesnelerin ortak bir arayÃ¼zÃ¼ uygulamÄ±ÅŸ olma zorunluluÄŸunun getirdiÄŸi bir faydadÄ±r.
 
-#### Abstract Factory tasarım deseninin genel uml şeması aşağıdaki gibidir :
+#### Abstract Factory tasarÄ±m deseninin genel uml ÅŸemasÄ± aÅŸaÄŸÄ±daki gibidir :
 
-image::abstract factory diagram.png[600,500]
+image::Donem_Projesi_Uml/abstract factory diagram.png[600,500]
 
-#### Örnek:
-Bu örnek uygulamada Abstract Factory paterni uygulandı iki tane Factoryimiz mevcuttur YatirmaIslemiFactory'i Kullanarak Yatırma İşlemi ve Sorumlusu Olan Müşteri Kullanıcımızı Oluşturuluyor.
-TransferIslemiFactory ise Transfer İşlemi ve Sorumlusu Olan Yönetici Kullanıcımızı Oluşturuyor. Uygulamanın class diyagramlari aşağıdaki gibidir.
+#### Ã–rnek:
+Bu Ã¶rnek uygulamada Abstract Factory paterni uygulandÄ± iki tane Factoryimiz mevcuttur YatirmaIslemiFactory'i Kullanarak YatÄ±rma Ä°ÅŸlemi ve Sorumlusu Olan MÃ¼ÅŸteri KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuluyor.
+TransferIslemiFactory ise Transfer Ä°ÅŸlemi ve Sorumlusu Olan YÃ¶netici KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuyor. UygulamanÄ±n class diyagramlari aÅŸaÄŸÄ±daki gibidir.
 
 #### *Abstract Factory Pattern Ornegi icin UML class diyagram :
 
-image::Kendi Örneğimin Abstract Factory Patternin Diyagrami(Özel).png[]
+image::Donem_Projesi_Uml/Kendi Ã–rneÄŸimin Abstract Factory Patternin Diyagrami(Ã–zel).png[]
 
 
-#### *Abstract Factory Pattern Örneğin Kodları:
+#### *Abstract Factory Pattern Ã–rneÄŸin KodlarÄ±:
 
 .AbstractFactoryPatternMain.java
 [source, java]
@@ -47,7 +47,7 @@ public class AbstractFactoryPatternMain {
 		TransferIslemiFactory transferIslemiFactory = new TransferIslemiFactory();
 		YatirmaIslemiFactory yatirmaIslemiFactory = new YatirmaIslemiFactory();
 
-		System.out.println("YatirmaIslemiFactory'i Kullanarak Yatırma İşlemi ve Sorumlusu Olan Müşteri Kullanıcımızı Oluşturuluyor:");
+		System.out.println("YatirmaIslemiFactory'i Kullanarak YatÄ±rma Ä°ÅŸlemi ve Sorumlusu Olan MÃ¼ÅŸteri KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuluyor:");
 		Parasalislemi yatirmaIslemi= yatirmaIslemiFactory.getParasalislemi("yatirma");
 		Kullanici musteriKullanici= yatirmaIslemiFactory.getIslemSorumlusu("Musteri");
 		yatirmaIslemi.islemTuru();
@@ -56,7 +56,7 @@ public class AbstractFactoryPatternMain {
 		
 		System.out.print("\n");
 		
-		System.out.println("TransferIslemiFactory'i Kullanarak Transfer İşlemi ve Sorumlusu Olan Yönetici Kullanıcımızı Oluşturuluyor: ");
+		System.out.println("TransferIslemiFactory'i Kullanarak Transfer Ä°ÅŸlemi ve Sorumlusu Olan YÃ¶netici KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuluyor: ");
 		Parasalislemi transferIslemi= transferIslemiFactory.getParasalislemi("transfer");
 		Kullanici yoneticiKullanici = transferIslemiFactory.getIslemSorumlusu("Yonetici");
         transferIslemi.islemTuru();
@@ -184,7 +184,7 @@ public class Kullanici {
 	
 	
 	public void showUp(){
-		System.out.printf("Kullanıcı türü :[%s], Kullanıcı Yaşı:[%d]\n", getKullanici_turu(),getAge());
+		System.out.printf("KullanÄ±cÄ± tÃ¼rÃ¼ :[%s], KullanÄ±cÄ± YaÅŸÄ±:[%d]\n", getKullanici_turu(),getAge());
 	}
 
 }
@@ -200,7 +200,7 @@ public class Musteri extends Kullanici{
 	Random rand = new Random();
 
 	public Musteri(){
-		setKullanici_turu("Müşteri");
+		setKullanici_turu("MÃ¼ÅŸteri");
 		int value = rand.nextInt(51)+20;
 		setAge(value);
 	}
@@ -220,7 +220,7 @@ public class Yonetici extends Kullanici{
     Random rand = new Random();
 	
 	public Yonetici(){
-		setKullanici_turu("Yönetici");
+		setKullanici_turu("YÃ¶netici");
 		int value = rand.nextInt(51)+20;
 		setAge(value);
 	}
@@ -235,7 +235,7 @@ public abstract class Parasalislemi {
 	
 	public void islemTuru() {
 		
-		System.out.println("Hesabınız ile bir parasal işlemi gerçekleşetirilecektir!!");
+		System.out.println("HesabÄ±nÄ±z ile bir parasal iÅŸlemi gerÃ§ekleÅŸetirilecektir!!");
 
 	}
 }
@@ -248,7 +248,7 @@ package AbstractFactory_Pattern;
 public class Transferislemi extends Parasalislemi{
 	
 	public void islemTuru(){
-		System.out.println("Para transfer ettirme işlemi yönetici tarafından gerçekleştirilecektir!!");
+		System.out.println("Para transfer ettirme iÅŸlemi yÃ¶netici tarafÄ±ndan gerÃ§ekleÅŸtirilecektir!!");
 	}
 
 }
@@ -261,7 +261,7 @@ package AbstractFactory_Pattern;
 public class Yatirmaislemi extends Parasalislemi{
 	
 	public void islemTuru(){
-		System.out.println("Hesaba para yatırma işlemi müşteri tarafından gerçekleştirilecektir!!");
+		System.out.println("Hesaba para yatÄ±rma iÅŸlemi mÃ¼ÅŸteri tarafÄ±ndan gerÃ§ekleÅŸtirilecektir!!");
 	}
 
 }
@@ -271,12 +271,12 @@ public class Yatirmaislemi extends Parasalislemi{
 ----
 ### Abstract Factory Pattern's Example is Runing ###
 
-YatirmaIslemiFactory'i Kullanarak Yatırma İşlemi ve Sorumlusu Olan Müşteri Kullanıcımızı Oluşturuluyor:
-Hesaba para yatırma işlemi müşteri tarafından gerçekleştirilecektir!!
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[40]
+YatirmaIslemiFactory'i Kullanarak YatÄ±rma Ä°ÅŸlemi ve Sorumlusu Olan MÃ¼ÅŸteri KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuluyor:
+Hesaba para yatÄ±rma iÅŸlemi mÃ¼ÅŸteri tarafÄ±ndan gerÃ§ekleÅŸtirilecektir!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[40]
 
-TransferIslemiFactory'i Kullanarak Transfer İşlemi ve Sorumlusu Olan Yönetici Kullanıcımızı Oluşturuluyor: 
-Para transfer ettirme işlemi yönetici tarafından gerçekleştirilecektir!!
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[55]
+TransferIslemiFactory'i Kullanarak Transfer Ä°ÅŸlemi ve Sorumlusu Olan YÃ¶netici KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuluyor: 
+Para transfer ettirme iÅŸlemi yÃ¶netici tarafÄ±ndan gerÃ§ekleÅŸtirilecektir!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[55]
 
 ----
