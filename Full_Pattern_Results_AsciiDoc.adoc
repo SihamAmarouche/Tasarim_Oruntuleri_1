@@ -1,12 +1,11 @@
-#### Tasarým Örüntülerin Dersinin Projesi:
+#### TasarÄ±m Ã–rÃ¼ntÃ¼lerin Dersinin Projesi:
 
-Bu projede Banka Otomasyonuna 12 tane tasarým deseni uygulanmýþtýr. Projenin Genel Yapýsý Gösteren Uml Class Diagramý(Þemasý) aþaðýdaki gibidir:
+Bu projede Banka Otomasyonuna 12 tane tasarÄ±m deseni uygulanmÄ±ÅŸtÄ±r. Projenin Genel YapÄ±sÄ± GÃ¶steren Uml Class DiagramÄ±(ÅžemasÄ±) aÅŸaÄŸÄ±daki gibidir:
 
 image::Donem_Projesi_Uml/PLANTUml_For_Full_Project.png[]
 
-#### Banka Otomasyon Projesi Ýki Farklý Þekilde Geliþtirilmiþtir. 
-#### 1) Full Project With Interface : Burada arayüzle geliþtirilmeye çalýþýldý, buttonlarý ekleyip buttonlarý etkin hale getirilip her tasarým desene özel çýktý saðlanýr
-sonuçlar örneðin (Adapter pattern ve Observer patter) için aþaðýdaki fotoðraflarda gösterildi gibi:
+#### Banka Otomasyon Projesi Ä°ki FarklÄ± Åžekilde GeliÅŸtirilmiÅŸtir. 
+#### 1) Full Project With Interface : Burada arayÃ¼zle geliÅŸtirilmeye Ã§alÄ±ÅŸÄ±ldÄ±, buttonlarÄ± ekleyip buttonlarÄ± etkin hale getirilip her tasarÄ±m desene Ã¶zel Ã§Ä±ktÄ± saÄŸlanÄ±r. SonuÃ§lar Ã¶rneÄŸin (Adapter pattern ve Observer patter) iÃ§in aÅŸaÄŸÄ±daki fotoÄŸraflarda gÃ¶sterildi gibi:
 
 image::Donem_Projesi_Uml/Adapter.PNG[]
 
@@ -25,8 +24,8 @@ obj1-Bakiye : 3000,00
 obj2-Bakiye : 3000,00 
 obj3-Bakiye : 3000,00 
 
-Yatýrýlacak Paranýn Tutarý:250,00 TL dir
-250,00 TL Hesabýnýza Baþarýyle Yatýrýldý !!
+YatÄ±rÄ±lacak ParanÄ±n TutarÄ±:250,00 TL dir
+250,00 TL HesabÄ±nÄ±za BaÅŸarÄ±yle YatÄ±rÄ±ldÄ± !!
 obj1-Bakiye : 3250,00 
 obj2-Bakiye : 3250,00 
 obj3-Bakiye : 3250,00 
@@ -34,119 +33,119 @@ obj3-Bakiye : 3250,00
 
 ### Factory Design Pattern's Example is Runing [Example 1]###
 
-Para transfer iþlemi gerçekleþecektir!!
+Para transfer iÅŸlemi gerÃ§ekleÅŸecektir!!
 
-Borç/kredi ödeme iþlemi gerçekleþecektir!!
+BorÃ§/kredi Ã¶deme iÅŸlemi gerÃ§ekleÅŸecektir!!
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Factory Design Pattern's Example is Runing [Example 2]###
 
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[28]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[43]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[34]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[61]
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[23]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[22]
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[53]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[28]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[43]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[34]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[61]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[23]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[22]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[53]
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Object Pool Design Pattern's Example is Runing ###
 
-1. Oturum Objesi Ayarlandý (created)
-2. Oturum Objesi Ayarlandý (created)
-3. Oturum Objesi Ayarlandý (created)
-4. Oturum Objesi Ayarlandý (created)
-5. Oturum Objesi Ayarlandý (created)
-6. Oturum Objesi Ayarlandý (created)
-Thread 1==> 1. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 2==> 2. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 2==> 2. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
-Thread 1==> 1. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
-Thread 4==> 3. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 3==> 4. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 4==> 3. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
-Thread 3==> 4. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
-Thread 6==> 5. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 5==> 6. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 5==> 6. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
-Thread 6==> 5. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
-Thread 7==> 1. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 7==> 1. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
-Thread 8==> 2. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
-Thread 8==> 2. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+1. Oturum Objesi AyarlandÄ± (created)
+2. Oturum Objesi AyarlandÄ± (created)
+3. Oturum Objesi AyarlandÄ± (created)
+4. Oturum Objesi AyarlandÄ± (created)
+5. Oturum Objesi AyarlandÄ± (created)
+6. Oturum Objesi AyarlandÄ± (created)
+Thread 1==> 1. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 2==> 2. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 2==> 2. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
+Thread 1==> 1. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
+Thread 4==> 3. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 3==> 4. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 4==> 3. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
+Thread 3==> 4. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
+Thread 6==> 5. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 5==> 6. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 5==> 6. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
+Thread 6==> 5. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
+Thread 7==> 1. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 7==> 1. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
+Thread 8==> 2. KullanÄ±cÄ±nÄ±n Sistemde Oturumu SaÄŸlandÄ±(AÃ§Ä±ldÄ±)
+Thread 8==> 2. KullanÄ±cÄ±nÄ±n Sistemde Oturumu KapatÄ±ldÄ±(Exite)
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Prototype Pattern's Example is Runing [Deep Copy] ###
 
-Bankanýn Orijinal(Asil) Müþterisi Oluþturuldu !!
-Bankanýn Clonelanan(DeepCopy) Müþterisi Oluþturuldu !!
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[25]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[25]
+BankanÄ±n Orijinal(Asil) MÃ¼ÅŸterisi OluÅŸturuldu !!
+BankanÄ±n Clonelanan(DeepCopy) MÃ¼ÅŸterisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[25]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[25]
 
 orijinal Musterinin Adresi: 2016447921
 Cloned Musterinin Adresi: 666641942
 
-Clonelanan Müþterinin yaþ deðerini deðiþtirirsek orijinal müþterinin deðeri deðiþmez, çünkü burada DeepCopy Cloning uygulandi!!
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[25]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[36]
+Clonelanan MÃ¼ÅŸterinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal mÃ¼ÅŸterinin deÄŸeri deÄŸiÅŸmez, Ã§Ã¼nkÃ¼ burada DeepCopy Cloning uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[25]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[36]
 ***********Deep Cloninig 2.metodu ile test etmek***********
 
-****Sisteme Yeni Yöneticileri Eklenecek !!****
-Bankanýn Orijinal(Asil) Yöneticisi Oluþturuldu !!
-Bankanýn Clonelanan(DeepCopy Method_2) Yöneticisi Oluþturuldu !!
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[61]
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[61]
+****Sisteme Yeni YÃ¶neticileri Eklenecek !!****
+BankanÄ±n Orijinal(Asil) YÃ¶neticisi OluÅŸturuldu !!
+BankanÄ±n Clonelanan(DeepCopy Method_2) YÃ¶neticisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[61]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[61]
 
 orijinal Yoneticinin Adresi: 960604060
 Cloned Yoneticinin Adresi: 1349393271
 
-Clonelanan Yöneticinin yaþ deðerini deðiþtirirsek orijinal yöneticinin deðeri deðiþmez, çünkü burada DeepCopy Cloning 2.metod uygulandi!!
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[61]
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[65]
+Clonelanan YÃ¶neticinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal yÃ¶neticinin deÄŸeri deÄŸiÅŸmez, Ã§Ã¼nkÃ¼ burada DeepCopy Cloning 2.metod uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[61]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[65]
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Prototype Pattern's Example is Runing [Shallow Copy] ###
 
-Bankanýn Orijinal(Asil) Müþterisi Oluþturuldu !!
-Bankanýn Clonelanan(SallowCopy) Müþterisi Oluþturuldu !!
-Bankanýn Orijinal(Asil) Müþterisi Oluþturuldu !!
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[60]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[60]
+BankanÄ±n Orijinal(Asil) MÃ¼ÅŸterisi OluÅŸturuldu !!
+BankanÄ±n Clonelanan(SallowCopy) MÃ¼ÅŸterisi OluÅŸturuldu !!
+BankanÄ±n Orijinal(Asil) MÃ¼ÅŸterisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[60]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[60]
 
 orijinal Musterinin Adresi: 1338668845
 Cloned Musterinin Adresi: 1338668845
 
-Clonelanan Müþterinin yaþ deðerini deðiþtirirsek orijinal müþterinin deðeri de deðiþir, çünkü burada ShallowCopy Cloning uygulandi!!
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[24]
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[24]
+Clonelanan MÃ¼ÅŸterinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal mÃ¼ÅŸterinin deÄŸeri de deÄŸiÅŸir, Ã§Ã¼nkÃ¼ burada ShallowCopy Cloning uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[24]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[24]
 
-****Sisteme Yeni Yöneticileri Eklenecek !!****
-Bankanýn Orijinal(Asil) Yöneticisi Oluþturuldu !!
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[32]
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[32]
+****Sisteme Yeni YÃ¶neticileri Eklenecek !!****
+BankanÄ±n Orijinal(Asil) YÃ¶neticisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[32]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[32]
 
 orijinal Yoneticinin Adresi: 159413332
 Cloned Yoneticinin Adresi: 1028214719
 
-Clonelanan Yöneticinin yaþ deðerini deðiþtirirsek orijinal yöneticinin deðeri de deðiþir, çünkü burada ShallowCopy Cloning uygulandi!!
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[32]
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[39]
+Clonelanan YÃ¶neticinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal yÃ¶neticinin deÄŸeri de deÄŸiÅŸir, Ã§Ã¼nkÃ¼ burada ShallowCopy Cloning uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[32]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[39]
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Builder Design Pattern's Example is Runing [Example 2] ###
 
 Transfer Edilecek Para Tutari : 50,25TL
-Para Transferi Ýçin Kullanýlacak Hesabýn Hesap Bakiyesi: 1000 TL
-Para Transferi Ýçin Kullanýlan Hesabýn Hesap Numarasi:1235 6786 8335 4467
+Para Transferi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: 1000 TL
+Para Transferi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:1235 6786 8335 4467
 Hesap Sahibinin Telefon Numarasi : +90 5647869843
-**** !! Para transfer iþlemi baþarýyla gerçekleþtirilmiþtir !! ****
+**** !! Para transfer iÅŸlemi baÅŸarÄ±yla gerÃ§ekleÅŸtirilmiÅŸtir !! ****
 Transferislemi [islemTutari=50,25TL , hesapBakiye=1000TL , hesapNo=1235 6786 8335 4467, hesapSahibi_Telefon_No=+90 5647869843]
 
-Yatýrým Edilecek Para Tutari : 100,95TL
-Para Yatirma Ýþlemi Ýçin Kullanýlacak Hesabýn Hesap Bakiyesi: 34500 TL
-Para Yatýrma Ýþlemi Ýçin Kullanýlan Hesabýn Hesap Numarasi:4789 6786 9084 3267
+YatÄ±rÄ±m Edilecek Para Tutari : 100,95TL
+Para Yatirma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: 34500 TL
+Para YatÄ±rma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:4789 6786 9084 3267
 Hesap Sahibinin Telefon Numarasi : +90 5268692843
-**** !! Hesabýnýza para yatýrma iþlemi baþarýyla gerçekleþtirilmiþtir !! ****
+**** !! HesabÄ±nÄ±za para yatÄ±rma iÅŸlemi baÅŸarÄ±yla gerÃ§ekleÅŸtirilmiÅŸtir !! ****
 Yatirmaislemi [islemTutari= 100,95 TL, hesapBakiye= 34500 TL, hesapNo=4789 6786 9084 3267, hesapSahibi_Telefon_No=+90 5268692843]
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -160,81 +159,81 @@ Kullanici adi=Can, kullanici soyadi=Demir, age=30, TC_No=99336798930, Telefon_No
 
 ### Abstract Factory Pattern's Example is Runing ###
 
-YatirmaIslemiFactory'i Kullanarak Yatýrma Ýþlemi ve Sorumlusu Olan Müþteri Kullanýcýmýzý Oluþturuluyor:
-Hesaba para yatýrma iþlemi müþteri tarafýndan gerçekleþtirilecektir!!
-Kullanýcý türü :[Müþteri], Kullanýcý Yaþý:[44]
+YatirmaIslemiFactory'i Kullanarak YatÄ±rma Ä°ÅŸlemi ve Sorumlusu Olan MÃ¼ÅŸteri KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuluyor:
+Hesaba para yatÄ±rma iÅŸlemi mÃ¼ÅŸteri tarafÄ±ndan gerÃ§ekleÅŸtirilecektir!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[44]
 
-TransferIslemiFactory'i Kullanarak Transfer Ýþlemi ve Sorumlusu Olan Yönetici Kullanýcýmýzý Oluþturuluyor: 
-Para transfer ettirme iþlemi yönetici tarafýndan gerçekleþtirilecektir!!
-Kullanýcý türü :[Yönetici], Kullanýcý Yaþý:[37]
+TransferIslemiFactory'i Kullanarak Transfer Ä°ÅŸlemi ve Sorumlusu Olan YÃ¶netici KullanÄ±cÄ±mÄ±zÄ± OluÅŸturuluyor: 
+Para transfer ettirme iÅŸlemi yÃ¶netici tarafÄ±ndan gerÃ§ekleÅŸtirilecektir!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[37]
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Iterator Design Pattern's Example is Runing ###
 
---> Iterator Vasýtasý Ýle Sistemin Müþterilerin Bilgileri Geri Göndermek!!
+--> Iterator VasÄ±tasÄ± Ä°le Sistemin MÃ¼ÅŸterilerin Bilgileri Geri GÃ¶ndermek!!
 
-musteri_adi=Muhammed, musteri_soyadi=Kaya, age=24, kullanici_turu=Müþteri
-musteri_adi=Caner, musteri_soyadi=Bulut, age=30, kullanici_turu=Müþteri
-musteri_adi=Esma, musteri_soyadi=Bodur, age=27, kullanici_turu=Müþteri
+musteri_adi=Muhammed, musteri_soyadi=Kaya, age=24, kullanici_turu=MÃ¼ÅŸteri
+musteri_adi=Caner, musteri_soyadi=Bulut, age=30, kullanici_turu=MÃ¼ÅŸteri
+musteri_adi=Esma, musteri_soyadi=Bodur, age=27, kullanici_turu=MÃ¼ÅŸteri
 
---> Iterator Vasýtasý Ýle Sistemin Yöneticilerin Bilgileri Geri Göndermek!!
+--> Iterator VasÄ±tasÄ± Ä°le Sistemin YÃ¶neticilerin Bilgileri Geri GÃ¶ndermek!!
 
-yönetici_adi=Ahmet, yönetici_soyadi=Akbulut, age=45, kullanici_turu=Yönetici
-yönetici_adi=Unal, yönetici_soyadi=Sayar, age=50, kullanici_turu=Yönetici
-yönetici_adi=Merve, yönetici_soyadi=Ateþ, age=37, kullanici_turu=Yönetici
+yÃ¶netici_adi=Ahmet, yÃ¶netici_soyadi=Akbulut, age=45, kullanici_turu=YÃ¶netici
+yÃ¶netici_adi=Unal, yÃ¶netici_soyadi=Sayar, age=50, kullanici_turu=YÃ¶netici
+yÃ¶netici_adi=Merve, yÃ¶netici_soyadi=AteÅŸ, age=37, kullanici_turu=YÃ¶netici
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Observer Design Pattern's Example is Runing ###
 
 Aykut Demir :: Kampanya Mesaji yoktur !!
-Merve DoðanAy :: Kampanya Mesaji yoktur !!
-Topic'a gönderilen kampanya mesajýn bilgileri: 
-Kampanyanýn Baþlýðý: Ýlk Kampanyamýz,
-Kampanyanýn Ýçeriði: Kampanyamiz Altin dovizi alimi ile ilgilidir, Kampanyanýn Süresi:1 aydýr
-Aykut Demir :: Kampanya Mesaji vardir !! ==> Kampanyanýn Ýçeriði: Kampanyamiz Altin dovizi alimi ile ilgilidir
-Alp Erdoðan :: Kampanya Mesaji vardir !! ==> Kampanyanýn Ýçeriði: Kampanyamiz Altin dovizi alimi ile ilgilidir
-Merve DoðanAy :: Kampanya Mesaji vardir !! ==> Kampanyanýn Ýçeriði: Kampanyamiz Altin dovizi alimi ile ilgilidir
+Merve DoÄŸanAy :: Kampanya Mesaji yoktur !!
+Topic'a gÃ¶nderilen kampanya mesajÄ±n bilgileri: 
+KampanyanÄ±n BaÅŸlÄ±ÄŸÄ±: Ä°lk KampanyamÄ±z,
+KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir, KampanyanÄ±n SÃ¼resi:1 aydÄ±r
+Aykut Demir :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir
+Alp ErdoÄŸan :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir
+Merve DoÄŸanAy :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir
 ---------------------------------------------------
 
-Topic'a gönderilen kampanya mesajýn bilgileri: 
-Kampanyanýn Baþlýðý: 2. Kampanyamýz,
-Kampanyanýn Ýçeriði: Çocuklarýn geleceði için kumbara kampanyasýna katýlýn, Kampanyanýn Süresi:2 aydýr
-Aykut Demir :: Kampanya Mesaji vardir !! ==> Kampanyanýn Ýçeriði: Çocuklarýn geleceði için kumbara kampanyasýna katýlýn
-Merve DoðanAy :: Kampanya Mesaji vardir !! ==> Kampanyanýn Ýçeriði: Çocuklarýn geleceði için kumbara kampanyasýna katýlýn
+Topic'a gÃ¶nderilen kampanya mesajÄ±n bilgileri: 
+KampanyanÄ±n BaÅŸlÄ±ÄŸÄ±: 2. KampanyamÄ±z,
+KampanyanÄ±n Ä°Ã§eriÄŸi: Ã‡ocuklarÄ±n geleceÄŸi iÃ§in kumbara kampanyasÄ±na katÄ±lÄ±n, KampanyanÄ±n SÃ¼resi:2 aydÄ±r
+Aykut Demir :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Ã‡ocuklarÄ±n geleceÄŸi iÃ§in kumbara kampanyasÄ±na katÄ±lÄ±n
+Merve DoÄŸanAy :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Ã‡ocuklarÄ±n geleceÄŸi iÃ§in kumbara kampanyasÄ±na katÄ±lÄ±n
 ---------------------------------------------------
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Mediator Design Pattern's Example is Runing ###
 
-Istanbul Banka Þübesi Tarafýndan bu mesaj gönderildi : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
-Ankara Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
-Ýzmir Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
-Bursa Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
+Istanbul Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj gÃ¶nderildi : TÃ¼m ÅžÃ¼belere Dikkatine 1. Bilgilendirme mesaji !!!
+Ankara Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj alÄ±ndÄ± : TÃ¼m ÅžÃ¼belere Dikkatine 1. Bilgilendirme mesaji !!!
+Ä°zmir Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj alÄ±ndÄ± : TÃ¼m ÅžÃ¼belere Dikkatine 1. Bilgilendirme mesaji !!!
+Bursa Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj alÄ±ndÄ± : TÃ¼m ÅžÃ¼belere Dikkatine 1. Bilgilendirme mesaji !!!
 
-Bursa Banka Þübesi Tarafýndan bu mesaj gönderildi : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
-Istanbul Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
-Ankara Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
-Ýzmir Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
+Bursa Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj gÃ¶nderildi : TÃ¼m ÅžÃ¼belere Dikkatine 2. Bilgilendirme mesaji !!!
+Istanbul Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj alÄ±ndÄ± : TÃ¼m ÅžÃ¼belere Dikkatine 2. Bilgilendirme mesaji !!!
+Ankara Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj alÄ±ndÄ± : TÃ¼m ÅžÃ¼belere Dikkatine 2. Bilgilendirme mesaji !!!
+Ä°zmir Banka ÅžÃ¼besi TarafÄ±ndan bu mesaj alÄ±ndÄ± : TÃ¼m ÅžÃ¼belere Dikkatine 2. Bilgilendirme mesaji !!!
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Memento Design Pattern's Example is Runing ###
 
-Banka hesabinin þimdiki Durumu: Donduruldu
-Hesabýn Kaydedilen Ýlk Durumu: Açýk
-Hesabýn Kaydedilen Ýkinci Durumu: Kapatýldý
+Banka hesabinin ÅŸimdiki Durumu: Donduruldu
+HesabÄ±n Kaydedilen Ä°lk Durumu: AÃ§Ä±k
+HesabÄ±n Kaydedilen Ä°kinci Durumu: KapatÄ±ldÄ±
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ### Adapter Design Pattern's Example is Runing ###
 
-Alýþveriþte Kullanýlan Para Birimi: Türk Lirasý
-Alýþveriþte kullanýlacak para miktarý = 1250,00 TL
-Türk Lirasý deðeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar 
+AlÄ±ÅŸveriÅŸte KullanÄ±lan Para Birimi: TÃ¼rk LirasÄ±
+AlÄ±ÅŸveriÅŸte kullanÄ±lacak para miktarÄ± = 1250,00 TL
+TÃ¼rk LirasÄ± deÄŸeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar 
 
-Alýþveriþte Kullanýlan Para Birimi: Dolar (USD)
-Alýþveriþte kullanýlacak para miktarý = 206,82 Dolar(USD)
-Dolar deðeri Türk Lirasý cinsinden ==> 1 Dolar = 6.044 TL 
+AlÄ±ÅŸveriÅŸte KullanÄ±lan Para Birimi: Dolar (USD)
+AlÄ±ÅŸveriÅŸte kullanÄ±lacak para miktarÄ± = 206,82 Dolar(USD)
+Dolar deÄŸeri TÃ¼rk LirasÄ± cinsinden ==> 1 Dolar = 6.044 TL 
 
 --------------------------------------------------------
 
