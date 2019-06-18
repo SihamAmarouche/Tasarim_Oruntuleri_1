@@ -16,7 +16,7 @@ tür durumlarda sıklıkla kullanılan ve performansı da ciddi şekilde arttır
 
 #### Object Pool tasarım deseninin genel uml şeması aşağıdaki gibidir :
 
-image::ObjectPoolPattern_1.PNG[450,520]
+image::Donem_Projesi_Uml/ObjectPoolPattern_1.PNG[450,520]
 
 #### Örnek:
 Bu örnek uygulamamızda sistemde kullanıcıya sınırlı sayıda oturum ayarlanmakta. Banka sistemine atak gerçekleştirememek için kullanıcıya sınırlı sayıda oturum ayarlanıyor oturum havuzu
@@ -24,7 +24,7 @@ mevcuttur eğer oturumu açılmak isteniyorsa havuzdan yer ayarlanıyor eğer ot
 
 #### *Object Pool Pattern Ornegi icin UML class diyagram :
 
-image::Object Pool_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+image::Donem_Projesi_Uml/Object Pool_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
 
 
 #### *Object Pool Pattern Örneğin Kodları:
