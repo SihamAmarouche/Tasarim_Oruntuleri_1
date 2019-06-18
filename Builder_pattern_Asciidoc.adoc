@@ -1,39 +1,39 @@
-## Yarartımsal(Creational) tasarım desenleri:
-Bu paternler, yazılım nesnelerinin nasıl yaratılacağı hakkında genel olarak öneriler sunarak kullandığı 
-esnek yapı sayesinde daha önceden belirlenen durumlara bağlı olarak gerekli nesneleri yaratır. Yaratımsal(Creational) desenler, 
-hangi nesnenin çağrılması gerektiğini izlemeden sistemin uygun nesneyi çağırmasını sağlayan tasarım kalıplarıdır. 
-Nesnelerin yaratılması gerektiği durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
-iyi bir yazılımın içinde barındırdığı nesnelerin nasıl yaratıldığından bağımsız olarak tasarlanması gerekliliğidir.
+## YarartÄ±msal(Creational) tasarÄ±m desenleri:
+Bu paternler, yazÄ±lÄ±m nesnelerinin nasÄ±l yaratÄ±lacaÄŸÄ± hakkÄ±nda genel olarak Ã¶neriler sunarak kullandÄ±ÄŸÄ± 
+esnek yapÄ± sayesinde daha Ã¶nceden belirlenen durumlara baÄŸlÄ± olarak gerekli nesneleri yaratÄ±r. YaratÄ±msal(Creational) desenler, 
+hangi nesnenin Ã§aÄŸrÄ±lmasÄ± gerektiÄŸini izlemeden sistemin uygun nesneyi Ã§aÄŸÄ±rmasÄ±nÄ± saÄŸlayan tasarÄ±m kalÄ±plarÄ±dÄ±r. 
+Nesnelerin yaratÄ±lmasÄ± gerektiÄŸi durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaÃ§, 
+iyi bir yazÄ±lÄ±mÄ±n iÃ§inde barÄ±ndÄ±rdÄ±ÄŸÄ± nesnelerin nasÄ±l yaratÄ±ldÄ±ÄŸÄ±ndan baÄŸÄ±msÄ±z olarak tasarlanmasÄ± gerekliliÄŸidir.
 
 ### * Builder Pattern : 
-Builder (İnşaatçı) tasarım deseni creational grubununa ait, biden fazla parçadan oluşan nesnelerin üretilmesinden sorumlu bir tasarım desenidir.
-Kompleks yapıya sahip nesneleri ve birden fazla girişe sahip olan nesneleri oluşturmak için kullanılır.Kompleks ürünün farklı paraçalarla oluşturulup farklı 
-sunumların elde edilmesidir.
+Builder (Ä°nÅŸaatÃ§Ä±) tasarÄ±m deseni creational grubununa ait, biden fazla parÃ§adan oluÅŸan nesnelerin Ã¼retilmesinden sorumlu bir tasarÄ±m desenidir.
+Kompleks yapÄ±ya sahip nesneleri ve birden fazla giriÅŸe sahip olan nesneleri oluÅŸturmak iÃ§in kullanÄ±lÄ±r.Kompleks Ã¼rÃ¼nÃ¼n farklÄ± paraÃ§alarla oluÅŸturulup farklÄ± 
+sunumlarÄ±n elde edilmesidir.
 
-#### Builder desenini oluşturan 4 yapı vardır:
+#### Builder desenini oluÅŸturan 4 yapÄ± vardÄ±r:
 
-* Product: Oluşturulan nesne.
-* Builder: Product oluşturacak nesnelerin (Concrete Builder) uygulaması gereken arayüz.
-* Concrete Builder: Product nesnesini oluşturan nesne veya özelliklerin oluşturulduğu sınıflar. 
-Her concrete builder sınıfı aynı arayüzde farklı bir ürünün oluşturulmasını sağlar.
-* Director: Verilen builder nesnesine göre product örneği oluşturur.
+* Product: OluÅŸturulan nesne.
+* Builder: Product oluÅŸturacak nesnelerin (Concrete Builder) uygulamasÄ± gereken arayÃ¼z.
+* Concrete Builder: Product nesnesini oluÅŸturan nesne veya Ã¶zelliklerin oluÅŸturulduÄŸu sÄ±nÄ±flar. 
+Her concrete builder sÄ±nÄ±fÄ± aynÄ± arayÃ¼zde farklÄ± bir Ã¼rÃ¼nÃ¼n oluÅŸturulmasÄ±nÄ± saÄŸlar.
+* Director: Verilen builder nesnesine gÃ¶re product Ã¶rneÄŸi oluÅŸturur.
 
-#### Builder tasarım deseninin genel uml şeması aşağıdaki gibidir :
+#### Builder tasarÄ±m deseninin genel uml ÅŸemasÄ± aÅŸaÄŸÄ±daki gibidir :
 
-image::builder_pattern.PNG[]
+image::Donem_Projesi_Uml/builder_pattern.PNG[]
 
-#### Örnek:
-Örnek uygulamamızda islemTutari, hesapBakiye, hesapNo ve hesapSahibi_Telefon_No özellikleri olan bir Parasal işlemi nesnemiz olsun. 
-Bu parasal işlemi(Yatırma işlemi veya Transfer işlemi) nesnemizin özelliklerinin farklı değerler alması 
-ile farklı özelliklerde parasal işlemi(Yatırma işlemi veya Transfer işlemi) nesnesi üretebiliriz. Builder tasarım deseni ile bu senaryoyu gerçekleştirelim. 
-.Uygulamanın class diyagramlari aşağıdaki gibidir.
+#### Ã–rnek:
+Ã–rnek uygulamamÄ±zda islemTutari, hesapBakiye, hesapNo ve hesapSahibi_Telefon_No Ã¶zellikleri olan bir Parasal iÅŸlemi nesnemiz olsun. 
+Bu parasal iÅŸlemi(YatÄ±rma iÅŸlemi veya Transfer iÅŸlemi) nesnemizin Ã¶zelliklerinin farklÄ± deÄŸerler almasÄ± 
+ile farklÄ± Ã¶zelliklerde parasal iÅŸlemi(YatÄ±rma iÅŸlemi veya Transfer iÅŸlemi) nesnesi Ã¼retebiliriz. Builder tasarÄ±m deseni ile bu senaryoyu gerÃ§ekleÅŸtirelim. 
+.UygulamanÄ±n class diyagramlari aÅŸaÄŸÄ±daki gibidir.
 
 #### *Builder Pattern Ornegi icin UML class diyagram :
 
-image::Builder Pattern Örneğimin Class Diyagrami.png[]
+image::Donem_Projesi_Uml/Builder Pattern Ã–rneÄŸimin Class Diyagrami.png[]
 
 
-#### *Builder Pattern Örneğin Kodları:
+#### *Builder Pattern Ã–rneÄŸin KodlarÄ±:
 
 .ParaislemiBuilder.java
 [source, java]
@@ -80,14 +80,14 @@ public class TransferislemiBuilder implements ParaislemiBuilder {
 	@Override
 	public TransferislemiBuilder hesapBakiye(double hesapBakiye) {
 		this.hesapBakiye=hesapBakiye;
-		System.out.println("Para Transferi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+		System.out.println("Para Transferi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
 		return this;
 	}
 
 	@Override
 	public TransferislemiBuilder hesapNo(String hesapNo) {
 		this.hesapNo=hesapNo;
-		System.out.println("Para Transferi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		System.out.println("Para Transferi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:"+hesapNo);
 		return this;
 	}
 
@@ -126,20 +126,20 @@ public class YatirmaislemiBuilder implements ParaislemiBuilder{
 	@Override
 	public YatirmaislemiBuilder islemTutari(double islemTutari) {
 		this.islemTutari=islemTutari;
-		System.out.println("Yatırım Edilecek Para Tutari : "+df2.format(islemTutari)+"TL");
+		System.out.println("YatÄ±rÄ±m Edilecek Para Tutari : "+df2.format(islemTutari)+"TL");
 		return this;
 	}
 
 	@Override
 	public YatirmaislemiBuilder hesapBakiye(double hesapBakiye) {
-		System.out.println("Para Yatirma İşlemi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+		System.out.println("Para Yatirma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
         this.hesapBakiye=hesapBakiye;
 		return this;
 	}
 
 	@Override
 	public YatirmaislemiBuilder hesapNo(String hesapNo) {
-		System.out.println("Para Yatırma İşlemi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		System.out.println("Para YatÄ±rma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:"+hesapNo);
 		this.hesapNo=hesapNo;
 		return this;
 	}
@@ -167,7 +167,7 @@ package BuilderPattern_Example_1;
 public abstract class Parasalislemi {
 	
 	public void islemTuru() {
-		System.out.println("Hesabınız ile bir parasal işlemi gerçekleşetirilecektir!!");
+		System.out.println("HesabÄ±nÄ±z ile bir parasal iÅŸlemi gerÃ§ekleÅŸetirilecektir!!");
 	}
 	public abstract double getIslemTutari();
 	public abstract double getHesapBakiye();
@@ -193,7 +193,7 @@ public class Transferislemi extends Parasalislemi{
 	String hesapSahibi_Telefon_No;
 	
 	public void islemTuru(){
-		System.out.println("**** !! Para transfer işlemi başarıyla gerçekleştirilmiştir !! ****");
+		System.out.println("**** !! Para transfer iÅŸlemi baÅŸarÄ±yla gerÃ§ekleÅŸtirilmiÅŸtir !! ****");
 	}
 	public Transferislemi(double islemTutari,double hesapBakiye,String hesapNo,String hesapSahibi_TelefonNo){
 		this.islemTutari=islemTutari;
@@ -210,13 +210,13 @@ public class Transferislemi extends Parasalislemi{
 
 	@Override
 	public double getHesapBakiye(){
-		System.out.println("Para Transferi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+		System.out.println("Para Transferi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
 		return hesapBakiye;
 	}
 
 	@Override
 	public String getHesapNo() {
-		System.out.println("Para Transferi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		System.out.println("Para Transferi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:"+hesapNo);
 		return hesapNo;
 	}
 
@@ -258,23 +258,23 @@ public class Yatirmaislemi extends Parasalislemi{
 	}
 
 	public void islemTuru(){
-		System.out.println("**** !! Hesabınıza para yatırma işlemi başarıyla gerçekleştirilmiştir !! ****");
+		System.out.println("**** !! HesabÄ±nÄ±za para yatÄ±rma iÅŸlemi baÅŸarÄ±yla gerÃ§ekleÅŸtirilmiÅŸtir !! ****");
 	}
 	@Override
 	public double getIslemTutari() {
-		System.out.println("Yatırım Edilecek Para Tutari : "+df2.format(islemTutari)+" TL");
+		System.out.println("YatÄ±rÄ±m Edilecek Para Tutari : "+df2.format(islemTutari)+" TL");
 		return islemTutari;
 	}
 
 	@Override
 	public double getHesapBakiye() {
-		System.out.println("Para Yatirma İşlemi İçin Kullanılacak Hesabın Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
+		System.out.println("Para Yatirma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: "+df2.format(hesapBakiye)+" TL");
 		return hesapBakiye;
 	}
 
 	@Override
 	public String getHesapNo() {
-		System.out.println("Para Yatırma İşlemi İçin Kullanılan Hesabın Hesap Numarasi:"+hesapNo);
+		System.out.println("Para YatÄ±rma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:"+hesapNo);
 		return hesapNo;
 	}
 
@@ -326,16 +326,16 @@ public class MainProgram {
 ### Builder Design Pattern's Example is Runing ###
 
 Transfer Edilecek Para Tutari : 50,25TL
-Para Transferi İçin Kullanılacak Hesabın Hesap Bakiyesi: 1000 TL
-Para Transferi İçin Kullanılan Hesabın Hesap Numarasi:1235 6786 8335 4467
+Para Transferi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: 1000 TL
+Para Transferi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:1235 6786 8335 4467
 Hesap Sahibinin Telefon Numarasi : +90 5647869843
-**** !! Para transfer işlemi başarıyla gerçekleştirilmiştir !! ****
+**** !! Para transfer iÅŸlemi baÅŸarÄ±yla gerÃ§ekleÅŸtirilmiÅŸtir !! ****
 Transferislemi [islemTutari=50,25TL , hesapBakiye=1000TL , hesapNo=1235 6786 8335 4467, hesapSahibi_Telefon_No=+90 5647869843]
 
-Yatırım Edilecek Para Tutari : 100,95TL
-Para Yatirma İşlemi İçin Kullanılacak Hesabın Hesap Bakiyesi: 34500 TL
-Para Yatırma İşlemi İçin Kullanılan Hesabın Hesap Numarasi:4789 6786 9084 3267
+YatÄ±rÄ±m Edilecek Para Tutari : 100,95TL
+Para Yatirma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lacak HesabÄ±n Hesap Bakiyesi: 34500 TL
+Para YatÄ±rma Ä°ÅŸlemi Ä°Ã§in KullanÄ±lan HesabÄ±n Hesap Numarasi:4789 6786 9084 3267
 Hesap Sahibinin Telefon Numarasi : +90 5268692843
-**** !! Hesabınıza para yatırma işlemi başarıyla gerçekleştirilmiştir !! ****
+**** !! HesabÄ±nÄ±za para yatÄ±rma iÅŸlemi baÅŸarÄ±yla gerÃ§ekleÅŸtirilmiÅŸtir !! ****
 Yatirmaislemi [islemTutari= 100,95 TL, hesapBakiye= 34500 TL, hesapNo=4789 6786 9084 3267, hesapSahibi_Telefon_No=+90 5268692843]
 ----
