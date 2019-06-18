@@ -1,17 +1,17 @@
-### MVC Tasarım Deseni:
-MVC, başlıkta da belirttiğim gibi Model, View ve Controller kelimelerinden oluşturulmuş bir yazılım geliştirme desenidir. Masaüstü, web veya mobil uygulamaların hepsine uyarlanarak kullanılabilir. Fakat özellikle web projelerinin yapısına uygun olduğu için tercih edilmektedir. MVC deseni ( pattern ) Asp.Net ile ortaya çıkan bir desen değildir. Son 20 yıldır kullanılmakta olan fakat Asp.Net MVC ile popülerliği artmış bir desendir.
+### MVC TasarÄ±m Deseni:
+MVC, baÅŸlÄ±kta da belirttiÄŸim gibi Model, View ve Controller kelimelerinden oluÅŸturulmuÅŸ bir yazÄ±lÄ±m geliÅŸtirme desenidir. MasaÃ¼stÃ¼, web veya mobil uygulamalarÄ±n hepsine uyarlanarak kullanÄ±labilir. Fakat Ã¶zellikle web projelerinin yapÄ±sÄ±na uygun olduÄŸu iÃ§in tercih edilmektedir. MVC deseni ( pattern ) Asp.Net ile ortaya Ã§Ä±kan bir desen deÄŸildir. Son 20 yÄ±ldÄ±r kullanÄ±lmakta olan fakat Asp.Net MVC ile popÃ¼lerliÄŸi artmÄ±ÅŸ bir desendir.
 
-#### MVC paterni 3 yapıdan (Model, View ve Controller) oluşmaktadır :
+#### MVC paterni 3 yapÄ±dan (Model, View ve Controller) oluÅŸmaktadÄ±r :
 
-* 1-Model: Model, proje içerisinde kullanılacak olan nesnelerin oluşturulduğu kısımdır. Günlük hayattaki somut nesnelerin, bilgisayar ortamında modellenmesi anlamına gelir. Örneğin bir kütüphane otomasyonu yapmak istediğimizde kitap bilgilerinin tutulacağı bir modele ihtiyaç duyulacaktır. Bu modelde kitabın seri numarası, adı, yazarı, yayınevi gibi bilgileri yer alacaktır.
+* 1-Model: Model, proje iÃ§erisinde kullanÄ±lacak olan nesnelerin oluÅŸturulduÄŸu kÄ±sÄ±mdÄ±r. GÃ¼nlÃ¼k hayattaki somut nesnelerin, bilgisayar ortamÄ±nda modellenmesi anlamÄ±na gelir. Ã–rneÄŸin bir kÃ¼tÃ¼phane otomasyonu yapmak istediÄŸimizde kitap bilgilerinin tutulacaÄŸÄ± bir modele ihtiyaÃ§ duyulacaktÄ±r. Bu modelde kitabÄ±n seri numarasÄ±, adÄ±, yazarÄ±, yayÄ±nevi gibi bilgileri yer alacaktÄ±r.
 
-* 2-View: Proje tamamlandığında kullanıcının gördüğü arayüzdür. Bu bir web sayfası, masaüstü uygulaması arayüzü veya mobil bir tasarım olabilir. Projenin yapısına göre bu tasarım farklı şekillerde oluşturulabilir.
+* 2-View: Proje tamamlandÄ±ÄŸÄ±nda kullanÄ±cÄ±nÄ±n gÃ¶rdÃ¼ÄŸÃ¼ arayÃ¼zdÃ¼r. Bu bir web sayfasÄ±, masaÃ¼stÃ¼ uygulamasÄ± arayÃ¼zÃ¼ veya mobil bir tasarÄ±m olabilir. Projenin yapÄ±sÄ±na gÃ¶re bu tasarÄ±m farklÄ± ÅŸekillerde oluÅŸturulabilir.
 
-* 3-Controller: Projedeki tüm işlemlerin (veritabanı işlemleri, hesaplamalar, veri aktarımı v.b) yapıldığı kontrol bölümüdür. Controller ayrıca model ve view arasındaki veri akışını da kontrol eder.
+* 3-Controller: Projedeki tÃ¼m iÅŸlemlerin (veritabanÄ± iÅŸlemleri, hesaplamalar, veri aktarÄ±mÄ± v.b) yapÄ±ldÄ±ÄŸÄ± kontrol bÃ¶lÃ¼mÃ¼dÃ¼r. Controller ayrÄ±ca model ve view arasÄ±ndaki veri akÄ±ÅŸÄ±nÄ± da kontrol eder.
 
-#### MVC Çalışma Prensibi:
+#### MVC Ã‡alÄ±ÅŸma Prensibi:
 
-Bir MVC projesinde kullanıcı, tarayıcı üzerinden (View) sayfaya istek yaptığında bu istek Controller’a iletilir. Controller isteği gerçekleştirmek üzere model ve bağlantılı bileşenleri ile gerekli sınıf ve metotları çağırır. Elde ettiği sonuçları View’e göndererek sayfanın görüntülenmesini sağlar.
+Bir MVC projesinde kullanÄ±cÄ±, tarayÄ±cÄ± Ã¼zerinden (View) sayfaya istek yaptÄ±ÄŸÄ±nda bu istek Controllerâ€™a iletilir. Controller isteÄŸi gerÃ§ekleÅŸtirmek Ã¼zere model ve baÄŸlantÄ±lÄ± bileÅŸenleri ile gerekli sÄ±nÄ±f ve metotlarÄ± Ã§aÄŸÄ±rÄ±r. Elde ettiÄŸi sonuÃ§larÄ± Viewâ€™e gÃ¶ndererek sayfanÄ±n gÃ¶rÃ¼ntÃ¼lenmesini saÄŸlar.
 
-#### MVC Genel Yapısını Açıklayan Diyagram Aşağıdaki Gibidir:
-image::MVC genel uml diagrami.png[700,800]
+#### MVC Genel YapÄ±sÄ±nÄ± AÃ§Ä±klayan Diyagram AÅŸaÄŸÄ±daki Gibidir:
+image::Donem_Projesi_Uml/MVC genel uml diagrami.png[700,800]
