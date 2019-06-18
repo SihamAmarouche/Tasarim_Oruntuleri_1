@@ -1,0 +1,432 @@
+@startuml
+
+scale 1940 width 
+scale 1050 height 
+
+
+class MainProgram{
++ main()
+}
+rectangle "Abstract Factory_Parasal Ýþlemi" as view{
+abstract AbstractFactory{
+
++{abstract} getIslemSorumlusu(kullaniciTuru:String):Kullanici
++{abstract} getParasalislemi(islemTuru:String):Parasalislemi
+
+}
+
+Class TransferIslemiFactory{
++ Yonetici_Kullanici:String
++ transfer_islemi:String
+
++ getIslemSorumlusu(kullaniciTuru:String):Kullanici
++ getParasalislemi(islemTuru:String):Parasalislemi
+}
+Class YatirmaIslemiFactory{
++ yatirma_islemi:String
++ Musteri_Kullanici:String
+
++ getIslemSorumlusu(kullaniciTuru:String):Kullanici
++ getParasalislemi(islemTuru:String):Parasalislemi
+}
+abstract Parasalislemi{
++ islemTuru():void
+}
+Class Transferislemi{
++ islemTuru():void
+}
+Class Yatirmaislemi{
++ islemTuru():void
+}
+abstract Kullanici{
+- kullanici_turu:String
+- age:int
++ setKullanici_turu(kullanici_turu:String):void
++ setAge(age:int):void
++ getKullanici_turu():String
++ getAge():int
++ showUp():void
+}
+Class Musteri{
++ rand:Random
++<<constructor>> Musteri()
+}
+Class Yonetici{
++ rand:Random
++<<constructor>> Yonetici()
+}
+Parasalislemi <|-- Transferislemi:extends
+Parasalislemi <|- Yatirmaislemi:extends
+
+
+Kullanici <|-- Musteri
+Kullanici <|-- Yonetici
+
+AbstractFactory <|-- TransferIslemiFactory:extends
+AbstractFactory <|-- YatirmaIslemiFactory:extends
+
+
+TransferIslemiFactory ..> Transferislemi:<<instantiate>>
+YatirmaIslemiFactory ..> Yatirmaislemi:<<instantiate>>
+
+TransferIslemiFactory ..> Yonetici:<<instantiate>>
+
+YatirmaIslemiFactory ..> Musteri:<<instantiate>>
+}
+' END OF Abstract Factory_Parasal Ýþlemi
+MainProgram --> AbstractFactory:<<uses>>
+
+rectangle "Sigleton Pattern_HesapBakiye" as singleton{
+Class hesapBakiye{
+
+- hesapBakiye_sample : hesapBakiye
+
++ CreateObject() : hesapBakiye
++ setBakiye(double) : void
++ getBakiye() : double
++ ParaCek(double):boolean
++ ParaYatir(double):boolean
+
+}
+
+hesapBakiye -> hesapBakiye : new
+
+}
+' END OF Sigleton Pattern_HesapBakiye
+MainProgram->hesapBakiye : <<uses>>
+
+rectangle "Adapter_Pattern_ParaBirimi" as adapter{
+
+interface ParaBirimi{
+
++ paraBirimiBilgileri() : void
++ getParaMiktari(double) : void
++ paraDegeri() : void
+}
+
+class ParaBirimiAdapter{
++ dA : DolarBirimi_Adaptee
++ paraBirimiBilgileri() : void
++ getParaMiktari(double) : void
++ paraDegeri() : void
+
+}
+
+class DolarBirimi_Adaptee{
++ dolar_paraBirimiBilgileri() : void
++ dolar_getParaMiktari(double) : void
++ dolar_paraDegeri() : void
+}
+
+ParaBirimi <|-- ParaBirimiAdapter:implements
+
+ParaBirimiAdapter -> DolarBirimi_Adaptee : adaptee
+
+
+}
+
+' END OF Adapter_Pattern_ParaBirimi
+MainProgram --> ParaBirimi : target
+
+rectangle "Builder Pattern_Parasalislemi" as builder{
+
+
+abstract ParasalislemiB{
+
++ islemTuru():void
++ {abstract} getIslemTutari():double
++ {abstract} getHesapBakiye():double
++ {abstract} getHesapNo():String
++ {abstract} getHesapSahibi_TelefonNo():String
+}
+
+
+class YatirmaislemiB{
++<<constructor>>YatirmaislemiB
+(islemTutari:double,
+hesapBakiye:double,
+hesapNo:String,
+hesapSahibi_TelefonNo:String)
++ islemTuru()
++ islemTuru():void
++ getIslemTutari():double
++ getHesapBakiye():double
++ getHesapNo():String
++ getHesapSahibi_TelefonNo()
+:String
++ toString():String
+}
+
+Class TransferislemiB{ 
++<<constructor>>TransferislemiB
+(islemTutari:double,
+hesapBakiye:double,hesapNo
+:String,hesapSahibi_TelefonNo
+:String)
++ islemTuru():void
++ getIslemTutari():double
++ getHesapBakiye():double
++ getHesapNo():String
++ getHesapSahibi_TelefonNo()
+:String
++ toString():String
+}
+
+interface ParaislemiBuilder{
++ islemTutari(double):
+ParaislemiBuilder
++ hesapBakiye(double):
+ParaislemiBuilder
++ hesapNo(String):
+ParaislemiBuilder
++ hesapSahibi_Telefon(String):
+ParaislemiBuilder
++ build():ParasalislemiB
+}
+
+
+class YatirmaislemiBuilder{
++ islemTutari:double 
++ hesapBakiye:double 
++ hesapNo:String 
++ hesapSahibi_Telefon_No:String 
+
++ islemTutari(double):
+YatirmaislemiBuilde
++ hesapBakiye(double):
+YatirmaislemiBuilde
++ hesapNo(String):
+YatirmaislemiBuilde
++ hesapSahibi_Telefon(String):
+YatirmaislemiBuilde
+
++ build():YatirmaislemiB
+}
+
+Class TransferislemiBuilder{ 
++ islemTutari:double 
++ hesapBakiye:double 
++ hesapNo:String 
++ hesapSahibi_Telefon_No:String 
+
++ islemTuru(islemTutari:double):
+TransferislemiBuilder
++ hesapBakiye(double):
+TransferislemiBuilder
++ hesapNo(String):
+TransferislemiBuilder
++ hesapSahibi_Telefon(String):
+TransferislemiBuilder
++ build():TransferislemiB
+}
+
+ParasalislemiB <|-- TransferislemiB:extends
+ParasalislemiB <|-- YatirmaislemiB:extends
+
+ParaislemiBuilder <|-- YatirmaislemiBuilder:implements
+ParaislemiBuilder <|-- TransferislemiBuilder:implements
+
+ParasalislemiB <.. ParaislemiBuilder:Creates
+
+}
+' END OF Builder Pattern_Parasalislemi
+ParaislemiBuilder <--o MainProgram:invokes 
+
+
+
+rectangle "Factory Pattern" as factory{
+
+abstract Parasalislemif{
+
++ islemTuru():void
+}
+
+class BorcKrediOdeme{ 
++ islemTuru():void
+}
+class Yatirmaislemif{
++ islemTuru():void
+}
+
+Class Transferislemif{ 
++ islemTuru():void
+}
+
+
+Class ParasalislemiFactory{
++ createIslem(String):Parasalislemif
+}
+
+
+Parasalislemif <-- BorcKrediOdeme
+Parasalislemif <-- Transferislemif
+Parasalislemif <-- Yatirmaislemif
+
+Parasalislemif <-- ParasalislemiFactory : Create
+}
+' END OF Factory Pattern
+MainProgram -up-> ParasalislemiFactory : Asks
+
+
+
+rectangle "Mediator Pattern" as mediator{
+
+interface MerkeziBankaMediator{
+
++ sendBilgilendirmeMesaj(String, BankaSubesi):void
++ addSube(BankaSubesi):void
+}
+
+abstract BankaSubesi{
+# mediator:MerkeziBankaMediator
+# subeIsmi:String
++ sendMesaj(String):void
++ receiveMesai(String):void
+}
+class MerkeziBankaMediator_Impl{
+- subeList:List<BankaSubesi>
++ sendBilgilendirmeMesaj(String, BankaSubesi):void
++ addSube(BankaSubesi):void
+}
+class BankaSubesi_Impl{
++ sendBilgilendirmeMesaj(String, BankaSubesi):void
++ addSube(BankaSubesi):void
+}
+
+MerkeziBankaMediator <|-- MerkeziBankaMediator_Impl:implements
+BankaSubesi <|-- BankaSubesi_Impl:extends
+
+BankaSubesi -> MerkeziBankaMediator:mediator
+BankaSubesi <-MerkeziBankaMediator_Impl:uses
+
+}
+' END OF Mediator Pattern
+MainProgram ----> MerkeziBankaMediator:<<uses>>
+
+
+rectangle "Memento Pattern" as memento{
+
+class Bankahesabi_Memento{
+- account_State : String
+
++ Bankahesabi_Memento(String) 
++ getState() : String
+}
+
+
+Class Bankahesabi_Orginator{
+
+- account_State:String
+
++ setState(String):void
++ getState():String
++ saveStateToMemento():
+Bankahesabi_Memento
++ getStateFromMemento
+(Bankahesabi_Memento): 
+void
+}
+
+class Bankahesabi_CareTaker{
+- mementoList:
+List<Bankahesabi_Memento>
+
++ add(Bankahesabi_Memento) : void
++ get(int):Bankahesabi_Memento
+
+}
+
+Bankahesabi_Memento <- Bankahesabi_CareTaker : <<uses>>
+
+
+Bankahesabi_Orginator -> Bankahesabi_Memento : <<uses>>
+
+}
+' END OF Memento Pattern
+
+MainProgram --> Bankahesabi_Orginator
+
+rectangle "Observer Pattern" as observer{
+
+
+interface Observer{
+
++ update() : void
++ setSubject(Subject) : void
+}
+
+interface Subject{
++ addObserver(Observer) : void
++ removeObserver(Observer) : void
++ notifyObservers() : void
++ getUpdate(Observer) : Object
+}
+class BankaKullanici{
++ kullanici_name : String
+- topic : Subject
++ update() : void
++ setSubject(Subject) : void
+
+}
+class KampanyaMesaj_Subscriber{
+- ksample : Kampanya
+- observers : ArrayList<Observer>
+- changed : boolean
+- MUTEX : Object
+
++ addObserver(Observer) : void
++ removeObserver(Observer) : void
++ notifyObservers() : void
++ getUpdate(Observer) : Object
+}
+
+Observer <|-- BankaKullanici:implements
+Subject <|-- KampanyaMesaj_Subscriber:implements
+
+Subject .> Observer : notify
+KampanyaMesaj_Subscriber .> BankaKullanici : observe
+
+}
+
+' END OF Observer Pattern
+
+MainProgram---->Observer
+
+
+rectangle "Iterator Pattern" as iterator{
+
+@startuml
+
+interface Iterator{
+
++ hasNext():boolean
++ next():Object
+}
+
+interface Container{
++ createIterator():Iterator
+}
+class MusteriIterator{
++ hasNext():boolean
++ next():Object
+}
+class MusteriContainer{
+- musteriList:List<Musteri> 
++ addMusteri(String,String,int):void
++ createIterator():Iterator
+}
+
+Iterator <|-- MusteriIterator:implements
+Container <|-- MusteriContainer:implements
+
+MusteriContainer -> MusteriIterator:has
+
+
+@enduml
+
+}
+
+' END OF Iterator Pattern
+
+MusteriContainer <-- MainProgram :uses
+@enduml

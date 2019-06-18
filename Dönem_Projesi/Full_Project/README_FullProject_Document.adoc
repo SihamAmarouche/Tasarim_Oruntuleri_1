@@ -1,0 +1,292 @@
+#### Tasarým Örüntülerin Dersinin Projesi:
+
+Bu projede 12 tane tasarým deseni uygulanmýþtýr. Projenin Genel Yapýsý Gösteren Uml Class Diagramý(Þemasý) aþaðýdaki gibidir:
+
+image::Donem_Projesi_Uml/PLANTUml_For_Full_Project.png[]
+
+## Yarartýmsal(Creational) tasarým desenleri:
+Bu paternler, yazýlým nesnelerinin nasýl yaratýlacaðý hakkýnda genel olarak öneriler sunarak kullandýðý 
+esnek yapý sayesinde daha önceden belirlenen durumlara baðlý olarak gerekli nesneleri yaratýr. Yaratýmsal(Creational) desenler, 
+hangi nesnenin çaðrýlmasý gerektiðini izlemeden sistemin uygun nesneyi çaðýrmasýný saðlayan tasarým kalýplarýdýr. 
+Nesnelerin yaratýlmasý gerektiði durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
+iyi bir yazýlýmýn içinde barýndýrdýðý nesnelerin nasýl yaratýldýðýndan baðýmsýz olarak tasarlanmasý gerekliliðidir.
+
+### * 1). Singleton Pattern: 
+Creatinal patterns grubuna ait singleton tasarým deseni (Singleton design pattern) bir nesnenin application pool kapanana kadar 
+bir kez üretilmesini kontrol altýnda tutar. Ayný zamanda bu nesne sýnýf dýþýndan da eriþilebilinir olur. 
+Bir sýnýfýn bir anda sadece bir örneðinin olmasý istenildiði zamanlarda kullanýlýr. 
+Örneðin veritabaný uygulamalarýnda bir anda bir baðlantý nesnesinin olmasý sistem 
+kaynaklarýnýn verimli bir þekilde kullanýlmasýný saðlar.
+
+#### Singleton tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/singleton_pattern_genel_uml_diagram.jpg[230,250]
+
+#### Örnek:
+Bu patern Bir sýnýfýn bir anda sadece bir örneðinin olmasý istenildiði zamanlarda kullanýldýðýndan dolayý biz de Hesap Bankalarýnda olan hesap Bakiyesi nesnesi için kullandýk sonuçta 
+tek nesne yaratýlmak istenir ve yapaýlan deðiþiklikler(Para yatýrma ,Para çekme iþlemleri vb.) ayný nesne üzerinden yapýlacatýr.
+. Örnek uygulamamýzda hesapBakiye sýnýfýnýn sadece örneðine
+eriþebilen public static bir metot oluþturulmuþtur(CreateObject() metodu). Bu metot eðer sýnýfýn örneði
+oluþturulmadýysa oluþturur ve oluþturulmuþ olan
+örneði döndürür.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Singleton Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/SingletonPattern_ClassDiagram_Image.png[]
+
+### * 2). Factory Pattern: 
+Bazý nesneler doðrudan kullanýcý tarafýndan yaratýlmasý istenmemektedir(new ile yartma iþlemi). Yani bazý nesneler kullanýcýdan gizlenmiþtir. 
+Asýl amaç, oluþturmak istediðimiz sýnýfýn kendisinden bir örnek istemek yerine Factory Metod patterni sayesinde tek bir instance üzerinden gerekli nesnenin üretilmesini saðlamaktýr. Algoritmada belirli adýmlarda farklý tiplerde nesnelere ihtiyacýnýz olabilir. Bu nesneleri if – else veyahut switch yapýlarý aracýlýðýyla, duruma göre oluþturabiliriz. Örneðin SystemElementFactory sýnýfýnýn createKullanici() isimli üyesi factory method durumundadýr. Kullanici sample = SystemElementFactory.createKullanici(); kullanici türünden nesne geri döndürülür.
+
+#### Factory tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/Factory_Patern_Genel_UML.gif[]
+
+#### 1.Örnek:
+Bu örnek uygulamamýzda parasal iþlemi türlerinden olan transfer iþlemi,yatýrma iþlemi ve borç kredi iþlemi bu iþlemler direk kullanýcýdan yaratýlmak istemediðimizden dolayý ParasalislemiFactory sýnýfýnýn CreateIslem metodunu kullanarak tek bir instance(Parasalislemi) üzerinden gerekli nesnenin üretilmesi saðlamaktadýr. Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Factory Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Factory_ClassDiagram_Example_1.png[]
+
+#### 2.Örnek:
+Bu örnek uygulamamýzda Kullanýcý türlerinden olan müþteri ve yönetici nesnelerini direk kullanýcýdan yaratýlmak istemediðimizden dolayý SystemElementFactory sýnýfýnýn createKullanici metodunu kullanarak tek bir instance(Kullanici) üzerinden gerekli nesnenin üretilmesi saðlamaktadýr. Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Factory Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Factory_ClassDiagram_Example_2.png[]
+
+### * 3). Prototype Pattern: 
+Prototype (prototip) tasarým deseni creational grubununa ait, var olan nesnelerin kopyasýnýn üretiminden sorumlu tasarým desenidir.
+
+Bazý nesnelerin üretilme maliyeti oldukça yüksek olabilir. Veya ayný deðerlerde nesne üretilmesi gereken durumlar olabilir. 
+Böyle nesnelerin üretim maliyetini azaltmak için var olan nesnenin kopyasýnýn üretilmesi yoluna gidilebilinir.
+
+#### Prototype tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/prototype_genel_diagram.png[350,400]
+
+#### Deep Copy ve Shallow Copy Arasýndaki fark :
+Shallow Copy yüzeysel kopyalama ayný adresi iþaret eden yeni bir nesne üretilmekte, var olan nesne üzerine referanslar ile iþaretleme yapýlmaktadýr.
+Deep Copy ise Derin kopyalama nesneler birebir kopyalanabilmekte ve bu kopya sonucu ile asýl nesne farklý referanslar ile iþaretlenebilmekte.
+Yüzeysel kopyalama basit nesneler için kullanýþlý olmasýna raðmen baþka nesneleri referans eden nesneler için yetersiz kalýr. Derin kopyalamada nesnenin referans ettiði nesneleri
+de kopyalar.Deep copy ile Shallow copy arasýndaki fark gösteren resim aþaðýdaki gösterilmekte:
+
+#### 1.Örnek:
+Bu örnek uygulamamýzda mevcut olan kullancý(Müþteri veya yönetici) bilgilerini yüzeysel/derin kopyalama prototipi uygulanmak isteniyor. Bu kopyalama iþlemi iþimizi kolaylaþtýrýp
+iþelmin maliyetini azaltýyor ve var olan nesnenin kopyasýný üretilir.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Prototype Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Prototype_ClassDiagram_Example_1.png[]
+
+#### 2.Örnek:
+Bu örnek uygulamamýzda mevcut olan kullancý(Müþteri veya yönetici) bilgilerini yüzeysel/derin kopyalama prototipi uygulanmak isteniyor. Bu kopyalama iþlemi iþimizi kolaylaþtýrýp
+iþelmin maliyetini azaltýyor ve var olan nesnenin kopyasýný üretilir.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *2.Ornegin UML class diyagrami :
+
+image::Donem_Projesi_Uml/Prototype_ClassDiagram_Example_2.png[]
+
+### * 4). Object Pool Pattern: 
+Çok kullanýcýya hizmet veren aðýr iþ yükü altýndaki uygulamalar da genelde orta
+katmandaki iþ nesnelerinin application server’da havuzlanmasý ya da veritabnaný
+baðlantýlarýnýn havuzlanmasý bu paternin tipik uygulamalarýdýr. Ýstemcilerin ihtiyaç
+duyduðu anda böyle bir nesneyi yaratmaktansa, daha önceden yaratýlmýþ hazýr bir
+nesnenin ullanýlmak üzere havuzdan çýkarýlarak istemciye tahsis edilmesi, istemcinin
+nesneyle iþini bitirdikten sonra da nesneyi yok etmeksizin tekrar havuza geri atmasý bu
+tür durumlarda sýklýkla kullanýlan ve performansý da ciddi þekilde arttýran bir yöntemdir.
+
+#### Object Pool tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/ObjectPoolPattern_1.PNG[450,520]
+
+#### Örnek:
+Bu örnek uygulamamýzda sistemde kullanýcýya sýnýrlý sayýda oturum ayarlanmakta. Banka sistemine atak gerçekleþtirememek için kullanýcýya sýnýrlý sayýda oturum ayarlanýyor oturum havuzu
+mevcuttur eðer oturumu açýlmak isteniyorsa havuzdan yer ayarlanýyor eðer oturumu kapatýlmak isteniyorsa havuza nesneyi geri döndürülüyor.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Object Pool Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Object Pool_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+### * 5). Builder Pattern : 
+Builder (Ýnþaatçý) tasarým deseni creational grubununa ait, biden fazla parçadan oluþan nesnelerin üretilmesinden sorumlu bir tasarým desenidir.
+Kompleks yapýya sahip nesneleri ve birden fazla giriþe sahip olan nesneleri oluþturmak için kullanýlýr.Kompleks ürünün farklý paraçalarla oluþturulup farklý 
+sunumlarýn elde edilmesidir.
+
+#### Builder desenini oluþturan 4 yapý vardýr:
+
+* Product: Oluþturulan nesne.
+* Builder: Product oluþturacak nesnelerin (Concrete Builder) uygulamasý gereken arayüz.
+* Concrete Builder: Product nesnesini oluþturan nesne veya özelliklerin oluþturulduðu sýnýflar. 
+Her concrete builder sýnýfý ayný arayüzde farklý bir ürünün oluþturulmasýný saðlar.
+* Director: Verilen builder nesnesine göre product örneði oluþturur.
+
+#### Builder tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/builder_pattern.PNG[]
+
+#### Örnek:
+Örnek uygulamamýzda islemTutari, hesapBakiye, hesapNo ve hesapSahibi_Telefon_No özellikleri olan bir Parasal iþlemi nesnemiz olsun. 
+Bu parasal iþlemi(Yatýrma iþlemi veya Transfer iþlemi) nesnemizin özelliklerinin farklý deðerler almasý 
+ile farklý özelliklerde parasal iþlemi(Yatýrma iþlemi veya Transfer iþlemi) nesnesi üretebiliriz. Builder tasarým deseni ile bu senaryoyu gerçekleþtirelim. 
+.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Builder Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Builder Pattern Örneðimin Class Diyagrami.png[]
+
+### * 6). Abstract Factory Pattern: 
+Benzer özelliklere sahip objeler varsa, veya birden fazla ürün ailesi çalýþmak zorunda kaldýðýmýzda kullanacaðýmýz ürün ailesi ile istemci tarafý soyutlamak için kullanýlýr
+"Abstract Factory" birbirleriyle iliþkili yada birbirlerine baðlý olan nesnelerin oluþturulmasýný en etkin bir þekilde çözmeyi hedefler. 
+Bu hedefe ulaþmak için soyut sýnýflardan(abstract class) veya arayüzlerden(interface) yoðun bir þekilde faydalanmaktadýr. 
+"Abstract Factory" deseninin ana temasý belirli sýnýflarýn içerdiði ortak arayüzü soyut bir sýnýf yada arayüz olarak tasarlamaktýr. 
+Böylece nesneleri üreten sýnýf, hangi nesnenin üretileceði ile pek fazla ilgilinmesi gerekmez. Ýlgilenmesi gereken nokta oluþturacaðý 
+nesnenin hangi arayüzleri desteklediði yada uyguladýðýdýr. Bahsi geçen mekanizmalarla deseni oluþturduðumuz anda çalýþma zamanýnda hangi 
+nesnenin oluþturulmasý gerektiðini bilmeden nesnelerin oluþturulmasýný yönetebiliriz. 
+
+Eðer bir nesne oluþturacaksanýz ve tam olarak hangi nesnenin oluþturulacaðýna bir switch yada if deyimi ile karar veriyorsanýz muhtemelen 
+her nesneyi oluþtruduðunuzda ayný switch yapýsýný kullanmak zorunda kalacaksýnýz. Bu tür tekrarlarý önlemek için "Abstarct Factory" deseninden 
+faydalanýlabilir. Bu elbetteki nesnelerin ortak bir arayüzü uygulamýþ olma zorunluluðunun getirdiði bir faydadýr.
+
+#### Abstract Factory tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/abstract factory diagram.png[600,500]
+
+#### Örnek:
+Bu örnek uygulamada Abstract Factory paterni uygulandý iki tane Factoryimiz mevcuttur YatirmaIslemiFactory'i Kullanarak Yatýrma Ýþlemi ve Sorumlusu Olan Müþteri Kullanýcýmýzý Oluþturuluyor.
+TransferIslemiFactory ise Transfer Ýþlemi ve Sorumlusu Olan Yönetici Kullanýcýmýzý Oluþturuyor. Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Abstract Factory Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Kendi Örneðimin Abstract Factory Patternin Diyagrami(Özel).png[]
+
+
+
+*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
+
+
+
+## Davranýþsal(Behavioral) tasarým desenleri:
+Yazýlým mühendisliðinde davranýþsal tasarým kalýplarý, soruna göre nesneler arasý ortak haberleþmeyi en iyi þekilde kurmamýza öneriler sunan tasarým kalýplarýdýr. 
+Böylece, bu örüntüler bu iletiþimi gerçekleþtirmede esnekliði arttýrýr.
+
+### * 7). Iterator Pattern: 
+Iterterator (tekrarlayýcý) tasarým deseni, behavior grubununa ait, nesne koleksyonlarýnýn (list,array,queue) elemanlarýný belirlenen kurallara göre elde edilmesini düzenleyen tasarým desenidir.ator Pattern :
+terator (tekrarlayýcý) tasarým deseni, behavior grubununa ait, nesne koleksyonlarýnýn (list,array,queue) elemanlarýný belirlenen kurallara göre elde edilmesini düzenleyen tasarým desenidir.
+
+Iterator tasarým deseni ile koleksiyon yapýsý bilinmesine ihtiyaç olmadan koleksiyon elemanlarý üzerinde iþlem yapýlabilmesini saðlar. Yani iterator tasarým deseni kullanýlarak koleksiyonun array, queue, 
+list olmasý önemli olmadan, ayný þekilde elemanlarýnýn elde edilmesi saðlanýr.
+
+#### Iterator tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/Iterator_genel_uml.png[iterator]
+
+#### Örnek:
+Örnek uygulamamýzda Musteri Iterator ve Yonetici Iterator sýnýfýlarýný oluþturduk. Bu Iteratorlar Müþteri ve Yönetici koleksiyon listelerinde içinde
+dolaþmamýzý saðlar koleksiyonun iç yapýsý bilmeden. MusteriContainer sýnýfýnda Musteri sýnýfýndan bir arraylist oluþturulur elemanlarý eklenir,
+YoneticiContainer ise Yonetici sýnýfýndan oluþturulan nesneleri Hashtable setinde sklanýr. Böylece Iterator deseni gerçekleþtirmiþ oluruz ve koleksiyon yapýsý bilinmesine ihtiyaç olmadan koleksiyon elemanlarý 
+üzerinde iþlem yapýlabilmesini saðlanmýþ olur.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram Example_1.png[]
+
+#### *Yonetici Iterator ve YoneticiContainer Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Yonetici Iterator Ornegi icin UML class diyagram Example_2.png[]
+
+### *8). Observer Pattern :
+Observer tasarým deseni behavior grubununa ait, bir nesnede meydana gelen deðiþikliklerde içinde bulundurduðu listede bulunan nesnelere haber gönderen tasarým desenidir.
+Observer tasarým deseni; birbirleri ile bire çok (yani bir nesnenin içinde baþka bir nesnenin listesinin bulunmasý olarak düþünebiliriz) iliþki olan nesneler arasýnda olay bazlý bir etkileþim olduðu durumlarý düzenler.
+
+#### Observer tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/observer_genel_yapi_uml.jpg[observer,350,250]
+
+#### Örnek:
+Örnek uygulamamýzda Observer Bankanýn kullanýcýlarý ve Subject(Observable) nesnesi Bankalarýn kampanya mesajlarý olsun. Bu þekilde Obsever tasarým deseni uygulanmýþ olur ve yeni bilgilendirme mesajlarý geldikçe kampanya uyarýsýna üye olan banka kullanýcýlarýna bildirim gönderilir.
+
+Uygulamanýn class diyagramý aþaðýdaki gibidir.
+
+image::Donem_Projesi_Uml/Observer_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,700]
+
+### * 9). Mediator Pattern :
+Mediator design pattern (aracý tasarým deseni), behavior grubununa ait, çalýþmalarý birbirleri ile ayný arayüzden türeyen nesnelerin durumlarýna baðlý olan nesnelerin davranýþlarýný düzenleyen tasarým desenidir.
+
+Bazý durumlarda nesnelerin davranýþlarý kendi türünden baþka nesnelere baðlý olabilir. Mediator tasarým deseni birbirleri ile iliþkili olan bu nesneler arasýnda ki iletiþimin ana bir nesne üzerinden (mediator) yapýlmasýný saðlar. Böylece nesneler arasýndaki bað zayýflatýlýr ve geliþtirme aþamasýnda kod karmaþasýný önler ve kodun yönetilmesini kolaylaþtýrýr.
+
+#### Mediator tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/mediator_pattern_genel_uml.png[350,450]
+
+*  ConcreteColleague: ConcreteMediator üzerinden birbirleri ile iliþkili nesnelerdir. Colleague arayüzünü uygularlar.
+#### Örnek:
+Örnek uygulamamýzda Merkezi Banka nesnesi olsun bu Merkezi bankamýz Meditaor(ara bulucu) sayýlýr, birden fazla Banka Þübeleri yönetsin
+bir banka þübesi tarafýndan gönderilen bilgilerndirme mesajý diðer banka þübelere iletilme iþlemini yönetilsin böylece
+Mediator tasarým desenini uygulanmýþ oluruz. Bu tasarýmýn önemi nesneler arasýndaki bað zayýflatýlýr ve geliþtirme
+aþamasýnda kod karmaþasýný önler ve kodun yönetilmesini kolaylaþtýrýr.
+
+image::Donem_Projesi_Uml/Mediator_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+### * 10). Memento Pattern :
+Memento tasarým deseni behavior grubununa ait, bir nesnenin tamamýnýn veya bazý özelliklerinin tutularak sonradan tekrar elde edilmesini yöneten tasarým desenidir. 
+Memento tasarým deseni nesnenin bir halinin kopyasýný alýp sonra bu kopyanýn tekrar elde edilmesini saðlar. Genelde geri al iþlemi için kullanýlýr. 
+
+#### Memento tasarým deseni 3 yapýdan oluþur:
+
+*  Originator: Tamamýnýn veya bazý özelliklerinin kopyasýnýn tutulacaðý nesnedir. Memento nesnesini oluþturan ve geri yüklenmesinden sorumludur.
+
+*  Memento: Originator nesnesinin saklanacak özelliklerinin tanýmlý olduðu nesne.
+
+*  Caretaker: Saklanacak olan memento nesnesinin referansýný içinde barýndýran nesnedir.
+#### Memento tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/memento_pattern_uml_diagram.jpg[memento]
+
+#### Örnek:
+Örnek uygulamamýzda Banka hesabi nesnesi olsun ve bu nesne üzerinde memento tasarým desenini uygulandý. Bu tasarýmýn önemi banka hesabinin geçmiþ durumlarý kaydetmemizi saðlar, banka hesabinin durumlarý 3 durumdan oluþur (Açýk, kapatýldý, donduruldu). Kullanýcý istediði zaman hesabin geçmiþini görüntüleyebilir. Uygulamanýn class diyagramý aþaðýdaki gibidir.
+
+image::Donem_Projesi_Uml/Memento_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+###  11). MVC Tasarým Deseni:
+MVC, baþlýkta da belirttiðim gibi Model, View ve Controller kelimelerinden oluþturulmuþ bir yazýlým geliþtirme desenidir. Masaüstü, web veya mobil uygulamalarýn hepsine uyarlanarak kullanýlabilir. Fakat özellikle web projelerinin yapýsýna uygun olduðu için tercih edilmektedir. MVC deseni ( pattern ) Asp.Net ile ortaya çýkan bir desen deðildir. Son 20 yýldýr kullanýlmakta olan fakat Asp.Net MVC ile popülerliði artmýþ bir desendir.
+
+#### MVC paterni 3 yapýdan (Model, View ve Controller) oluþmaktadýr :
+
+* 1-Model: Model, proje içerisinde kullanýlacak olan nesnelerin oluþturulduðu kýsýmdýr. Günlük hayattaki somut nesnelerin, bilgisayar ortamýnda modellenmesi anlamýna gelir. Örneðin bir kütüphane otomasyonu yapmak istediðimizde kitap bilgilerinin tutulacaðý bir modele ihtiyaç duyulacaktýr. Bu modelde kitabýn seri numarasý, adý, yazarý, yayýnevi gibi bilgileri yer alacaktýr.
+
+* 2-View: Proje tamamlandýðýnda kullanýcýnýn gördüðü arayüzdür. Bu bir web sayfasý, masaüstü uygulamasý arayüzü veya mobil bir tasarým olabilir. Projenin yapýsýna göre bu tasarým farklý þekillerde oluþturulabilir.
+
+* 3-Controller: Projedeki tüm iþlemlerin (veritabaný iþlemleri, hesaplamalar, veri aktarýmý v.b) yapýldýðý kontrol bölümüdür. Controller ayrýca model ve view arasýndaki veri akýþýný da kontrol eder.
+
+#### MVC Genel Yapýsýný Açýklayan Diyagram Aþaðýdaki Gibidir:
+image::Donem_Projesi_Uml/MVC genel uml diagrami.png[600,700]
+
+
+
+*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_**_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*
+
+
+
+## Yapýsal(structural ) tasarým desenleri:
+Yapýsal(structural) tasarým desenleri, nesnelerin birbirleri ile olan iliþkilerini düzenleyen desenlerdir.
+
+### * 12). Adapter Pattern: 
+Adapter tasarým deseni; structural grubuna ait, uygulamada ki bir yapýya dýþarýdaki bir yapýyý uygulamayý düzenleyen bir tasarým desenidir.
+
+Bazý durumlarda zaten var olan baþka bir yapýyý uygulamamýz içinde ki bir yapýya uyarlayýp kullanmamýz gerekebilir. 
+Burada uyarlanacak yapý net kütüphanesi olmasý gerekmez. Com nesnesi gibi bir yapý da olabilir veya zaten geliþtirdiðimiz 
+uygulamadaki baþka bir yapý da olabilir. Bu uyarlama iþlemini yazacaðýmýz bir Adapter nesnesi ile saðlayabiliriz. 
+Adapter tasarým deseninin uml þemasý aþaðýdadýr.
+
+#### Adapter tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+
+image::Donem_Projesi_Uml/adapter_genel_yapi_uml.png[600,500]
+
+#### Örnek:
+Örnek uygulamamýzda adapter pattern uygulandý var olan baþka bir yapýyý uygulamanýn içinde ki baþka bir yapýya uyarlayýp kullanmamýz gerekebiliyor, bu yüzden DolarBirimi_Adaptee sýnýfý ParaBirimi arayüzünden türetilen TürkLiraBirimi sýnýfýna uyarlamak için ParaBirimi arayüzünden türetilen ParaBirimiAdapter adapteri kullanýldý. Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Adapter Pattern Ornegi icin UML class diyagram :
+
+image::Donem_Projesi_Uml/Adapter_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,750]

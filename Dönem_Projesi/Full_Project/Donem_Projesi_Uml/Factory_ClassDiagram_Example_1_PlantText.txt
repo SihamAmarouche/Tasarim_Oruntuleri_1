@@ -1,0 +1,35 @@
+@startuml
+
+abstract Parasalislemi{
+
++ islemTuru():void
+}
+
+class BorcKrediOdeme{ 
++ islemTuru():void
+}
+class Yatirmaislemi{
++ islemTuru():void
+}
+
+Class Transferislemi{ 
++ islemTuru():void
+}
+
+
+Class ParasalislemiFactory{
++ createIslem(String):Parasalislemi
+}
+
+Class Program{
++ main():void
+}
+Parasalislemi <-- BorcKrediOdeme
+Parasalislemi <-- Transferislemi
+Parasalislemi <-- Yatirmaislemi
+
+Parasalislemi <-- ParasalislemiFactory : Create
+Program --> ParasalislemiFactory : Asks
+
+
+@enduml
