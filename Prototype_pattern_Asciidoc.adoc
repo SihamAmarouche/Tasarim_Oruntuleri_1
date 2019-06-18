@@ -1,39 +1,39 @@
-## Yarartımsal(Creational) tasarım desenleri:
-Bu paternler, yazılım nesnelerinin nasıl yaratılacağı hakkında genel olarak öneriler sunarak kullandığı 
-esnek yapı sayesinde daha önceden belirlenen durumlara bağlı olarak gerekli nesneleri yaratır. Yaratımsal(Creational) desenler, 
-hangi nesnenin çağrılması gerektiğini izlemeden sistemin uygun nesneyi çağırmasını sağlayan tasarım kalıplarıdır. 
-Nesnelerin yaratılması gerektiği durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
-iyi bir yazılımın içinde barındırdığı nesnelerin nasıl yaratıldığından bağımsız olarak tasarlanması gerekliliğidir.
+## YarartÄ±msal(Creational) tasarÄ±m desenleri:
+Bu paternler, yazÄ±lÄ±m nesnelerinin nasÄ±l yaratÄ±lacaÄŸÄ± hakkÄ±nda genel olarak Ã¶neriler sunarak kullandÄ±ÄŸÄ± 
+esnek yapÄ± sayesinde daha Ã¶nceden belirlenen durumlara baÄŸlÄ± olarak gerekli nesneleri yaratÄ±r. YaratÄ±msal(Creational) desenler, 
+hangi nesnenin Ã§aÄŸrÄ±lmasÄ± gerektiÄŸini izlemeden sistemin uygun nesneyi Ã§aÄŸÄ±rmasÄ±nÄ± saÄŸlayan tasarÄ±m kalÄ±plarÄ±dÄ±r. 
+Nesnelerin yaratÄ±lmasÄ± gerektiÄŸi durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaÃ§, 
+iyi bir yazÄ±lÄ±mÄ±n iÃ§inde barÄ±ndÄ±rdÄ±ÄŸÄ± nesnelerin nasÄ±l yaratÄ±ldÄ±ÄŸÄ±ndan baÄŸÄ±msÄ±z olarak tasarlanmasÄ± gerekliliÄŸidir.
 
 ### * Prototype Pattern: 
-Prototype (prototip) tasarım deseni creational grubununa ait, var olan nesnelerin kopyasının üretiminden sorumlu tasarım desenidir.
+Prototype (prototip) tasarÄ±m deseni creational grubununa ait, var olan nesnelerin kopyasÄ±nÄ±n Ã¼retiminden sorumlu tasarÄ±m desenidir.
 
-Bazı nesnelerin üretilme maliyeti oldukça yüksek olabilir. Veya aynı değerlerde nesne üretilmesi gereken durumlar olabilir. 
-Böyle nesnelerin üretim maliyetini azaltmak için var olan nesnenin kopyasının üretilmesi yoluna gidilebilinir.
+BazÄ± nesnelerin Ã¼retilme maliyeti oldukÃ§a yÃ¼ksek olabilir. Veya aynÄ± deÄŸerlerde nesne Ã¼retilmesi gereken durumlar olabilir. 
+BÃ¶yle nesnelerin Ã¼retim maliyetini azaltmak iÃ§in var olan nesnenin kopyasÄ±nÄ±n Ã¼retilmesi yoluna gidilebilinir.
 
-#### Prototype tasarım deseninin genel uml şeması aşağıdaki gibidir :
+#### Prototype tasarÄ±m deseninin genel uml ÅŸemasÄ± aÅŸaÄŸÄ±daki gibidir :
 
-image::prototype_genel_diagram.png[450,500]
+image::Donem_Projesi_Uml/prototype_genel_diagram.png[450,500]
 
-#### Deep Copy ve Shallow Copy Arasındaki fark :
-Shallow Copy yüzeysel kopyalama aynı adresi işaret eden yeni bir nesne üretilmekte, var olan nesne üzerine referanslar ile işaretleme yapılmaktadır.
-Deep Copy ise Derin kopyalama nesneler birebir kopyalanabilmekte ve bu kopya sonucu ile asıl nesne farklı referanslar ile işaretlenebilmekte.
-Yüzeysel kopyalama basit nesneler için kullanışlı olmasına rağmen başka nesneleri referans eden nesneler için yetersiz kalır. Derin kopyalamada nesnenin referans ettiği nesneleri
-de kopyalar.Deep copy ile Shallow copy arasındaki fark gösteren resim aşağıdaki gösterilmekte:
+#### Deep Copy ve Shallow Copy ArasÄ±ndaki fark :
+Shallow Copy yÃ¼zeysel kopyalama aynÄ± adresi iÅŸaret eden yeni bir nesne Ã¼retilmekte, var olan nesne Ã¼zerine referanslar ile iÅŸaretleme yapÄ±lmaktadÄ±r.
+Deep Copy ise Derin kopyalama nesneler birebir kopyalanabilmekte ve bu kopya sonucu ile asÄ±l nesne farklÄ± referanslar ile iÅŸaretlenebilmekte.
+YÃ¼zeysel kopyalama basit nesneler iÃ§in kullanÄ±ÅŸlÄ± olmasÄ±na raÄŸmen baÅŸka nesneleri referans eden nesneler iÃ§in yetersiz kalÄ±r. Derin kopyalamada nesnenin referans ettiÄŸi nesneleri
+de kopyalar.Deep copy ile Shallow copy arasÄ±ndaki fark gÃ¶steren resim aÅŸaÄŸÄ±daki gÃ¶sterilmekte:
 
-image::ShallowCopy vs DeepCopy.png[]
+image::Donem_Projesi_Uml/ShallowCopy vs DeepCopy.png[]
 
 
-#### 1.Örnek:
-Bu örnek uygulamamızda mevcut olan kullancı(Müşteri veya yönetici) bilgilerini yüzeysel/derin kopyalama prototipi uygulanmak isteniyor. Bu kopyalama işlemi işimizi kolaylaştırıp
-işelmin maliyetini azaltıyor ve var olan nesnenin kopyasını üretilir.Uygulamanın class diyagramlari aşağıdaki gibidir.
+#### 1.Ã–rnek:
+Bu Ã¶rnek uygulamamÄ±zda mevcut olan kullancÄ±(MÃ¼ÅŸteri veya yÃ¶netici) bilgilerini yÃ¼zeysel/derin kopyalama prototipi uygulanmak isteniyor. Bu kopyalama iÅŸlemi iÅŸimizi kolaylaÅŸtÄ±rÄ±p
+iÅŸelmin maliyetini azaltÄ±yor ve var olan nesnenin kopyasÄ±nÄ± Ã¼retilir.UygulamanÄ±n class diyagramlari aÅŸaÄŸÄ±daki gibidir.
 
 #### *Prototype Pattern Ornegi icin UML class diyagram :
 
-image::Prototype_ClassDiagram_Example_1.png[]
+image::Donem_Projesi_Uml/Prototype_ClassDiagram_Example_1.png[]
 
 
-#### *Prortype Pattern Örneğin Kodları:
+#### *Prortype Pattern Ã–rneÄŸin KodlarÄ±:
 
 .Kullanici.java
 [source, java]
@@ -62,7 +62,7 @@ public abstract class Kullanici implements Serializable,Cloneable {
 	
 	
 	public void showUp(){
-		System.out.printf("Kullanıcı türü :[%s], Kullanıcı Yaşı:[%d]\n", getKullanici_turu(),getAge());
+		System.out.printf("KullanÄ±cÄ± tÃ¼rÃ¼ :[%s], KullanÄ±cÄ± YaÅŸÄ±:[%d]\n", getKullanici_turu(),getAge());
 	}
 	public abstract Kullanici makeShallowCopy(Kullanici orijinalKullanici);
 	public abstract Kullanici makeDeepCopy() throws ClassNotFoundException;
@@ -86,15 +86,15 @@ public class Musteri extends Kullanici{
 	Random rand = new Random();
 
 	public Musteri(){
-		setKullanici_turu("Müşteri");
+		setKullanici_turu("MÃ¼ÅŸteri");
 		int value = rand.nextInt(51)+20;
 		setAge(value);
-		System.out.println("Bankanın Orijinal(Asil) Müşterisi Oluşturuldu !!");
+		System.out.println("BankanÄ±n Orijinal(Asil) MÃ¼ÅŸterisi OluÅŸturuldu !!");
 	}
 	
 	@Override
 	public Musteri makeShallowCopy(Kullanici orijinalMusteri) {
-		System.out.println("Bankanın Clonelanan(SallowCopy) Müşterisi Oluşturuldu !!");
+		System.out.println("BankanÄ±n Clonelanan(SallowCopy) MÃ¼ÅŸterisi OluÅŸturuldu !!");
 		
 		Musteri clonedMusteri = new Musteri();
 		clonedMusteri=(Musteri)orijinalMusteri;
@@ -103,7 +103,7 @@ public class Musteri extends Kullanici{
 	
 	@Override
 	public Musteri makeDeepCopyMethod_2() {
-		System.out.println("Bankanın Clonelanan(DeepCopy Method_2) Müşterisi Oluşturuldu !!");
+		System.out.println("BankanÄ±n Clonelanan(DeepCopy Method_2) MÃ¼ÅŸterisi OluÅŸturuldu !!");
 		
 		Musteri clonedMusteri = null;
 		try {
@@ -117,7 +117,7 @@ public class Musteri extends Kullanici{
 
 	@Override
 	public Musteri makeDeepCopy() throws ClassNotFoundException {
-		System.out.println("Bankanın Clonelanan(DeepCopy) Müşterisi Oluşturuldu !!");
+		System.out.println("BankanÄ±n Clonelanan(DeepCopy) MÃ¼ÅŸterisi OluÅŸturuldu !!");
 		try {
 			//Serialization of object
 	        ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -156,11 +156,11 @@ public class Yonetici extends Kullanici{
 	Random rand = new Random();
 	
 	public Yonetici(){
-		setKullanici_turu("Yönetici");
+		setKullanici_turu("YÃ¶netici");
 		int value = rand.nextInt(51)+20;
 		setAge(value);
 		
-		System.out.println("Bankanın Orijinal(Asil) Yöneticisi Oluşturuldu !!");
+		System.out.println("BankanÄ±n Orijinal(Asil) YÃ¶neticisi OluÅŸturuldu !!");
 	}
 	@Override
 	public Yonetici makeShallowCopy(Kullanici orijinalYonetici) {
@@ -177,7 +177,7 @@ public class Yonetici extends Kullanici{
 	@Override
 	public Yonetici makeDeepCopyMethod_2(){
 		
-		System.out.println("Bankanın Clonelanan(DeepCopy Method_2) Yöneticisi Oluşturuldu !!");
+		System.out.println("BankanÄ±n Clonelanan(DeepCopy Method_2) YÃ¶neticisi OluÅŸturuldu !!");
 		
 		Yonetici clonedYonetici = null;
 		try {
@@ -192,7 +192,7 @@ public class Yonetici extends Kullanici{
 
 	@Override
 	public Yonetici makeDeepCopy() throws ClassNotFoundException {
-		System.out.println("Bankanın Clonelanan(DeepCopy) Yöneticisi Oluşturuldu !!");
+		System.out.println("BankanÄ±n Clonelanan(DeepCopy) YÃ¶neticisi OluÅŸturuldu !!");
 		try {
 			//Serialization of object
 	        ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -255,7 +255,7 @@ public class TestDeepCloning {
 		System.out.println("Cloned Musterinin Adresi: "+ System.identityHashCode(clonedMusteri));
 		
 		System.out.println();
-		System.out.println("Clonelanan Müşterinin yaş değerini değiştirirsek orijinal müşterinin değeri değişmez, çünkü burada DeepCopy Cloning uygulandi!!");
+		System.out.println("Clonelanan MÃ¼ÅŸterinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal mÃ¼ÅŸterinin deÄŸeri deÄŸiÅŸmez, Ã§Ã¼nkÃ¼ burada DeepCopy Cloning uygulandi!!");
 		clonedMusteri.setAge(36);
 		orijinalMusteri.showUp();
 		clonedMusteri.showUp();
@@ -263,7 +263,7 @@ public class TestDeepCloning {
 		System.out.println("***********Deep Cloninig 2.metodu ile test etmek***********");
 		
 		
-		System.out.println("\n****Sisteme Yeni Yöneticileri Eklenecek !!****");
+		System.out.println("\n****Sisteme Yeni YÃ¶neticileri Eklenecek !!****");
 		Yonetici orijinalYonetici = new Yonetici();
 		Yonetici clonedYonetici = (Yonetici)kullaniciMaker.getDeepCloneMethod_2(orijinalYonetici);
 		
@@ -275,7 +275,7 @@ public class TestDeepCloning {
 		System.out.println("Cloned Yoneticinin Adresi: "+ System.identityHashCode(clonedYonetici));
 		
 		System.out.println();
-		System.out.println("Clonelanan Yöneticinin yaş değerini değiştirirsek orijinal yöneticinin değeri değişmez, çünkü burada DeepCopy Cloning 2.metod uygulandi!!");
+		System.out.println("Clonelanan YÃ¶neticinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal yÃ¶neticinin deÄŸeri deÄŸiÅŸmez, Ã§Ã¼nkÃ¼ burada DeepCopy Cloning 2.metod uygulandi!!");
 		clonedYonetici.setAge(65);
 		orijinalYonetici.showUp();
 		clonedYonetici.showUp();
@@ -307,13 +307,13 @@ public class TestShallowCloning {
 		System.out.println("Cloned Musterinin Adresi: "+ System.identityHashCode(clonedMusteri));
 		
 		System.out.println();
-		System.out.println("Clonelanan Müşterinin yaş değerini değiştirirsek orijinal müşterinin değeri de değişir, çünkü burada ShallowCopy Cloning uygulandi!!");
+		System.out.println("Clonelanan MÃ¼ÅŸterinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal mÃ¼ÅŸterinin deÄŸeri de deÄŸiÅŸir, Ã§Ã¼nkÃ¼ burada ShallowCopy Cloning uygulandi!!");
 		clonedMusteri.age=24;
 		orijinalMusteri.showUp();
 		clonedMusteri.showUp();
 		
 		
-		System.out.println("\n****Sisteme Yeni Yöneticileri Eklenecek !!****");
+		System.out.println("\n****Sisteme Yeni YÃ¶neticileri Eklenecek !!****");
 		Yonetici orijinalYonetici = new Yonetici();
 		Yonetici clonedYonetici = (Yonetici)kullaniciMaker.getShallowClone(orijinalYonetici);
 		
@@ -325,7 +325,7 @@ public class TestShallowCloning {
 		System.out.println("Cloned Yoneticinin Adresi: "+ System.identityHashCode(clonedYonetici));
 		
 		System.out.println();
-		System.out.println("Clonelanan Yöneticinin yaş değerini değiştirirsek orijinal yöneticinin değeri de değişir, çünkü burada ShallowCopy Cloning uygulandi!!");
+		System.out.println("Clonelanan YÃ¶neticinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal yÃ¶neticinin deÄŸeri de deÄŸiÅŸir, Ã§Ã¼nkÃ¼ burada ShallowCopy Cloning uygulandi!!");
 		clonedYonetici.setAge(39);
 		orijinalYonetici.showUp();
 		clonedYonetici.showUp();
@@ -337,69 +337,69 @@ public class TestShallowCloning {
 ----
 ### Prototype Design Pattern's Example is Runing ###
 
-Bankanın Orijinal(Asil) Müşterisi Oluşturuldu !!
-Bankanın Clonelanan(DeepCopy) Müşterisi Oluşturuldu !!
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[27]
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[27]
+BankanÄ±n Orijinal(Asil) MÃ¼ÅŸterisi OluÅŸturuldu !!
+BankanÄ±n Clonelanan(DeepCopy) MÃ¼ÅŸterisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[27]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[27]
 
 orijinal Musterinin Adresi: 2125039532
 Cloned Musterinin Adresi: 189568618
 
-Clonelanan Müşterinin yaş değerini değiştirirsek orijinal müşterinin değeri değişmez, çünkü burada DeepCopy Cloning uygulandi!!
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[27]
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[36]
+Clonelanan MÃ¼ÅŸterinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal mÃ¼ÅŸterinin deÄŸeri deÄŸiÅŸmez, Ã§Ã¼nkÃ¼ burada DeepCopy Cloning uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[27]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[36]
 ***********Deep Cloninig 2.metodu ile test etmek***********
 
-****Sisteme Yeni Yöneticileri Eklenecek !!****
-Bankanın Orijinal(Asil) Yöneticisi Oluşturuldu !!
-Bankanın Clonelanan(DeepCopy Method_2) Yöneticisi Oluşturuldu !!
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[70]
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[70]
+****Sisteme Yeni YÃ¶neticileri Eklenecek !!****
+BankanÄ±n Orijinal(Asil) YÃ¶neticisi OluÅŸturuldu !!
+BankanÄ±n Clonelanan(DeepCopy Method_2) YÃ¶neticisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[70]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[70]
 
 orijinal Yoneticinin Adresi: 793589513
 Cloned Yoneticinin Adresi: 1313922862
 
-Clonelanan Yöneticinin yaş değerini değiştirirsek orijinal yöneticinin değeri değişmez, çünkü burada DeepCopy Cloning 2.metod uygulandi!!
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[70]
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[65]
+Clonelanan YÃ¶neticinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal yÃ¶neticinin deÄŸeri deÄŸiÅŸmez, Ã§Ã¼nkÃ¼ burada DeepCopy Cloning 2.metod uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[70]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[65]
 
 ### Prototype Design Pattern's Example is Runing ###
 
-Bankanın Orijinal(Asil) Müşterisi Oluşturuldu !!
-Bankanın Clonelanan(SallowCopy) Müşterisi Oluşturuldu !!
-Bankanın Orijinal(Asil) Müşterisi Oluşturuldu !!
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[27]
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[27]
+BankanÄ±n Orijinal(Asil) MÃ¼ÅŸterisi OluÅŸturuldu !!
+BankanÄ±n Clonelanan(SallowCopy) MÃ¼ÅŸterisi OluÅŸturuldu !!
+BankanÄ±n Orijinal(Asil) MÃ¼ÅŸterisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[27]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[27]
 
 orijinal Musterinin Adresi: 692404036
 Cloned Musterinin Adresi: 692404036
 
-Clonelanan Müşterinin yaş değerini değiştirirsek orijinal müşterinin değeri de değişir, çünkü burada ShallowCopy Cloning uygulandi!!
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[24]
-Kullanıcı türü :[Müşteri], Kullanıcı Yaşı:[24]
+Clonelanan MÃ¼ÅŸterinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal mÃ¼ÅŸterinin deÄŸeri de deÄŸiÅŸir, Ã§Ã¼nkÃ¼ burada ShallowCopy Cloning uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[24]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[MÃ¼ÅŸteri], KullanÄ±cÄ± YaÅŸÄ±:[24]
 
-****Sisteme Yeni Yöneticileri Eklenecek !!****
-Bankanın Orijinal(Asil) Yöneticisi Oluşturuldu !!
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[37]
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[37]
+****Sisteme Yeni YÃ¶neticileri Eklenecek !!****
+BankanÄ±n Orijinal(Asil) YÃ¶neticisi OluÅŸturuldu !!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[37]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[37]
 
 orijinal Yoneticinin Adresi: 1554874502
 Cloned Yoneticinin Adresi: 1846274136
 
-Clonelanan Yöneticinin yaş değerini değiştirirsek orijinal yöneticinin değeri de değişir, çünkü burada ShallowCopy Cloning uygulandi!!
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[37]
-Kullanıcı türü :[Yönetici], Kullanıcı Yaşı:[39]
+Clonelanan YÃ¶neticinin yaÅŸ deÄŸerini deÄŸiÅŸtirirsek orijinal yÃ¶neticinin deÄŸeri de deÄŸiÅŸir, Ã§Ã¼nkÃ¼ burada ShallowCopy Cloning uygulandi!!
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[37]
+KullanÄ±cÄ± tÃ¼rÃ¼ :[YÃ¶netici], KullanÄ±cÄ± YaÅŸÄ±:[39]
 ----
 
-#### 2.Örnek:
-Bu örnek uygulamamızda mevcut olan kullancı(Müşteri veya yönetici) bilgilerini yüzeysel/derin kopyalama prototipi uygulanmak isteniyor. Bu kopyalama işlemi işimizi kolaylaştırıp
-işelmin maliyetini azaltıyor ve var olan nesnenin kopyasını üretilir.Uygulamanın class diyagramlari aşağıdaki gibidir.
+#### 2.Ã–rnek:
+Bu Ã¶rnek uygulamamÄ±zda mevcut olan kullancÄ±(MÃ¼ÅŸteri veya yÃ¶netici) bilgilerini yÃ¼zeysel/derin kopyalama prototipi uygulanmak isteniyor. Bu kopyalama iÅŸlemi iÅŸimizi kolaylaÅŸtÄ±rÄ±p
+iÅŸelmin maliyetini azaltÄ±yor ve var olan nesnenin kopyasÄ±nÄ± Ã¼retilir.UygulamanÄ±n class diyagramlari aÅŸaÄŸÄ±daki gibidir.
 
 #### *2.Ornegin UML class diyagrami :
 
-image::Prototype_ClassDiagram_Example_2.png[]
+image::Donem_Projesi_Uml/Prototype_ClassDiagram_Example_2.png[]
 
-#### *Prortype Pattern Örneğin Kodları:
+#### *Prortype Pattern Ã–rneÄŸin KodlarÄ±:
 .Sube.java
 [source, java]
 ----
@@ -465,7 +465,7 @@ public class BankaSubeleri implements Cloneable{
 	}
 	@Override
 	public String toString() {
-		return "Banka Şubeleri: [BankaName= " + BankaName + ", subeler=" + subeler + "]";
+		return "Banka Åubeleri: [BankaName= " + BankaName + ", subeler=" + subeler + "]";
 	}
 	@Override
 	protected BankaSubeleri clone() throws CloneNotSupportedException {
@@ -498,7 +498,7 @@ public class Demo {
 		BankaSubeleri bs2 = new BankaSubeleri();
 	
 		
-		System.out.print("Burada görüldüğü gibi DeepCopy uygulanmaktadır ilk Bankadan bir şubeyi silersek iknicisinde o şube silinmez/etkilmez!!");
+		System.out.print("Burada gÃ¶rÃ¼ldÃ¼ÄŸÃ¼ gibi DeepCopy uygulanmaktadÄ±r ilk Bankadan bir ÅŸubeyi silersek iknicisinde o ÅŸube silinmez/etkilmez!!");
 		bs2 = bs.clone();
 		bs2.setBankaName("Vakif Bankasi");
 		bs.getSubeler().remove(2);
@@ -516,8 +516,8 @@ public class Demo {
 ----
 ### Prototype Design Pattern's Example is Runing ###
 
-Burada görüldüğü gibi DeepCopy uygulanmaktadır ilk Bankadan bir şubeyi silersek iknicisinde o şube silinmez/etkilmez!!
+Burada gÃ¶rÃ¼ldÃ¼ÄŸÃ¼ gibi DeepCopy uygulanmaktadÄ±r ilk Bankadan bir ÅŸubeyi silersek iknicisinde o ÅŸube silinmez/etkilmez!!
 
-Banka Şubeleri: [BankaName= Ziraat Bankasi, subeler=[ [bid=1, sube_name=Sube 1],  [bid=2, sube_name=Sube 2],  [bid=4, sube_name=Sube 4]]]
-Banka Şubeleri: [BankaName= Vakif Bankasi, subeler=[ [bid=1, sube_name=Sube 1],  [bid=2, sube_name=Sube 2],  [bid=3, sube_name=Sube 3],  [bid=4, sube_name=Sube 4]]]
+Banka Åubeleri: [BankaName= Ziraat Bankasi, subeler=[ [bid=1, sube_name=Sube 1],  [bid=2, sube_name=Sube 2],  [bid=4, sube_name=Sube 4]]]
+Banka Åubeleri: [BankaName= Vakif Bankasi, subeler=[ [bid=1, sube_name=Sube 1],  [bid=2, sube_name=Sube 2],  [bid=3, sube_name=Sube 3],  [bid=4, sube_name=Sube 4]]]
 ----
