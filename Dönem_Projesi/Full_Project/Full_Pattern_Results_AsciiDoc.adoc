@@ -10,7 +10,7 @@ sonuçlar örneğin (Adapter pattern ve Observer patter) için aşağıdaki foto
 
 image::Donem_Projesi_Uml/Adapter.PNG[]
 
-::Donem_Projesi_Uml/Observer.PNG[]
+image::Donem_Projesi_Uml/Observer.PNG[]
 
 #### 2) Full Project without Interface Just From Console's Screen:
 [Source,]
