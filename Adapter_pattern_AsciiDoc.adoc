@@ -1,27 +1,27 @@
-## Yapýsal(structural ) tasarým desenleri:
-Yapýsal(structural) tasarým desenleri, nesnelerin birbirleri ile olan iliþkilerini düzenleyen desenlerdir.
+## YapÄ±sal(structural ) tasarÄ±m desenleri:
+YapÄ±sal(structural) tasarÄ±m desenleri, nesnelerin birbirleri ile olan iliÅŸkilerini dÃ¼zenleyen desenlerdir.
 
 ### * Adapter Pattern: 
-Adapter tasarým deseni; structural grubuna ait, uygulamada ki bir yapýya dýþarýdaki bir yapýyý uygulamayý düzenleyen bir tasarým desenidir.
+Adapter tasarÄ±m deseni; structural grubuna ait, uygulamada ki bir yapÄ±ya dÄ±ÅŸarÄ±daki bir yapÄ±yÄ± uygulamayÄ± dÃ¼zenleyen bir tasarÄ±m desenidir.
 
-Bazý durumlarda zaten var olan baþka bir yapýyý uygulamamýz içinde ki bir yapýya uyarlayýp kullanmamýz gerekebilir. 
-Burada uyarlanacak yapý net kütüphanesi olmasý gerekmez. Com nesnesi gibi bir yapý da olabilir veya zaten geliþtirdiðimiz 
-uygulamadaki baþka bir yapý da olabilir. Bu uyarlama iþlemini yazacaðýmýz bir Adapter nesnesi ile saðlayabiliriz. 
-Adapter tasarým deseninin uml þemasý aþaðýdadýr.
+BazÄ± durumlarda zaten var olan baÅŸka bir yapÄ±yÄ± uygulamamÄ±z iÃ§inde ki bir yapÄ±ya uyarlayÄ±p kullanmamÄ±z gerekebilir. 
+Burada uyarlanacak yapÄ± net kÃ¼tÃ¼phanesi olmasÄ± gerekmez. Com nesnesi gibi bir yapÄ± da olabilir veya zaten geliÅŸtirdiÄŸimiz 
+uygulamadaki baÅŸka bir yapÄ± da olabilir. Bu uyarlama iÅŸlemini yazacaÄŸÄ±mÄ±z bir Adapter nesnesi ile saÄŸlayabiliriz. 
+Adapter tasarÄ±m deseninin uml ÅŸemasÄ± aÅŸaÄŸÄ±dadÄ±r.
 
-#### Adapter tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+#### Adapter tasarÄ±m deseninin genel uml ÅŸemasÄ± aÅŸaÄŸÄ±daki gibidir :
 
-image::adapter_genel_yapi_uml.png[600,500]
+image::Donem_Projesi_Uml/adapter_genel_yapi_uml.png[600,500]
 
-#### Örnek:
-Örnek uygulamamýzda adapter pattern uygulandý var olan baþka bir yapýyý uygulamanýn içinde ki baþka bir yapýya uyarlayýp kullanmamýz gerekebiliyor, bu yüzden DolarBirimi_Adaptee sýnýfý ParaBirimi arayüzünden türetilen TürkLiraBirimi sýnýfýna uyarlamak için ParaBirimi arayüzünden türetilen ParaBirimiAdapter adapteri kullanýldý. Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+#### Ã–rnek:
+Ã–rnek uygulamamÄ±zda adapter pattern uygulandÄ± var olan baÅŸka bir yapÄ±yÄ± uygulamanÄ±n iÃ§inde ki baÅŸka bir yapÄ±ya uyarlayÄ±p kullanmamÄ±z gerekebiliyor, bu yÃ¼zden DolarBirimi_Adaptee sÄ±nÄ±fÄ± ParaBirimi arayÃ¼zÃ¼nden tÃ¼retilen TÃ¼rkLiraBirimi sÄ±nÄ±fÄ±na uyarlamak iÃ§in ParaBirimi arayÃ¼zÃ¼nden tÃ¼retilen ParaBirimiAdapter adapteri kullanÄ±ldÄ±. UygulamanÄ±n class diyagramlari aÅŸaÄŸÄ±daki gibidir.
 
 #### *Adapter Pattern Ornegi icin UML class diyagram :
 
-image::Adapter_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,750]
+image::Donem_Projesi_Uml/Adapter_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,750]
 
 
-#### *Adapter Pattern Örneðin Kodlarý:
+#### *Adapter Pattern Ã–rneÄŸin KodlarÄ±:
 
 .Client.java
 [source, java]
@@ -73,20 +73,20 @@ public class TurkLiraBirimi implements ParaBirimi{
 
 	@Override
 	public void paraBirimiBilgileri() {
-	 System.out.println("Alýþveriþte Kullanýlan Para Birimi: Türk Lirasý");
+	 System.out.println("AlÄ±ÅŸveriÅŸte KullanÄ±lan Para Birimi: TÃ¼rk LirasÄ±");
 		
 	}
 
 	@Override
 	public void getParaMiktari(double miktar) {
 		double m = miktar;
-		System.out.printf("Alýþveriþte kullanýlacak para miktarý = %.2f TL\n", m);
+		System.out.printf("AlÄ±ÅŸveriÅŸte kullanÄ±lacak para miktarÄ± = %.2f TL\n", m);
 
 	}
 
 	@Override
 	public void paraDegeri() {
-		System.out.println("Türk Lirasý deðeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar \n");
+		System.out.println("TÃ¼rk LirasÄ± deÄŸeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar \n");
 		
 	}
 }
@@ -127,19 +127,19 @@ public class DolarBirimi_Adaptee {
 
 	
 	public void dolar_paraBirimiBilgileri() {
-		 System.out.println("Alýþveriþte Kullanýlan Para Birimi: Dolar (USD)");
+		 System.out.println("AlÄ±ÅŸveriÅŸte KullanÄ±lan Para Birimi: Dolar (USD)");
 		
 	}
 
 	
 	public void dolar_getParaMiktari(double miktar) {
 		double m = miktar/6.044;
-		System.out.printf("Alýþveriþte kullanýlacak para miktarý = %.2f Dolar(USD)\n", m);		
+		System.out.printf("AlÄ±ÅŸveriÅŸte kullanÄ±lacak para miktarÄ± = %.2f Dolar(USD)\n", m);		
 	}
 
 	
 	public void dolar_paraDegeri() {
-		System.out.println("Dolar deðeri Türk Lirasý cinsinden ==> 1 Dolar = 6.044 TL \n");
+		System.out.println("Dolar deÄŸeri TÃ¼rk LirasÄ± cinsinden ==> 1 Dolar = 6.044 TL \n");
 		
 	}
 
@@ -151,13 +151,13 @@ public class DolarBirimi_Adaptee {
 ----
 ### Adapter Design Pattern's Example is Runing ###
 
-Alýþveriþte Kullanýlan Para Birimi: Türk Lirasý
-Alýþveriþte kullanýlacak para miktarý = 1250,00 TL
-Türk Lirasý deðeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar 
+AlÄ±ÅŸveriÅŸte KullanÄ±lan Para Birimi: TÃ¼rk LirasÄ±
+AlÄ±ÅŸveriÅŸte kullanÄ±lacak para miktarÄ± = 1250,00 TL
+TÃ¼rk LirasÄ± deÄŸeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar 
 
-Alýþveriþte Kullanýlan Para Birimi: Dolar (USD)
-Alýþveriþte kullanýlacak para miktarý = 206,82 Dolar(USD)
-Dolar deðeri Türk Lirasý cinsinden ==> 1 Dolar = 6.044 TL 
+AlÄ±ÅŸveriÅŸte KullanÄ±lan Para Birimi: Dolar (USD)
+AlÄ±ÅŸveriÅŸte kullanÄ±lacak para miktarÄ± = 206,82 Dolar(USD)
+Dolar deÄŸeri TÃ¼rk LirasÄ± cinsinden ==> 1 Dolar = 6.044 TL 
 
 --------------------------------------------------------
 ----
