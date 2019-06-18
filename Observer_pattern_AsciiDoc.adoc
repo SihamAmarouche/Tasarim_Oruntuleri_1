@@ -1,21 +1,21 @@
-## Davranışsal(Behavioral) tasarım desenleri:
-Yazılım mühendisliğinde davranışsal tasarım kalıpları, soruna göre nesneler arası ortak haberleşmeyi en iyi şekilde kurmamıza öneriler sunan tasarım kalıplarıdır. 
-Böylece, bu örüntüler bu iletişimi gerçekleştirmede esnekliği arttırır.
+## DavranÄ±ÅŸsal(Behavioral) tasarÄ±m desenleri:
+YazÄ±lÄ±m mÃ¼hendisliÄŸinde davranÄ±ÅŸsal tasarÄ±m kalÄ±plarÄ±, soruna gÃ¶re nesneler arasÄ± ortak haberleÅŸmeyi en iyi ÅŸekilde kurmamÄ±za Ã¶neriler sunan tasarÄ±m kalÄ±plarÄ±dÄ±r. 
+BÃ¶ylece, bu Ã¶rÃ¼ntÃ¼ler bu iletiÅŸimi gerÃ§ekleÅŸtirmede esnekliÄŸi arttÄ±rÄ±r.
 
 ### *Observer Pattern :
-Observer tasarım deseni behavior grubununa ait, bir nesnede meydana gelen değişikliklerde içinde bulundurduğu listede bulunan nesnelere haber gönderen tasarım desenidir.
-Observer tasarım deseni; birbirleri ile bire çok (yani bir nesnenin içinde başka bir nesnenin listesinin bulunması olarak düşünebiliriz) ilişki olan nesneler arasında olay bazlı bir etkileşim olduğu durumları düzenler.
+Observer tasarÄ±m deseni behavior grubununa ait, bir nesnede meydana gelen deÄŸiÅŸikliklerde iÃ§inde bulundurduÄŸu listede bulunan nesnelere haber gÃ¶nderen tasarÄ±m desenidir.
+Observer tasarÄ±m deseni; birbirleri ile bire Ã§ok (yani bir nesnenin iÃ§inde baÅŸka bir nesnenin listesinin bulunmasÄ± olarak dÃ¼ÅŸÃ¼nebiliriz) iliÅŸki olan nesneler arasÄ±nda olay bazlÄ± bir etkileÅŸim olduÄŸu durumlarÄ± dÃ¼zenler.
 
-#### Observer tasarım deseninin uml şeması aşağıdaki gibidir :
+#### Observer tasarÄ±m deseninin uml ÅŸemasÄ± aÅŸaÄŸÄ±daki gibidir :
 
-image::observer_genel_yapi_uml.jpg[observer,350,250]
+image::Donem_Projesi_Uml/observer_genel_yapi_uml.jpg[observer,350,250]
 
-#### Örnek:
-Örnek uygulamamızda Observer Bankanın kullanıcıları ve Subject(Observable) nesnesi Bankaların kampanya mesajları olsun. Bu şekilde Obsever tasarım deseni uygulanmış olur ve yeni bilgilendirme mesajları geldikçe kampanya uyarısına üye olan banka kullanıcılarına bildirim gönderilir.
+#### Ã–rnek:
+Ã–rnek uygulamamÄ±zda Observer BankanÄ±n kullanÄ±cÄ±larÄ± ve Subject(Observable) nesnesi BankalarÄ±n kampanya mesajlarÄ± olsun. Bu ÅŸekilde Obsever tasarÄ±m deseni uygulanmÄ±ÅŸ olur ve yeni bilgilendirme mesajlarÄ± geldikÃ§e kampanya uyarÄ±sÄ±na Ã¼ye olan banka kullanÄ±cÄ±larÄ±na bildirim gÃ¶nderilir.
 
-Uygulamanın class diyagramı aşağıdaki gibidir.
+UygulamanÄ±n class diyagramÄ± aÅŸaÄŸÄ±daki gibidir.
 
-image::Observer_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,700]
+image::Donem_Projesi_Uml/Observer_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,700]
 
 #### CODE:
 
@@ -110,8 +110,8 @@ public class KampanyaMesaj_Subscriber implements Subject {
 	}
 	
 	public void postMessage(Kampanya kampanyaMsg){
-		System.out.println("Topic'a gönderilen kampanya mesajın bilgileri: \n"+"Kampanyanın Başlığı: "+kampanyaMsg.kampanyaBaslik+
-				",\nKampanyanın İçeriği: "+kampanyaMsg.kampanyaIcerik+", Kampanyanın Süresi:"+kampanyaMsg.kampanyaSuresi);
+		System.out.println("Topic'a gÃ¶nderilen kampanya mesajÄ±n bilgileri: \n"+"KampanyanÄ±n BaÅŸlÄ±ÄŸÄ±: "+kampanyaMsg.kampanyaBaslik+
+				",\nKampanyanÄ±n Ä°Ã§eriÄŸi: "+kampanyaMsg.kampanyaIcerik+", KampanyanÄ±n SÃ¼resi:"+kampanyaMsg.kampanyaSuresi);
 		this.ksample= kampanyaMsg;
 		this.changed=true;
 		notifyObservers();
@@ -143,7 +143,7 @@ public class BankaKullanici implements Observer{
 		if (msg==null){
 			System.out.println(kullanici_name+" :: Kampanya Mesaji yoktur !!");
 		}else 
-			System.out.println(kullanici_name+" :: Kampanya Mesaji vardir !! ==> Kampanyanın İçeriği: "+msg);
+			System.out.println(kullanici_name+" :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: "+msg);
 	}
 
 	
@@ -192,8 +192,8 @@ public class MainProgram {
 		
 		// Create observers
 		Observer observer_1 = new BankaKullanici("Aykut Demir");
-		Observer observer_2 = new BankaKullanici("Alp Erdoğan");
-        Observer observer_3 = new BankaKullanici("Merve DoğanAy");
+		Observer observer_2 = new BankaKullanici("Alp ErdoÄŸan");
+        Observer observer_3 = new BankaKullanici("Merve DoÄŸanAy");
         
         // add observer to topic
         kampanyaMsg.addObserver(observer_1);
@@ -208,12 +208,12 @@ public class MainProgram {
         observer_1.update();
         observer_3.update();
         
-        Kampanya kampanya = new Kampanya("İlk Kampanyamız","Kampanyamiz Altin dovizi alimi ile ilgilidir","1 aydır");
+        Kampanya kampanya = new Kampanya("Ä°lk KampanyamÄ±z","Kampanyamiz Altin dovizi alimi ile ilgilidir","1 aydÄ±r");
         // Send Kampanya bilgileri
         kampanyaMsg.postMessage(kampanya);
         System.out.println("---------------------------------------------------\n");
         kampanyaMsg.removeObserver(observer_2);
-        Kampanya kampanya_2 = new Kampanya("2. Kampanyamız","Çocukların geleceği için kumbara kampanyasına katılın","2 aydır");
+        Kampanya kampanya_2 = new Kampanya("2. KampanyamÄ±z","Ã‡ocuklarÄ±n geleceÄŸi iÃ§in kumbara kampanyasÄ±na katÄ±lÄ±n","2 aydÄ±r");
         kampanyaMsg.postMessage(kampanya_2);
         System.out.println("---------------------------------------------------\n");
 
@@ -228,19 +228,19 @@ public class MainProgram {
 ### Observer Design Pattern's Example is Runing ###
 
 Aykut Demir :: Kampanya Mesaji yoktur !!
-Merve DoğanAy :: Kampanya Mesaji yoktur !!
-Topic'a gönderilen kampanya mesajın bilgileri: 
-Kampanyanın Başlığı: İlk Kampanyamız,
-Kampanyanın İçeriği: Kampanyamiz Altin dovizi alimi ile ilgilidir, Kampanyanın Süresi:1 aydır
-Aykut Demir :: Kampanya Mesaji vardir !! ==> Kampanyanın İçeriği: Kampanyamiz Altin dovizi alimi ile ilgilidir
-Alp Erdoğan :: Kampanya Mesaji vardir !! ==> Kampanyanın İçeriği: Kampanyamiz Altin dovizi alimi ile ilgilidir
-Merve DoğanAy :: Kampanya Mesaji vardir !! ==> Kampanyanın İçeriği: Kampanyamiz Altin dovizi alimi ile ilgilidir
+Merve DoÄŸanAy :: Kampanya Mesaji yoktur !!
+Topic'a gÃ¶nderilen kampanya mesajÄ±n bilgileri: 
+KampanyanÄ±n BaÅŸlÄ±ÄŸÄ±: Ä°lk KampanyamÄ±z,
+KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir, KampanyanÄ±n SÃ¼resi:1 aydÄ±r
+Aykut Demir :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir
+Alp ErdoÄŸan :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir
+Merve DoÄŸanAy :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Kampanyamiz Altin dovizi alimi ile ilgilidir
 ---------------------------------------------------
 
-Topic'a gönderilen kampanya mesajın bilgileri: 
-Kampanyanın Başlığı: 2. Kampanyamız,
-Kampanyanın İçeriği: Çocukların geleceği için kumbara kampanyasına katılın, Kampanyanın Süresi:2 aydır
-Aykut Demir :: Kampanya Mesaji vardir !! ==> Kampanyanın İçeriği: Çocukların geleceği için kumbara kampanyasına katılın
-Merve DoğanAy :: Kampanya Mesaji vardir !! ==> Kampanyanın İçeriği: Çocukların geleceği için kumbara kampanyasına katılın
+Topic'a gÃ¶nderilen kampanya mesajÄ±n bilgileri: 
+KampanyanÄ±n BaÅŸlÄ±ÄŸÄ±: 2. KampanyamÄ±z,
+KampanyanÄ±n Ä°Ã§eriÄŸi: Ã‡ocuklarÄ±n geleceÄŸi iÃ§in kumbara kampanyasÄ±na katÄ±lÄ±n, KampanyanÄ±n SÃ¼resi:2 aydÄ±r
+Aykut Demir :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Ã‡ocuklarÄ±n geleceÄŸi iÃ§in kumbara kampanyasÄ±na katÄ±lÄ±n
+Merve DoÄŸanAy :: Kampanya Mesaji vardir !! ==> KampanyanÄ±n Ä°Ã§eriÄŸi: Ã‡ocuklarÄ±n geleceÄŸi iÃ§in kumbara kampanyasÄ±na katÄ±lÄ±n
 ---------------------------------------------------
 ----
