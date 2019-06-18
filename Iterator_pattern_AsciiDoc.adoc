@@ -1,43 +1,43 @@
-## Davranışsal(Behavioral) tasarım desenleri:
-Yazılım mühendisliğinde davranışsal tasarım kalıpları, soruna göre nesneler arası ortak haberleşmeyi en iyi şekilde kurmamıza öneriler sunan tasarım kalıplarıdır. 
-Böylece, bu örüntüler bu iletişimi gerçekleştirmede esnekliği arttırır.
+## DavranÄ±ÅŸsal(Behavioral) tasarÄ±m desenleri:
+YazÄ±lÄ±m mÃ¼hendisliÄŸinde davranÄ±ÅŸsal tasarÄ±m kalÄ±plarÄ±, soruna gÃ¶re nesneler arasÄ± ortak haberleÅŸmeyi en iyi ÅŸekilde kurmamÄ±za Ã¶neriler sunan tasarÄ±m kalÄ±plarÄ±dÄ±r. 
+BÃ¶ylece, bu Ã¶rÃ¼ntÃ¼ler bu iletiÅŸimi gerÃ§ekleÅŸtirmede esnekliÄŸi arttÄ±rÄ±r.
 
 ### * Iterator Pattern: 
-Iterterator (tekrarlayıcı) tasarım deseni, behavior grubununa ait, nesne koleksyonlarının (list,array,queue) elemanlarını belirlenen kurallara göre elde edilmesini düzenleyen tasarım desenidir.ator Pattern :
-terator (tekrarlayıcı) tasarım deseni, behavior grubununa ait, nesne koleksyonlarının (list,array,queue) elemanlarını belirlenen kurallara göre elde edilmesini düzenleyen tasarım desenidir.
+Iterterator (tekrarlayÄ±cÄ±) tasarÄ±m deseni, behavior grubununa ait, nesne koleksyonlarÄ±nÄ±n (list,array,queue) elemanlarÄ±nÄ± belirlenen kurallara gÃ¶re elde edilmesini dÃ¼zenleyen tasarÄ±m desenidir.ator Pattern :
+terator (tekrarlayÄ±cÄ±) tasarÄ±m deseni, behavior grubununa ait, nesne koleksyonlarÄ±nÄ±n (list,array,queue) elemanlarÄ±nÄ± belirlenen kurallara gÃ¶re elde edilmesini dÃ¼zenleyen tasarÄ±m desenidir.
 
-Iterator tasarım deseni ile koleksiyon yapısı bilinmesine ihtiyaç olmadan koleksiyon elemanları üzerinde işlem yapılabilmesini sağlar. Yani iterator tasarım deseni kullanılarak koleksiyonun array, queue, 
-list olması önemli olmadan, aynı şekilde elemanlarının elde edilmesi sağlanır.
+Iterator tasarÄ±m deseni ile koleksiyon yapÄ±sÄ± bilinmesine ihtiyaÃ§ olmadan koleksiyon elemanlarÄ± Ã¼zerinde iÅŸlem yapÄ±labilmesini saÄŸlar. Yani iterator tasarÄ±m deseni kullanÄ±larak koleksiyonun array, queue, 
+list olmasÄ± Ã¶nemli olmadan, aynÄ± ÅŸekilde elemanlarÄ±nÄ±n elde edilmesi saÄŸlanÄ±r.
 
-#### Iterator tasarım deseni 5 temel yapıdan oluşur:
+#### Iterator tasarÄ±m deseni 5 temel yapÄ±dan oluÅŸur:
 
-*  Iterator: Koleksiyon elemanları elde edilebilmesi için gerekli işlemleri tanımlar.
+*  Iterator: Koleksiyon elemanlarÄ± elde edilebilmesi iÃ§in gerekli iÅŸlemleri tanÄ±mlar.
 
-*  Aggregate: Koleksiyon barındıran nesnelerin Iterator tipinden nesne oluşturacağını belirten arayüzdür.
+*  Aggregate: Koleksiyon barÄ±ndÄ±ran nesnelerin Iterator tipinden nesne oluÅŸturacaÄŸÄ±nÄ± belirten arayÃ¼zdÃ¼r.
 
-*  Concrete Aggregate: Koleksiyon barındıran nesnedir. Aggregate arayüzünü uygular ve ilgili ConcreteIterator nesnesini oluşturur.
+*  Concrete Aggregate: Koleksiyon barÄ±ndÄ±ran nesnedir. Aggregate arayÃ¼zÃ¼nÃ¼ uygular ve ilgili ConcreteIterator nesnesini oluÅŸturur.
 
-*  ConcreteIterator:  Aggregate yapısında ki koleksiyon elemanlarının elde edilmesini sağlayan metotları barındıran yani Iterator arayüzünü uygulayan gerçek iterator nesnesidir.
+*  ConcreteIterator:  Aggregate yapÄ±sÄ±nda ki koleksiyon elemanlarÄ±nÄ±n elde edilmesini saÄŸlayan metotlarÄ± barÄ±ndÄ±ran yani Iterator arayÃ¼zÃ¼nÃ¼ uygulayan gerÃ§ek iterator nesnesidir.
 
-*  Client: Bu yapıyı kullanarak koleksiyon içindeki elemanlara erişen yapıdır.
+*  Client: Bu yapÄ±yÄ± kullanarak koleksiyon iÃ§indeki elemanlara eriÅŸen yapÄ±dÄ±r.
 
-#### Iterator tasarım deseninin uml şeması aşağıdaki gibidir :
+#### Iterator tasarÄ±m deseninin uml ÅŸemasÄ± aÅŸaÄŸÄ±daki gibidir :
 
-image::Iterator_genel_uml.png[iterator]
+image::Donem_Projesi_Uml/Iterator_genel_uml.png[iterator]
 
-#### Örnek:
-Örnek uygulamamızda Musteri Iterator ve Yonetici Iterator sınıfılarını oluşturduk. Bu Iteratorlar Müşteri ve Yönetici koleksiyon listelerinde içinde
-dolaşmamızı sağlar koleksiyonun iç yapısı bilmeden. MusteriContainer sınıfında Musteri sınıfından bir arraylist oluşturulur elemanları eklenir,
-YoneticiContainer ise Yonetici sınıfından oluşturulan nesneleri Hashtable setinde sklanır. Böylece Iterator deseni gerçekleştirmiş oluruz ve koleksiyon yapısı bilinmesine ihtiyaç olmadan koleksiyon elemanları 
-üzerinde işlem yapılabilmesini sağlanmış olur.Uygulamanın class diyagramlari aşağıdaki gibidir.
+#### Ã–rnek:
+Ã–rnek uygulamamÄ±zda Musteri Iterator ve Yonetici Iterator sÄ±nÄ±fÄ±larÄ±nÄ± oluÅŸturduk. Bu Iteratorlar MÃ¼ÅŸteri ve YÃ¶netici koleksiyon listelerinde iÃ§inde
+dolaÅŸmamÄ±zÄ± saÄŸlar koleksiyonun iÃ§ yapÄ±sÄ± bilmeden. MusteriContainer sÄ±nÄ±fÄ±nda Musteri sÄ±nÄ±fÄ±ndan bir arraylist oluÅŸturulur elemanlarÄ± eklenir,
+YoneticiContainer ise Yonetici sÄ±nÄ±fÄ±ndan oluÅŸturulan nesneleri Hashtable setinde sklanÄ±r. BÃ¶ylece Iterator deseni gerÃ§ekleÅŸtirmiÅŸ oluruz ve koleksiyon yapÄ±sÄ± bilinmesine ihtiyaÃ§ olmadan koleksiyon elemanlarÄ± 
+Ã¼zerinde iÅŸlem yapÄ±labilmesini saÄŸlanmÄ±ÅŸ olur.UygulamanÄ±n class diyagramlari aÅŸaÄŸÄ±daki gibidir.
 
 #### *Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram :
 
-image::Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram Example_1.png[]
+image::Donem_Projesi_Uml/Musteri Iterator ve MusteriContainer Ornegi icin UML class diyagram Example_1.png[]
 
 #### *Yonetici Iterator ve YoneticiContainer Ornegi icin UML class diyagram :
 
-image::Yonetici Iterator Ornegi icin UML class diyagram Example_2.png[]
+image::Donem_Projesi_Uml/Yonetici Iterator Ornegi icin UML class diyagram Example_2.png[]
 
 #### CODE:
 
@@ -51,7 +51,7 @@ public class Client {
 		
 		System.out.println("### Iterator Design Pattern's Example is Runing ###\n");
 
-		System.out.println("--> Iterator Vasıtası İle Sistemin Müşterilerin Bilgileri Geri Döndürmek!!\n");
+		System.out.println("--> Iterator VasÄ±tasÄ± Ä°le Sistemin MÃ¼ÅŸterilerin Bilgileri Geri DÃ¶ndÃ¼rmek!!\n");
 		Container iContainer = new MusteriContainer();
 		Iterator iIterator = iContainer.createIterator();
 		while(iIterator.hasNext()){
@@ -59,7 +59,7 @@ public class Client {
 			System.out.println(object);
 		}
 		System.out.println();
-		System.out.println("--> Iterator Vasıtası İle Sistemin Yöneticilerin Bilgileri Geri Döndürmek!!\n");
+		System.out.println("--> Iterator VasÄ±tasÄ± Ä°le Sistemin YÃ¶neticilerin Bilgileri Geri DÃ¶ndÃ¼rmek!!\n");
 		Container yoneticiContainer = new YoneticiContainer();
 		Iterator yoneticiIterator = yoneticiContainer.createIterator();
 		while(yoneticiIterator.hasNext()){
@@ -204,7 +204,7 @@ public class Musteri extends Kullanici{
 		setKullanici_adi(musteri_adi);
 		setKullanici_soyadi(musteri_soyadi);
 		setAge(age);
-		setKullanici_turu("Müşteri");
+		setKullanici_turu("MÃ¼ÅŸteri");
 	}
 	
 }
@@ -220,10 +220,10 @@ public class Yonetici extends Kullanici {
 		setKullanici_adi(yonetici_adi);
 		setKullanici_soyadi(yonetici_soyadi);
 		setAge(age);
-		setKullanici_turu("Yönetici");
+		setKullanici_turu("YÃ¶netici");
 	}
 	public String toString() {
-		return "yönetici_adi=" + getKullanici_adi() + ", yönetici_soyadi=" + getKullanici_soyadi() + ", age=" + getAge()
+		return "yÃ¶netici_adi=" + getKullanici_adi() + ", yÃ¶netici_soyadi=" + getKullanici_soyadi() + ", age=" + getAge()
 				+ ", kullanici_turu=" + getKullanici_turu() ;
 	}
 }
@@ -286,7 +286,7 @@ public class YoneticiContainer implements Container{
 	public YoneticiContainer(){
 		addYonetici("Ahmet","Akbulut",45);
 		addYonetici("Unal","Sayar",50);
-		addYonetici("Merve","Ateş",37);
+		addYonetici("Merve","AteÅŸ",37);
 		
 		
 	}
@@ -307,15 +307,15 @@ public class YoneticiContainer implements Container{
 ----
 ### Iterator Design Pattern's Example is Runing ###
 
---> Iterator Vasıtası İle Sistemin Müşterilerin Bilgileri Geri Döndürmek!!
+--> Iterator VasÄ±tasÄ± Ä°le Sistemin MÃ¼ÅŸterilerin Bilgileri Geri DÃ¶ndÃ¼rmek!!
 
-musteri_adi=Muhammed, musteri_soyadi=Kaya, age=24, kullanici_turu=Müşteri
-musteri_adi=Caner, musteri_soyadi=Bulut, age=30, kullanici_turu=Müşteri
-musteri_adi=Esma, musteri_soyadi=Bodur, age=27, kullanici_turu=Müşteri
+musteri_adi=Muhammed, musteri_soyadi=Kaya, age=24, kullanici_turu=MÃ¼ÅŸteri
+musteri_adi=Caner, musteri_soyadi=Bulut, age=30, kullanici_turu=MÃ¼ÅŸteri
+musteri_adi=Esma, musteri_soyadi=Bodur, age=27, kullanici_turu=MÃ¼ÅŸteri
 
---> Iterator Vasıtası İle Sistemin Yöneticilerin Bilgileri Geri Döndürmek!!
+--> Iterator VasÄ±tasÄ± Ä°le Sistemin YÃ¶neticilerin Bilgileri Geri DÃ¶ndÃ¼rmek!!
 
-yönetici_adi=Ahmet, yönetici_soyadi=Akbulut, age=45, kullanici_turu=Yönetici
-yönetici_adi=Unal, yönetici_soyadi=Sayar, age=50, kullanici_turu=Yönetici
-yönetici_adi=Merve, yönetici_soyadi=Ateş, age=37, kullanici_turu=Yönetici
+yÃ¶netici_adi=Ahmet, yÃ¶netici_soyadi=Akbulut, age=45, kullanici_turu=YÃ¶netici
+yÃ¶netici_adi=Unal, yÃ¶netici_soyadi=Sayar, age=50, kullanici_turu=YÃ¶netici
+yÃ¶netici_adi=Merve, yÃ¶netici_soyadi=AteÅŸ, age=37, kullanici_turu=YÃ¶netici
 ----
