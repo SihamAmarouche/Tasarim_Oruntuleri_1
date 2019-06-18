@@ -15,4 +15,4 @@ Bu projede 12 tane tasarım deseni uygulanmıştır.
 ####  11). MVC Tasarım Deseni
 ####  12). Adapter Pattern
 
-
+### README_FullProject_Document.adoc Dosyasinda Detaylı Anlatılmıştır Dosyayı Inceleyiniz Lüfen !!
