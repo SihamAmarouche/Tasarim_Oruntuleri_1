@@ -1,1 +1,17 @@
+#### MVC Tasarım Deseni:
+MVC, başlıkta da belirttiğim gibi Model, View ve Controller kelimelerinden oluşturulmuş bir yazılım geliştirme desenidir. Masaüstü, web veya mobil uygulamaların hepsine uyarlanarak kullanılabilir. Fakat özellikle web projelerinin yapısına uygun olduğu için tercih edilmektedir. MVC deseni ( pattern ) Asp.Net ile ortaya çıkan bir desen değildir. Son 20 yıldır kullanılmakta olan fakat Asp.Net MVC ile popülerliği artmış bir desendir.
 
+#### MVC paterni 3 yapıdan (Model, View ve Controller) oluşmaktadır :
+
+* 1-Model: Model, proje içerisinde kullanılacak olan nesnelerin oluşturulduğu kısımdır. Günlük hayattaki somut nesnelerin, bilgisayar ortamında modellenmesi anlamına gelir. Örneğin bir kütüphane otomasyonu yapmak istediğimizde kitap bilgilerinin tutulacağı bir modele ihtiyaç duyulacaktır. Bu modelde kitabın seri numarası, adı, yazarı, yayınevi gibi bilgileri yer alacaktır.
+
+* 2-View: Proje tamamlandığında kullanıcının gördüğü arayüzdür. Bu bir web sayfası, masaüstü uygulaması arayüzü veya mobil bir tasarım olabilir. Projenin yapısına göre bu tasarım farklı şekillerde oluşturulabilir.
+
+* 3-Controller: Projedeki tüm işlemlerin (veritabanı işlemleri, hesaplamalar, veri aktarımı v.b) yapıldığı kontrol bölümüdür. Controller ayrıca model ve view arasındaki veri akışını da kontrol eder.
+
+#### MVC Çalışma Prensibi:
+
+Bir MVC projesinde kullanıcı, tarayıcı üzerinden (View) sayfaya istek yaptığında bu istek Controller’a iletilir. Controller isteği gerçekleştirmek üzere model ve bağlantılı bileşenleri ile gerekli sınıf ve metotları çağırır. Elde ettiği sonuçları View’e göndererek sayfanın görüntülenmesini sağlar.
+
+#### MVC Genel Yapısını Açıklayan Diyagram Aşağıdaki Gibidir:
+image::MVC genel uml diagrami.png[700,800]
