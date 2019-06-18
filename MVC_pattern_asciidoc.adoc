@@ -1,0 +1,17 @@
+### MVC Tasarým Deseni:
+MVC, baþlýkta da belirttiðim gibi Model, View ve Controller kelimelerinden oluþturulmuþ bir yazýlým geliþtirme desenidir. Masaüstü, web veya mobil uygulamalarýn hepsine uyarlanarak kullanýlabilir. Fakat özellikle web projelerinin yapýsýna uygun olduðu için tercih edilmektedir. MVC deseni ( pattern ) Asp.Net ile ortaya çýkan bir desen deðildir. Son 20 yýldýr kullanýlmakta olan fakat Asp.Net MVC ile popülerliði artmýþ bir desendir.
+
+#### MVC paterni 3 yapýdan (Model, View ve Controller) oluþmaktadýr :
+
+* 1-Model: Model, proje içerisinde kullanýlacak olan nesnelerin oluþturulduðu kýsýmdýr. Günlük hayattaki somut nesnelerin, bilgisayar ortamýnda modellenmesi anlamýna gelir. Örneðin bir kütüphane otomasyonu yapmak istediðimizde kitap bilgilerinin tutulacaðý bir modele ihtiyaç duyulacaktýr. Bu modelde kitabýn seri numarasý, adý, yazarý, yayýnevi gibi bilgileri yer alacaktýr.
+
+* 2-View: Proje tamamlandýðýnda kullanýcýnýn gördüðü arayüzdür. Bu bir web sayfasý, masaüstü uygulamasý arayüzü veya mobil bir tasarým olabilir. Projenin yapýsýna göre bu tasarým farklý þekillerde oluþturulabilir.
+
+* 3-Controller: Projedeki tüm iþlemlerin (veritabaný iþlemleri, hesaplamalar, veri aktarýmý v.b) yapýldýðý kontrol bölümüdür. Controller ayrýca model ve view arasýndaki veri akýþýný da kontrol eder.
+
+#### MVC Çalýþma Prensibi:
+
+Bir MVC projesinde kullanýcý, tarayýcý üzerinden (View) sayfaya istek yaptýðýnda bu istek Controller’a iletilir. Controller isteði gerçekleþtirmek üzere model ve baðlantýlý bileþenleri ile gerekli sýnýf ve metotlarý çaðýrýr. Elde ettiði sonuçlarý View’e göndererek sayfanýn görüntülenmesini saðlar.
+
+#### MVC Genel Yapýsýný Açýklayan Diyagram Aþaðýdaki Gibidir:
+image::MVC genel uml diagrami.png[700,800]

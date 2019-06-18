@@ -1,0 +1,256 @@
+## Yarartýmsal(Creational) tasarým desenleri:
+Bu paternler, yazýlým nesnelerinin nasýl yaratýlacaðý hakkýnda genel olarak öneriler sunarak kullandýðý 
+esnek yapý sayesinde daha önceden belirlenen durumlara baðlý olarak gerekli nesneleri yaratýr. Yaratýmsal(Creational) desenler, 
+hangi nesnenin çaðrýlmasý gerektiðini izlemeden sistemin uygun nesneyi çaðýrmasýný saðlayan tasarým kalýplarýdýr. 
+Nesnelerin yaratýlmasý gerektiði durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
+iyi bir yazýlýmýn içinde barýndýrdýðý nesnelerin nasýl yaratýldýðýndan baðýmsýz olarak tasarlanmasý gerekliliðidir.
+
+### * Singleton Pattern: 
+Creatinal patterns grubuna ait singleton tasarým deseni (Singleton design pattern) bir nesnenin application pool kapanana kadar 
+bir kez üretilmesini kontrol altýnda tutar. Ayný zamanda bu nesne sýnýf dýþýndan da eriþilebilinir olur. 
+Bir sýnýfýn bir anda sadece bir örneðinin olmasý istenildiði zamanlarda kullanýlýr. 
+Örneðin veritabaný uygulamalarýnda bir anda bir baðlantý nesnesinin olmasý sistem 
+kaynaklarýnýn verimli bir þekilde kullanýlmasýný saðlar.
+ 
+Bu desenin kullanýmý oldukça basittir. Singleton deseni uygulanacak sýnýfýn constructor(yapýcý) metodu private yapýlýr ve 
+sýnýfýn içinde kendi türünden static bir sýnýf tanýmlanýr. Tanýmlanan bu sýnýfa eriþimi saðlayacak bir metot veya property de sýnýfa eklenir. 
+
+#### Singleton tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::singleton_pattern_genel_uml_diagram.jpg[230,250]
+
+#### Örnek:
+Bu patern Bir sýnýfýn bir anda sadece bir örneðinin olmasý istenildiði zamanlarda kullanýldýðýndan dolayý biz de Hesap Bankalarýnda olan hesap Bakiyesi nesnesi için kullandýk sonuçta 
+tek nesne yaratýlmak istenir ve yapaýlan deðiþiklikler(Para yatýrma ,Para çekme iþlemleri vb.) ayný nesne üzerinden yapýlacatýr.
+. Örnek uygulamamýzda hesapBakiye sýnýfýnýn sadece örneðine
+eriþebilen public static bir metot oluþturulmuþtur(CreateObject() metodu). Bu metot eðer sýnýfýn örneði
+oluþturulmadýysa oluþturur ve oluþturulmuþ olan
+örneði döndürür.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Singleton Pattern Ornegi icin UML class diyagram :
+
+image::SingletonPattern_ClassDiagram_Image.png[]
+
+
+#### *Singleton Pattern Örneðin Kodlarý:
+
+.hesapBakiye.java
+[source, java]
+----
+package Singleton_Pattern;
+
+public class hesapBakiye {
+	
+	private static hesapBakiye hesapBakiye_sample;
+	private double h_Bakiye;
+	
+	protected hesapBakiye(){
+		// Default Constructor
+	}
+	
+	public static hesapBakiye CreateObject(){
+		if (hesapBakiye_sample == null){
+			
+			hesapBakiye_sample = new hesapBakiye();
+		}
+		return hesapBakiye_sample;
+	}
+	
+	public void setBakiye(double value){
+		h_Bakiye = value;
+	}
+	public double getBakiye(){
+		return h_Bakiye;
+	}
+	
+	public boolean ParaCek(double cekilenPara){
+		if(cekilenPara <= h_Bakiye){
+			h_Bakiye = h_Bakiye-cekilenPara;
+			return true;
+		}else {
+			return false;
+		}	
+	}
+	public boolean ParaYatir(double yatirilanPara){
+		try{
+			h_Bakiye = h_Bakiye + yatirilanPara;
+			return true;
+		}catch (ArithmeticException e){
+			return false;
+		}
+		
+	}
+	
+}
+----
+.hesapBakiyeMain.java
+[source, java]
+----
+package Singleton_Pattern;
+import java.util.Scanner;
+public class hesapBakiyeMain {
+
+	private static Scanner scanner;
+
+	public static void main(String[] args) {
+		scanner = new Scanner(System.in);
+		hesapBakiye obj1 = hesapBakiye.CreateObject();
+		hesapBakiye obj2 = hesapBakiye.CreateObject();
+		hesapBakiye obj3 = hesapBakiye.CreateObject();
+   
+		obj1.setBakiye(2000);
+		
+		System.out.println("### Singleton Design Pattern's Example is Runing ###\n");
+
+		System.out.printf("obj1-Bakiye : %.2f \n", obj1.getBakiye());
+		System.out.printf("obj2-Bakiye : %.2f \n", obj2.getBakiye());
+		System.out.printf("obj3-Bakiye : %.2f \n\n", obj3.getBakiye());
+		
+		obj2.setBakiye(3000);
+		
+		System.out.printf("obj1-Bakiye : %.2f \n", obj1.getBakiye());
+		System.out.printf("obj2-Bakiye : %.2f \n", obj2.getBakiye());
+		System.out.printf("obj3-Bakiye : %.2f \n", obj3.getBakiye());
+		
+		System.out.println("\nYatýrýlacak Paranýn Tutarýný Giriniz Lütfen (Double Number) :");
+		double yatirilanPara = scanner.nextDouble();
+		
+		if(obj2.ParaYatir(yatirilanPara)){
+			System.out.printf("%.2f TL Hesabýnýza Baþarýyle Yatýrýldý !!",yatirilanPara);
+			
+			System.out.printf("\nobj1-Bakiye : %.2f \n", obj1.getBakiye());
+			System.out.printf("obj2-Bakiye : %.2f \n", obj2.getBakiye());
+			System.out.printf("obj3-Bakiye : %.2f \n", obj3.getBakiye());
+		}else{
+			System.out.println("Lütfen istenilen kriterlere uygun bir sayý giriniz !!");
+		}
+		
+		
+	}
+
+}
+----
+#### Result:
+[source, ]
+----
+### Singleton Design Pattern's Example is Runing ###
+
+obj1-Bakiye : 2000,00 
+obj2-Bakiye : 2000,00 
+obj3-Bakiye : 2000,00 
+
+obj1-Bakiye : 3000,00 
+obj2-Bakiye : 3000,00 
+obj3-Bakiye : 3000,00 
+
+Yatýrýlacak Paranýn Tutarýný Giriniz Lütfen (Double Number) :
+250
+250,00 TL Hesabýnýza Baþarýyle Yatýrýldý !!
+obj1-Bakiye : 3250,00 
+obj2-Bakiye : 3250,00 
+obj3-Bakiye : 3250,00 
+----
+#### *Multi Thread Singleton Pattern Örneðin Kodlarý:
+
+.hesapBakiyeThread.java
+[source, java]
+----
+package multiThreadSingleton;
+
+
+public class hesapBakiyeThread {
+	
+	private static hesapBakiyeThread hesapBakiye_sample;
+	private double h_Bakiye;
+	
+	protected hesapBakiyeThread(){
+		// Default Constructor
+	}
+	
+	private static Object lock_obj = new Object();
+	
+	public static hesapBakiyeThread CreateObject(){
+		if (hesapBakiye_sample == null){
+			
+			synchronized (lock_obj){
+				if(hesapBakiye_sample == null){
+					hesapBakiye_sample = new hesapBakiyeThread();
+				}
+			}
+		}
+		return hesapBakiye_sample;
+	}
+	
+	public void setBakiye(double value){
+		h_Bakiye = value;
+	}
+	public double getBakiye(){
+		return h_Bakiye;
+	}
+	
+	public boolean ParaCek(double cekilenPara){
+		if(cekilenPara <= h_Bakiye){
+			h_Bakiye = h_Bakiye-cekilenPara;
+			return true;
+		}else {
+			return false;
+		}	
+	}
+	public boolean ParaYatir(double yatirilanPara){
+		try{
+			h_Bakiye = h_Bakiye + yatirilanPara;
+			return true;
+		}catch (ArithmeticException e){
+			return false;
+		}
+		
+	}
+	
+}
+----
+.hesapMainThread.java
+[source, java]
+----
+package multiThreadSingleton;
+
+
+public class hesapMainThread {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("### MultiThread Singleton Design Pattern's Example is Runing ###\n");
+
+		hesapBakiyeThread obj1 = hesapBakiyeThread.CreateObject();
+		hesapBakiyeThread obj2 = hesapBakiyeThread.CreateObject();
+		hesapBakiyeThread obj3 = hesapBakiyeThread.CreateObject();
+   
+		obj1.setBakiye(2500);
+		
+		System.out.printf("obj1-Bakiye : %.2f \n", obj1.getBakiye());
+		System.out.printf("obj2-Bakiye : %.2f \n", obj2.getBakiye());
+		System.out.printf("obj3-Bakiye : %.2f \n\n", obj3.getBakiye());
+		
+		obj2.setBakiye(3800);
+		
+		System.out.printf("obj1-Bakiye : %.2f \n", obj1.getBakiye());
+		System.out.printf("obj2-Bakiye : %.2f \n", obj2.getBakiye());
+		System.out.printf("obj3-Bakiye : %.2f \n", obj3.getBakiye());
+
+	}
+
+}
+----
+
+#### Result:
+[source, ]
+----
+### MultiThread Singleton Design Pattern's Example is Runing ###
+
+obj1-Bakiye : 2500,00 
+obj2-Bakiye : 2500,00 
+obj3-Bakiye : 2500,00 
+
+obj1-Bakiye : 3800,00 
+obj2-Bakiye : 3800,00 
+obj3-Bakiye : 3800,00 
+----

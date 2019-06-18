@@ -1,0 +1,262 @@
+## Yarartýmsal(Creational) tasarým desenleri:
+Bu paternler, yazýlým nesnelerinin nasýl yaratýlacaðý hakkýnda genel olarak öneriler sunarak kullandýðý 
+esnek yapý sayesinde daha önceden belirlenen durumlara baðlý olarak gerekli nesneleri yaratýr. Yaratýmsal(Creational) desenler, 
+hangi nesnenin çaðrýlmasý gerektiðini izlemeden sistemin uygun nesneyi çaðýrmasýný saðlayan tasarým kalýplarýdýr. 
+Nesnelerin yaratýlmasý gerektiði durumlarda uygulamaya farkedilebilir bir esneklik katar. Esas amaç, 
+iyi bir yazýlýmýn içinde barýndýrdýðý nesnelerin nasýl yaratýldýðýndan baðýmsýz olarak tasarlanmasý gerekliliðidir.
+
+### * Object Pool Pattern: 
+Çok kullanýcýya hizmet veren aðýr iþ yükü altýndaki uygulamalar da genelde orta
+katmandaki iþ nesnelerinin application server’da havuzlanmasý ya da veritabnaný
+baðlantýlarýnýn havuzlanmasý bu paternin tipik uygulamalarýdýr. Ýstemcilerin ihtiyaç
+duyduðu anda böyle bir nesneyi yaratmaktansa, daha önceden yaratýlmýþ hazýr bir
+nesnenin ullanýlmak üzere havuzdan çýkarýlarak istemciye tahsis edilmesi, istemcinin
+nesneyle iþini bitirdikten sonra da nesneyi yok etmeksizin tekrar havuza geri atmasý bu
+tür durumlarda sýklýkla kullanýlan ve performansý da ciddi þekilde arttýran bir yöntemdir.
+
+#### Object Pool tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+
+image::ObjectPoolPattern_1.PNG[450,520]
+
+#### Örnek:
+Bu örnek uygulamamýzda sistemde kullanýcýya sýnýrlý sayýda oturum ayarlanmakta. Banka sistemine atak gerçekleþtirememek için kullanýcýya sýnýrlý sayýda oturum ayarlanýyor oturum havuzu
+mevcuttur eðer oturumu açýlmak isteniyorsa havuzdan yer ayarlanýyor eðer oturumu kapatýlmak isteniyorsa havuza nesneyi geri döndürülüyor.Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Object Pool Pattern Ornegi icin UML class diyagram :
+
+image::Object Pool_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+
+#### *Object Pool Pattern Örneðin Kodlarý:
+
+.ExportingProcess.java
+[source, java]
+----
+package ObjectPool_Pattern_Example;
+//Reference > https://www.javatpoint.com/object-pool-pattern
+
+
+public class ExportingProcess {
+	
+	private long processNo;
+	
+	public ExportingProcess(long processNo){
+		this.processNo=processNo;
+		
+		/// It is for do expensive calls or tasks
+		
+		System.out.println(processNo+". Oturum Objesi Ayarlandý (created)");
+	}
+	
+	public long getProcessNo(){
+		return processNo;
+	}
+}
+----
+.ExportingTask.java
+[source, java]
+----
+package ObjectPool_Pattern_Example;
+
+public class ExportingTask implements Runnable{
+	
+	private OturumObjectPool<ExportingProcess> pool;
+	private int threadNo;
+	
+	public ExportingTask(OturumObjectPool<ExportingProcess> pool, int threadNo){
+		this.pool=pool;
+		this.threadNo=threadNo;
+	}
+
+	@Override
+	public void run() {
+		
+		ExportingProcess exportingProcess = pool.borrowObject();
+		
+		System.out.println("Thread "+threadNo+"==> "+exportingProcess.getProcessNo()
+		+". Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)");
+		
+		
+		pool.returnObject(exportingProcess);
+		
+		System.out.println("Thread "+threadNo+"==> "+exportingProcess.getProcessNo()
+		+". Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)");
+		
+	}
+}
+----
+.OturumObjectPool.java
+[source, java]
+----
+package ObjectPool_Pattern_Example;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+//Reference > https://www.javatpoint.com/object-pool-pattern
+
+public abstract class OturumObjectPool <T>{
+	
+	private ConcurrentLinkedQueue<T> pool;
+	
+	private ScheduledExecutorService executorService;
+	
+	// Constructor to create the pool
+	public OturumObjectPool(final int minObjects){
+		// initialize pool
+		initialize(minObjects);
+	}
+	// another constructor \ third param: time in seconds for periodical checking
+	public OturumObjectPool(final int minObjects,final int maxObjects,final long validationInterval){
+		// initialize the pool
+		initialize(minObjects);
+		// condition in separate thread
+		executorService = Executors.newSingleThreadScheduledExecutor();
+		executorService.scheduleWithFixedDelay(new Runnable(){
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				int size = pool.size();
+				if(size<minObjects){
+					int sizeToBeAdded = minObjects + size;
+					for(int i=0;i<sizeToBeAdded;i++){
+						pool.poll();
+					}
+				}
+			}
+			
+		}, validationInterval, validationInterval, TimeUnit.SECONDS);
+	}
+	
+	
+public T borrowObject(){
+	T object;
+	if((object=pool.poll())==null){
+		object=createObject();
+	}
+	return object;
+}
+
+public void returnObject(T object){
+	if(object==null){
+		return;
+	}
+	this.pool.offer(object);
+}
+
+public void shutdown(){  
+    if (executorService != null){  
+        executorService.shutdown();  
+    }  
+}  
+
+
+protected abstract T createObject();  
+
+private void initialize(final int minObjects)  {  
+    pool = new ConcurrentLinkedQueue<T>();  
+    for (int i = 0; i < minObjects; i++) {  
+        pool.add(createObject());  
+    }  
+}  
+}
+----
+.OturumObjectPoolDemo.java
+[source, java]
+----
+package ObjectPool_Pattern_Example;
+
+import java.util.concurrent.ExecutorService;  
+import java.util.concurrent.Executors;  
+import java.util.concurrent.TimeUnit;  
+import java.util.concurrent.atomic.AtomicLong;  
+
+// Reference> https://www.javatpoint.com/object-pool-pattern
+public class OturumObjectPoolDemo{  
+      private OturumObjectPool<ExportingProcess> pool;  
+      private AtomicLong processNo=new AtomicLong(0);  
+      public void setUp() { 
+    	  // Create a pool of objects of type ExportingProcess.  
+          /*Parameters: 
+            1) Minimum number of special ExportingProcess instances residing in the pool = 4 
+            2) Maximum number of special ExportingProcess instances residing in the pool = 10 
+            3) Time in seconds for periodical checking of minObjects / maxObjects conditions 
+               in a separate thread = 5. 
+               */
+  		  System.out.println("### Object Pool Design Pattern's Example is Runing ###\n");
+
+    	  pool = new OturumObjectPool<ExportingProcess>(6, 10, 5)  
+          {  
+              protected ExportingProcess createObject()  
+              {  
+                  // create a test object which takes some time for creation  
+                  return new ExportingProcess( processNo.incrementAndGet());  
+              }  
+          };  
+      }  
+      public void tearDown() {  
+          pool.shutdown();  
+      }  
+      public void testObjectPool() {  
+          ExecutorService executor = Executors.newFixedThreadPool(8);  
+    
+          // execute 8 tasks in separate threads  
+            
+          executor.execute(new ExportingTask(pool, 1));  
+          executor.execute(new ExportingTask(pool, 2));  
+          executor.execute(new ExportingTask(pool, 3));  
+          executor.execute(new ExportingTask(pool, 4));  
+          executor.execute(new ExportingTask(pool, 5));  
+          executor.execute(new ExportingTask(pool, 6));  
+          executor.execute(new ExportingTask(pool, 7));  
+          executor.execute(new ExportingTask(pool, 8));  
+    
+          executor.shutdown();  
+          
+          try {  
+              executor.awaitTermination(30, TimeUnit.SECONDS);  
+              } catch (InterruptedException e)  
+                
+                {  
+                 e.printStackTrace();  
+                }  
+      }  
+      public static void main(String args[])  {   
+          OturumObjectPoolDemo op=new OturumObjectPoolDemo();  
+          op.setUp();  
+          op.tearDown();  
+          op.testObjectPool();  
+     }   
+  }//End of the ObjectPoolDemo class.  
+----
+#### Result:
+[source, ]
+----
+### Object Pool Design Pattern's Example is Runing ###
+
+1. Oturum Objesi Ayarlandý (created)
+2. Oturum Objesi Ayarlandý (created)
+3. Oturum Objesi Ayarlandý (created)
+4. Oturum Objesi Ayarlandý (created)
+5. Oturum Objesi Ayarlandý (created)
+6. Oturum Objesi Ayarlandý (created)
+Thread 1==> 1. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 1==> 1. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+Thread 2==> 2. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 3==> 3. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 2==> 2. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+Thread 3==> 3. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+Thread 7==> 6. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 6==> 5. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 5==> 4. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 6==> 5. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+Thread 8==> 1. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 7==> 6. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+Thread 4==> 2. Kullanýcýnýn Sistemde Oturumu Saðlandý(Açýldý)
+Thread 8==> 1. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+Thread 5==> 4. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+Thread 4==> 2. Kullanýcýnýn Sistemde Oturumu Kapatýldý(Exite)
+
+----

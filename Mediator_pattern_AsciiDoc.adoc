@@ -1,0 +1,164 @@
+## Davranýþsal(Behavioral) tasarým desenleri:
+Yazýlým mühendisliðinde davranýþsal tasarým kalýplarý, soruna göre nesneler arasý ortak haberleþmeyi en iyi þekilde kurmamýza öneriler sunan tasarým kalýplarýdýr. 
+Böylece, bu örüntüler bu iletiþimi gerçekleþtirmede esnekliði arttýrýr.
+
+### * Mediator Pattern :
+Mediator design pattern (aracý tasarým deseni), behavior grubununa ait, çalýþmalarý birbirleri ile ayný arayüzden türeyen nesnelerin durumlarýna baðlý olan nesnelerin davranýþlarýný düzenleyen tasarým desenidir.
+
+Bazý durumlarda nesnelerin davranýþlarý kendi türünden baþka nesnelere baðlý olabilir. Mediator tasarým deseni birbirleri ile iliþkili olan bu nesneler arasýnda ki iletiþimin ana bir nesne üzerinden (mediator) yapýlmasýný saðlar. Böylece nesneler arasýndaki bað zayýflatýlýr ve geliþtirme aþamasýnda kod karmaþasýný önler ve kodun yönetilmesini kolaylaþtýrýr.
+
+#### Mediator tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::mediator_pattern_genel_uml.png[350,450]
+
+#### Görüldüðü üzere mediator tasarým deseninde 4 temel yapý bulunur:
+
+*  Mediator: Nesneler arasýndaki iliþkiyi saðlayacak metotlarýn tanýmlý olduðu arayüz.
+
+*  ConcreteMediator: Nesneler arasýndaki iliþkiyi saðlayacak gerçek nesnedir. Mediator arayüzünü uygular. Ýçinde Colleague ara yüzünden türeyen nesnelerin listesini barýndýrýr.
+
+*  Colleague: ConcreteMediator'u kullanarak iþlem gerçekleþtirecek olan nesnelerin uygulamasý gereken arayüzü temsil eder. Kendi içinde ConcreteMediator nesnesi barýndýrýr.
+
+*  ConcreteColleague: ConcreteMediator üzerinden birbirleri ile iliþkili nesnelerdir. Colleague arayüzünü uygularlar.
+#### Örnek:
+Örnek uygulamamýzda Merkezi Banka nesnesi olsun bu Merkezi bankamýz Meditaor(ara bulucu) sayýlýr, birden fazla Banka Þübeleri yönetsin
+bir banka þübesi tarafýndan gönderilen bilgilerndirme mesajý diðer banka þübelere iletilme iþlemini yönetilsin böylece
+Mediator tasarým desenini uygulanmýþ oluruz. Bu tasarýmýn önemi nesneler arasýndaki bað zayýflatýlýr ve geliþtirme
+aþamasýnda kod karmaþasýný önler ve kodun yönetilmesini kolaylaþtýrýr.
+
+image::Mediator_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+#### CODE:
+
+.BankaSubesi.java
+[source, java]
+----
+public abstract class BankaSubesi {
+	protected MerkeziBankaMediator mediator;
+	protected String subeIsmi;
+	
+	public BankaSubesi(MerkeziBankaMediator mediator, String subeIsmi){
+		this.mediator = mediator;
+		this.subeIsmi = subeIsmi;
+	}
+	
+	public abstract void sendMesaj(String mesaj);
+	
+	public abstract void receiveMesaj(String mesaj);
+}
+----
+.BankaSubesi_Impl.java
+[source, java]
+----
+package Mediator_Pattern;
+
+public class BankaSubesi_Impl extends BankaSubesi{
+
+	public BankaSubesi_Impl(MerkeziBankaMediator med, String mesaj){
+		super(med,mesaj);
+	}
+	@Override
+	public void sendMesaj(String mesaj) {
+		
+		System.out.println(this.subeIsmi + " Tarafýndan bu mesaj gönderildi : "+mesaj );
+		mediator.sendBilgilendirmeMesaj(mesaj, this);
+	}
+
+	@Override
+	public void receiveMesaj(String mesaj) {
+		
+		System.out.println(this.subeIsmi + " Tarafýndan bu mesaj alýndý : "+mesaj );
+	}
+
+}
+----
+.MerkeziBankaMediator.java
+[source, java]
+----
+package Mediator_Pattern;
+
+public interface MerkeziBankaMediator {
+	
+	public void sendBilgilendirmeMesaj(String mesaj, BankaSubesi sube);
+	void addSube(BankaSubesi sube);
+}
+----
+.MerkeziBankaMediator_Impl.java
+[source, java]
+----
+package Mediator_Pattern;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MerkeziBankaMediator_Impl implements MerkeziBankaMediator{
+
+	private List<BankaSubesi> subeList;
+	
+	public MerkeziBankaMediator_Impl(){
+		this.subeList = new ArrayList<>();
+	}
+	@Override
+	public void sendBilgilendirmeMesaj(String mesaj, BankaSubesi sube) {
+		
+		for (BankaSubesi s : this.subeList){
+			if (s != sube){
+				s.receiveMesaj(mesaj);
+			}
+		}
+		
+	}
+
+	@Override
+	public void addSube(BankaSubesi sube) {
+		this.subeList.add(sube);
+	}
+
+}
+----
+.MainProgram.java
+[source, java]
+----
+package Mediator_Pattern;
+
+public class MainProgram {
+	
+	public static void main(String[] args){
+		
+		System.out.println("### Mediator Design Pattern's Example is Runing ###\n");
+
+		MerkeziBankaMediator mediator = new MerkeziBankaMediator_Impl();
+		
+		BankaSubesi sube_1 = new BankaSubesi_Impl(mediator, "Istanbul Banka Þübesi");
+		BankaSubesi sube_2 = new BankaSubesi_Impl(mediator, "Ankara Banka Þübesi");
+		BankaSubesi sube_3 = new BankaSubesi_Impl(mediator, "Ýzmir Banka Þübesi");
+		BankaSubesi sube_4 = new BankaSubesi_Impl(mediator, "Bursa Banka Þübesi");
+ 
+		mediator.addSube(sube_1);
+		mediator.addSube(sube_2);
+		mediator.addSube(sube_3);
+		mediator.addSube(sube_4);
+		
+		sube_1.sendMesaj("Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!");
+	    System.out.print("\n");
+		sube_4.sendMesaj("Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!");
+
+	}
+}
+----
+#### Result:
+[source, ]
+----
+### Mediator Design Pattern's Example is Runing ###
+
+Istanbul Banka Þübesi Tarafýndan bu mesaj gönderildi : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
+Ankara Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
+Ýzmir Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
+Bursa Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 1. Bilgilendirme mesaji !!!
+
+Bursa Banka Þübesi Tarafýndan bu mesaj gönderildi : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
+Istanbul Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
+Ankara Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
+Ýzmir Banka Þübesi Tarafýndan bu mesaj alýndý : Tüm Þübelere Dikkatine 2. Bilgilendirme mesaji !!!
+
+----

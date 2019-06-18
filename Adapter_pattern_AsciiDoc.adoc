@@ -1,0 +1,163 @@
+## Yapýsal(structural ) tasarým desenleri:
+Yapýsal(structural) tasarým desenleri, nesnelerin birbirleri ile olan iliþkilerini düzenleyen desenlerdir.
+
+### * Adapter Pattern: 
+Adapter tasarým deseni; structural grubuna ait, uygulamada ki bir yapýya dýþarýdaki bir yapýyý uygulamayý düzenleyen bir tasarým desenidir.
+
+Bazý durumlarda zaten var olan baþka bir yapýyý uygulamamýz içinde ki bir yapýya uyarlayýp kullanmamýz gerekebilir. 
+Burada uyarlanacak yapý net kütüphanesi olmasý gerekmez. Com nesnesi gibi bir yapý da olabilir veya zaten geliþtirdiðimiz 
+uygulamadaki baþka bir yapý da olabilir. Bu uyarlama iþlemini yazacaðýmýz bir Adapter nesnesi ile saðlayabiliriz. 
+Adapter tasarým deseninin uml þemasý aþaðýdadýr.
+
+#### Adapter tasarým deseninin genel uml þemasý aþaðýdaki gibidir :
+
+image::adapter_genel_yapi_uml.png[600,500]
+
+#### Örnek:
+Örnek uygulamamýzda adapter pattern uygulandý var olan baþka bir yapýyý uygulamanýn içinde ki baþka bir yapýya uyarlayýp kullanmamýz gerekebiliyor, bu yüzden DolarBirimi_Adaptee sýnýfý ParaBirimi arayüzünden türetilen TürkLiraBirimi sýnýfýna uyarlamak için ParaBirimi arayüzünden türetilen ParaBirimiAdapter adapteri kullanýldý. Uygulamanýn class diyagramlari aþaðýdaki gibidir.
+
+#### *Adapter Pattern Ornegi icin UML class diyagram :
+
+image::Adapter_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[600,750]
+
+
+#### *Adapter Pattern Örneðin Kodlarý:
+
+.Client.java
+[source, java]
+----
+package Adapter_Pattern;
+
+public class Client {
+	public static void main(String[] args){
+		
+		System.out.println("### Adapter Design Pattern's Example is Runing ###\n");
+
+		ParaBirimi turkLira = new TurkLiraBirimi();
+		ParaBirimi dolar_parasi = new ParaBirimiAdapter(new DolarBirimi_Adaptee());
+		
+		alisverisYap(turkLira);
+		alisverisYap(dolar_parasi);
+		
+		System.out.println("--------------------------------------------------------");
+
+	}
+
+	private static void alisverisYap(ParaBirimi para) {
+		para.paraBirimiBilgileri();
+		para.getParaMiktari(1250.0);
+		para.paraDegeri();		
+		
+	}
+
+}
+----
+.ParaBirimi.java
+[source, java]
+----
+ package Adapter_Pattern; 
+ // Target
+public interface ParaBirimi {
+	void paraBirimiBilgileri();
+	void getParaMiktari(double m);
+	void paraDegeri();
+	
+}
+----
+.TurkLiraBirimi.java
+[source, java]
+----
+package Adapter_Pattern;
+
+public class TurkLiraBirimi implements ParaBirimi{
+
+	@Override
+	public void paraBirimiBilgileri() {
+	 System.out.println("Alýþveriþte Kullanýlan Para Birimi: Türk Lirasý");
+		
+	}
+
+	@Override
+	public void getParaMiktari(double miktar) {
+		double m = miktar;
+		System.out.printf("Alýþveriþte kullanýlacak para miktarý = %.2f TL\n", m);
+
+	}
+
+	@Override
+	public void paraDegeri() {
+		System.out.println("Türk Lirasý deðeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar \n");
+		
+	}
+}
+----
+.ParaBirimiAdapter.java
+[source, java]
+----
+package Adapter_Pattern;
+
+public class ParaBirimiAdapter implements ParaBirimi{
+	
+	DolarBirimi_Adaptee dA;
+	public ParaBirimiAdapter(DolarBirimi_Adaptee dA){
+		this.dA = dA;
+	}
+	@Override
+	public void paraBirimiBilgileri() {
+		dA.dolar_paraBirimiBilgileri();	
+	}
+
+	@Override
+	public void getParaMiktari(double m) {
+		dA.dolar_getParaMiktari(m);
+	}
+
+	@Override
+	public void paraDegeri() {
+		dA.dolar_paraDegeri();
+	}	
+}
+----
+.DolarBirimi_Adaptee.java
+[source, java]
+----
+ package Adapter_Pattern;
+
+public class DolarBirimi_Adaptee {
+
+	
+	public void dolar_paraBirimiBilgileri() {
+		 System.out.println("Alýþveriþte Kullanýlan Para Birimi: Dolar (USD)");
+		
+	}
+
+	
+	public void dolar_getParaMiktari(double miktar) {
+		double m = miktar/6.044;
+		System.out.printf("Alýþveriþte kullanýlacak para miktarý = %.2f Dolar(USD)\n", m);		
+	}
+
+	
+	public void dolar_paraDegeri() {
+		System.out.println("Dolar deðeri Türk Lirasý cinsinden ==> 1 Dolar = 6.044 TL \n");
+		
+	}
+
+}
+----
+
+#### Result:
+[source, ]
+----
+### Adapter Design Pattern's Example is Runing ###
+
+Alýþveriþte Kullanýlan Para Birimi: Türk Lirasý
+Alýþveriþte kullanýlacak para miktarý = 1250,00 TL
+Türk Lirasý deðeri Dolar cinsinden ==> 1 TL = 0.1653 Dolar 
+
+Alýþveriþte Kullanýlan Para Birimi: Dolar (USD)
+Alýþveriþte kullanýlacak para miktarý = 206,82 Dolar(USD)
+Dolar deðeri Türk Lirasý cinsinden ==> 1 Dolar = 6.044 TL 
+
+--------------------------------------------------------
+----

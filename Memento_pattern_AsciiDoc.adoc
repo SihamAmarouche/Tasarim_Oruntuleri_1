@@ -1,0 +1,136 @@
+## Davranýþsal(Behavioral) tasarým desenleri:
+Yazýlým mühendisliðinde davranýþsal tasarým kalýplarý, soruna göre nesneler arasý ortak haberleþmeyi en iyi þekilde kurmamýza öneriler sunan tasarým kalýplarýdýr. 
+Böylece, bu örüntüler bu iletiþimi gerçekleþtirmede esnekliði arttýrýr.
+
+### * Memento Pattern :
+Memento tasarým deseni behavior grubununa ait, bir nesnenin tamamýnýn veya bazý özelliklerinin tutularak sonradan tekrar elde edilmesini yöneten tasarým desenidir. 
+Memento tasarým deseni nesnenin bir halinin kopyasýný alýp sonra bu kopyanýn tekrar elde edilmesini saðlar. Genelde geri al iþlemi için kullanýlýr. 
+
+#### Memento tasarým deseni 3 yapýdan oluþur:
+
+*  Originator: Tamamýnýn veya bazý özelliklerinin kopyasýnýn tutulacaðý nesnedir. Memento nesnesini oluþturan ve geri yüklenmesinden sorumludur.
+
+*  Memento: Originator nesnesinin saklanacak özelliklerinin tanýmlý olduðu nesne.
+
+*  Caretaker: Saklanacak olan memento nesnesinin referansýný içinde barýndýran nesnedir.
+#### Memento tasarým deseninin uml þemasý aþaðýdaki gibidir :
+
+image::memento_pattern_uml_diagram.jpg[memento]
+
+#### Örnek:
+Örnek uygulamamýzda Banka hesabi nesnesi olsun ve bu nesne üzerinde memento tasarým desenini uygulandý. Bu tasarýmýn önemi banka hesabinin geçmiþ durumlarý kaydetmemizi saðlar, banka hesabinin durumlarý 3 durumdan oluþur (Açýk, kapatýldý, donduruldu). Kullanýcý istediði zaman hesabin geçmiþini görüntüleyebilir. Uygulamanýn class diyagramý aþaðýdaki gibidir.
+
+image::Memento_Pattern_Ornegi_icin_UML_Class_Diyagrami.png[]
+
+#### CODE:
+
+.Class Bankahesabi_Memento.java
+[source, java]
+----
+package Memento_pattern;
+
+
+/// Bankahesabi_Memento Bankahesabi_Originator nesnesinin 
+/// saklanacak özelliklerinin tanýmlý olduðu nesne.
+
+public class Bankahesabi_Memento {
+	/// Burada banka hesabin durumu kaydedeilecektir ..
+	private String account_State;
+	
+	public Bankahesabi_Memento(String account_State){
+		this.account_State = account_State;
+	}
+	public String getState(){
+		return account_State;
+	}
+	
+}
+----
+.Bankahesabi_Orginator.java
+[source, java]
+----
+//Tamamýnýn veya bazý özelliklerinin kopyasýnýn tutulacaðý nesnedir. 
+//Bankahesabi_Orginator Bankahesabi_Memento nesnesini oluþturan ve geri yüklenmesinden sorumludur.
+public class Bankahesabi_Orginator {
+	private String account_State;
+	
+	public void setState(String state){
+		this.account_State=state;
+	}
+	public String getState(){
+		return account_State;
+	}
+	public Bankahesabi_Memento saveStateToMemento(){
+		return new Bankahesabi_Memento(account_State);
+	}
+	public void getStateFromMemento(Bankahesabi_Memento memento){
+		account_State = memento.getState();
+	}
+	
+}
+----
+.Bankahesabi_CareTaker.java
+[source, java]
+----
+import java.util.ArrayList;
+import java.util.List;
+
+//Saklanacak olan memento nesnesinin referansýný içinde barýndýran nesnedir.
+
+public class Bankahesabi_CareTaker {
+	
+	private List<Bankahesabi_Memento> mementoList = new ArrayList<Bankahesabi_Memento>();
+	
+	public void add(Bankahesabi_Memento m){
+		mementoList.add(m);
+	}
+	public Bankahesabi_Memento get(int index){
+		return mementoList.get(index);
+	}
+	
+}
+----
+.MementoPatternDemo.java
+[source, java]
+----
+public class MementoPatternDemo {
+
+	public static void main(String[] args) {
+		
+		System.out.println("### Memento Design Pattern2's Example is Runing ###\n");
+		
+		Bankahesabi_Orginator orginator = new Bankahesabi_Orginator();
+		Bankahesabi_CareTaker careTaker = new Bankahesabi_CareTaker();
+		
+		orginator.setState("Açýk");
+		Bankahesabi_Memento memento_1 = orginator.saveStateToMemento();
+		careTaker.add(memento_1);
+		
+		orginator.setState("Kapatýldý");
+		Bankahesabi_Memento memento_2 = orginator.saveStateToMemento();
+		careTaker.add(memento_2);
+
+		orginator.setState("Donduruldu");
+		System.out.println("Banka hesabinin þimdiki Durumu: "+orginator.getState());
+		
+		orginator.getStateFromMemento(careTaker.get(0));
+		System.out.println("Hesabýn Kaydedilen Ýlk Durumu: "+ orginator.getState());
+		
+		orginator.getStateFromMemento(careTaker.get(1));
+		System.out.println("Hesabýn Kaydedilen Ýkinci Durumu: "+ orginator.getState());
+
+	
+	}
+
+}
+----
+
+#### Result:
+[source, ]
+----
+### Memento Design Pattern2's Example is Runing ###
+
+Banka hesabinin þimdiki Durumu: Donduruldu
+Hesabýn Kaydedilen Ýlk Durumu: Açýk
+Hesabýn Kaydedilen Ýkinci Durumu: Kapatýldý
+----
